@@ -95,7 +95,7 @@
             </p>
 
             <div class="links">
-                <a href="https://davecalnan.me">By Dave Calnan</a>
+                <a href="http://davecalnan.me">By Dave Calnan</a>
                 <a href="mailto:d@ve.ie">Email me</a>
             </div>
         </div>
