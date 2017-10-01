@@ -87,7 +87,7 @@
             </div>
 
             <p class="subtitle m-b-md">
-                SourceAcademy is a platform that for hiring top quality student freelancers.
+                SourceAcademy is a platform for hiring top quality student freelancers.
             </p>
 
             <p class="m-b-md">
