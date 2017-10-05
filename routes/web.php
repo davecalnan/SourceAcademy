@@ -11,14 +11,56 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+/*
+|--------------------------------------------------------------------------
+| Site Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::domain('sourceacademy.dev')->group(function () {
+	Route::get('/', function () {
+		return view('site');
+	});
+
+	Auth::routes();
+
+	Route::get('/home', 'HomeController@index')->name('home');
+
+	Route::get('/users', function() {
+		return App\User::all();
+	});
 });
 
-Auth::routes();
+/*
+|--------------------------------------------------------------------------
+| App Routes
+|--------------------------------------------------------------------------
+*/
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::prefix('app')->group(function () {
+	Route::get('/', function () {
+		return view('app.home');
+	});
 
-Route::get('/users', function() {
-	return App\User::all();
+	Route::resource('projects', 'ProjectController');
+
+	Route::get('/test', function () {
+		return view('app.test');
+	});
+});
+
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::prefix('admin')->group(function () {
+	Route::get('/', 'AdminController@home');
+
+	Route::resource('projects', 'ProjectController');
+
+	Route::get('/test', function () {
+		return view('admin.test');
+	});
 });
