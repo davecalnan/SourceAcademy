@@ -17,7 +17,7 @@
 |--------------------------------------------------------------------------
 */
 
-Route::namespace('Site')->group(function () {
+Route::domain(env('APP_DOMAIN'))->group(function () {
 	Route::get('/', function () {
 		return view('site');
 	});
@@ -37,7 +37,7 @@ Route::namespace('Site')->group(function () {
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('app')->group(function () {
+Route::domain('app.'.env('APP_DOMAIN'))->group(function () {
 	Route::get('/', function () {
 		return view('app.home');
 	});
@@ -55,7 +55,7 @@ Route::prefix('app')->group(function () {
 |--------------------------------------------------------------------------
 */
 
-Route::prefix('admin')->group(function () {
+Route::domain('admin.'.env('APP_DOMAIN'))->group(function () {
 	Route::get('/', 'AdminController@home');
 
 	Route::resource('projects', 'ProjectController');
