@@ -23,9 +23,9 @@
                 <a class="button is-primary is-outlined" href="{{ route('app.home') }}">Dashboard</a>
             </span>
             @else
-            <span class="navbar-item">
+            {{-- <span class="navbar-item">
                 <a class="button is-primary is-outlined" href="{{ route('login') }}">Login</a>
-            </span>
+            </span> --}}
             @endauth
 
         </span>
