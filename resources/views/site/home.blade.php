@@ -97,8 +97,7 @@
 					</div>
 
 					<p>
-						Need a personal website or a brochure website for your business?
-						One of our freelancers will help you launch or refresh your home on the web.
+						Want to identify new areas to grow your business? Want help with advertising or implemnting your marketing / social media plan? Hire a student up to date with the latest trends.
 					</p>
 
 				</div>
