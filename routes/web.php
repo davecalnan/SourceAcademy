@@ -13,12 +13,24 @@
 
 /*
 |--------------------------------------------------------------------------
+| Misc Routes
+|--------------------------------------------------------------------------
+*/
+
+// Redirects www URLs to non-www URLs.
+Route::domain('www.'.env('APP_DOMAIN'))->group(function () {
+	Route::get('{uri?}', function ($uri = null) {
+		return redirect(env('APP_URL').'/'.$uri);
+	});
+});
+
+/*
+|--------------------------------------------------------------------------
 | Site Routes
 |--------------------------------------------------------------------------
 */
 
 Route::domain(env('APP_DOMAIN'))->group(function () {
-	// Route::view('/', 'under-construction')->name('homepage');
 	Route::view('/', 'site.home')->name('site.home');
 
 	Route::view('site', 'site');

@@ -97,7 +97,7 @@
 					</div>
 
 					<p>
-						Want to identify new areas to grow your business? Want help with advertising or implementing your marketing / social media plan? Hire a student in touch with the latest trends.
+						Want to identify new areas to grow your business? Want help with advertising or managing your social media accounts? Hire a student up to date with the latest trends.
 					</p>
 
 				</div>
