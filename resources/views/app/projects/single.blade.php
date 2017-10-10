@@ -3,14 +3,16 @@
 @section('title', 'Project')
 
 @section('header')
-<h1>Project: {{ $project->name }}</h1>
+<h1 class="title">Project: {{ $project->name }}</h1>
 @endsection
 
 @section('main')
 
-<a href="/app/projects"><- Back to all projects.</a>
+@if($project->resources)
 
-<h2>Resources:</h2>
+@include('components.resource-list')
+
+@endif
 
 @endsection
 

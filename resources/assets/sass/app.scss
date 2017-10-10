@@ -1,50 +1,108 @@
-#app .columns {
+@import "variables";
+
+body {
+	width: 100%;
 	min-height: 100vh;
 }
 
-#nav {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	height: 100%;
-	background-color: #ddd;
+.nav {
+	min-height: 10vh;
 	text-align: center;
 	line-height: 2em;
-	padding: 1em;;
+	padding: 1rem 0 0.5rem;
+	
+	&-link {
+
+		&:hover {
+			color: darken($brand-primary, 40%);
+		}
+	}
+
+	& hr {
+		margin: 0 0 0.5rem;
+	}
 }
 
 @media screen and (max-width: 768px) {
 	.nav {
+		min-height: 10vh;
+		border-bottom: 1px solid #ccc;
 
 		&-link:not(:first-child) {
 			border-left: 1px solid #fff;
 			padding-left: 0.4em;
 		}
 	}
+
+	.content {
+		min-height: 90vh;
+	}
 }
 
 @media screen and (min-width: 769px), print {
 	.nav {
+		min-height: 100vh;
+		width: 20%;
+		border-right: 1px solid #ccc;
+		position: fixed;
+		padding-top: 10%;
 
 		&-link {
 			display: block;
 		}
+
+		& hr {
+			margin: 0 1rem 0.5rem;
+		}
+	}
+
+	.content {
+		margin-left: 20%;
+		min-height: 100vh;
 	}
 }
 
-#content {
+.content {
 
+	& a {
+		
+	}
 }
 
-#header, #main, #footer {
+.header {
+	background: $brand-primary;
+	color: #fff;
+	border-bottom: 1px solid #ccc;
+	padding: 1em;
+
+	& .title, .subtitle {
+		color: #fff;
+	}
+}
+
+.main {
 	padding: 1em;
 }
 
-#header, #main {
-	border-bottom: 1px solid #ccc;
+.footer {
+	border-top: 1px solid #ccc;
+	background: $brand-dark;
+	color: #fff;
+	font-size: 0.75em;
+	padding: 1em;
 }
 
-#footer {
-	text-align: center;
-	font-size: 0.75em;
+.resource {
+
+	&-title {
+
+	}
+
+	&-content {
+
+	}
+
+	&-link {
+		text-decoration: underline;
+	}
 }

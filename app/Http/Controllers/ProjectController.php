@@ -4,9 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
+    /**
+     * Constructor function.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +34,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.projects.create');
     }
 
     /**
@@ -36,7 +45,17 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $project = new Project($request->all());
+        $project->slug = str_slug($request->name);
+
+        $request->validate([
+            'name' => 'required|unique:projects|max:255',
+            'slug' => 'required|unqiue:projects'
+        ]);
+
+        $project->save();
+
+        return back();
     }
 
     /**
@@ -47,6 +66,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
+        $project->load('resources');
         return view('app.projects.single', compact('project'));
     }
 
@@ -82,5 +102,43 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         //
+    }
+
+    /**
+     * Display a listing of the user's projects.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showUserProjects () {
+        $user = Auth::user();
+        $projects = [];
+
+        if ($user->has('projects')) {
+            $projects = $user->projects()->get();
+        }
+
+        $title = 'Your Projects';
+        
+        return view('app.projects.index', compact('projects', 'title'));
+    }
+
+    /**
+     * Displays all projects for an admin user with a form to create a new project.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function adminIndex () {
+        $projects = Project::all();
+
+        return view('admin.projects.index', compact('projects'));
+    }
+
+    /**
+     * Displays a single project for an admin user with a form to create a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function adminShow (Project $project) {
+        return view('admin.projects.single', compact('project'));
     }
 }

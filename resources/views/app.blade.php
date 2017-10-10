@@ -13,42 +13,39 @@
     </title>
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="/css/app.css">
     <link rel="stylesheet" type="text/css" href="/css/vendor.css">
+    <link rel="stylesheet" type="text/css" href="/css/app.css">
 
 </head>
 <body id="app">
 
-    <div class="columns is-gapless">
-      <div class="column is-one-quarter">
-
-        <nav id="nav">
+        <nav class="nav">
+            <img src="{{ env('APP_URL') }}/img/source-academy-logo.svg">
+            <hr>
             @include('app.nav')
         </nav>
 
-    </div>
-    <div id="content" class="column hero">
+    <section class="content hero">
 
-        <header id="header" class="hero-head">
+        <header class="header hero-head">
             @section('header')
             SourceAcademy Admin Panel
             @show
         </header>
 
-        <main id="main" class="hero-body">
+        <main class="main hero-body">
             @section('main')
             Main
             @show
         </main>
 
-        <footer id="footer" class="hero-foot">
+        <footer class="footer hero-foot">
             @section('footer')
             &copy; SourceAcademy 2017
             @show
         </footer>
-
-    </div>
-</div>
+        
+    </section>
 
 </body>
 </html>

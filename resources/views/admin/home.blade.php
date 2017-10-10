@@ -10,12 +10,32 @@
 
 <h1 class="title is-5">Users</h1>
 
-@forelse ($users as $user)
-	<p>{{ $user->name }}</p>
-@empty
+@if ($users)
+<table class="table is-fullwidth is-striped">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Role</th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach ($users as $user)
+		<tr>
+			<td>{{ $user->name }}</td>
+			@forelse($user->roles as $role)
+			<td>
+				{{ title_case($role->name) }}
+			</td>
+			@empty
+			<td></td>
+			@endforelse
+		</tr>
+		@endforeach
+	</tbody>
+</table>
+@else
 <p>No users found.</p>
-
-@endforelse
+@endif
 
 @endsection
 

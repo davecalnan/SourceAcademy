@@ -1,51 +1,87 @@
-#app .columns {
+body {
+  width: 100%;
   min-height: 100vh;
 }
 
-#nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  height: 100%;
-  background-color: #ddd;
+.nav {
+  min-height: 10vh;
   text-align: center;
   line-height: 2em;
-  padding: 1em;
+  padding: 1rem 0 0.5rem;
+}
+
+.nav-link:hover {
+  color: #0a1c38;
+}
+
+.nav hr {
+  margin: 0 0 0.5rem;
 }
 
 @media screen and (max-width: 768px) {
+  .nav {
+    min-height: 10vh;
+    border-bottom: 1px solid #ccc;
+  }
+
   .nav-link:not(:first-child) {
     border-left: 1px solid #fff;
     padding-left: 0.4em;
   }
-}
 
-@media screen and (min-width: 769px), print {
-  .nav-link {
-    display: block;
+  .content {
+    min-height: 90vh;
   }
 }
 
-#header,
-#main,
-#footer {
+@media screen and (min-width: 769px), print {
+  .nav {
+    min-height: 100vh;
+    width: 20%;
+    border-right: 1px solid #ccc;
+    position: fixed;
+    padding-top: 10%;
+  }
+
+  .nav-link {
+    display: block;
+  }
+
+  .nav hr {
+    margin: 0 1rem 0.5rem;
+  }
+
+  .content {
+    margin-left: 20%;
+    min-height: 100vh;
+  }
+}
+
+.header {
+  background: #3273dc;
+  color: #fff;
+  border-bottom: 1px solid #ccc;
   padding: 1em;
 }
 
-#header,
-#main {
-  border-bottom: 1px solid #ccc;
+.header .title,
+.header .subtitle {
+  color: #fff;
 }
 
-#footer {
-  text-align: center;
+.main {
+  padding: 1em;
+}
+
+.footer {
+  border-top: 1px solid #ccc;
+  background: #3c3744;
+  color: #fff;
   font-size: 0.75em;
+  padding: 1em;
+}
+
+.resource-link {
+  text-decoration: underline;
 }
 

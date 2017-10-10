@@ -18,17 +18,16 @@
 */
 
 Route::domain(env('APP_DOMAIN'))->group(function () {
-	Route::get('/', function () {
-		return view('site');
-	});
+	Route::view('/', 'under-construction')->name('homepage');
+	Route::view('home', 'site.home')->name('site.home');
+
+	Route::view('site', 'site');
 
 	Auth::routes();
+	Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
-	Route::get('/home', 'HomeController@index')->name('home');
-
-	Route::get('/users', function() {
-		return App\User::all();
-	});
+	Route::post('projects', 'ProjectController@store')->name('projects.store');
+	Route::post('resources', 'ResourceController@store')->name('resources.store');
 });
 
 /*
@@ -37,15 +36,14 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
 |--------------------------------------------------------------------------
 */
 
-Route::domain('app.'.env('APP_DOMAIN'))->group(function () {
-	Route::get('/', function () {
-		return view('app.home');
-	});
+Route::group(['middleware' => 'auth'], function () {
+	Route::domain('app.'.env('APP_DOMAIN'))->group(function () {
+		Route::view('/', 'app.home')->name('app.home');
 
-	Route::resource('projects', 'ProjectController');
+		Route::get('projects', 'ProjectController@showUserProjects')->name('app.projects.index');
+		Route::get('projects/{projectSlug}', 'ProjectController@show')->name('app.projects.single');
 
-	Route::get('/test', function () {
-		return view('app.test');
+		Route::get('test', 'TestController@app');
 	});
 });
 
@@ -54,13 +52,13 @@ Route::domain('app.'.env('APP_DOMAIN'))->group(function () {
 | Admin Routes
 |--------------------------------------------------------------------------
 */
+Route::group(['middleware' => 'can:accessAdminPanel'], function () {
+	Route::domain('admin.'.env('APP_DOMAIN'))->group(function () {
+		Route::get('/', 'AdminController@home');
 
-Route::domain('admin.'.env('APP_DOMAIN'))->group(function () {
-	Route::get('/', 'AdminController@home');
+		Route::get('projects', 'ProjectController@adminIndex')->name('admin.projects.index');
+		Route::get('projects/{projectSlug}', 'ProjectController@adminShow')->name('admin.projects.single');
 
-	Route::resource('projects', 'ProjectController');
-
-	Route::get('/test', function () {
-		return view('admin.test');
+		Route::view('/test', 'admin.test');
 	});
 });

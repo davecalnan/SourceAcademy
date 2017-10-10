@@ -1,22 +1,22 @@
 @extends('app')
 
-@section('title', 'All Projects')
+@section('title', isset($title) ? $title : 'Projects')
 
 @section('header')
-<h1>All Projects</h1>
+
+<h1 class="title">
+	@if(isset($title))
+	{{ $title }}
+	@else
+	Projects
+	@endif
+</h1>
+
 @endsection
 
 @section('main')
 
-<h2>Projects:</h2>
-
-<ul>
-	@foreach($projects as $project)
-	<li>
-		<a href="/app/projects/{{ $project->id }}">{{ $project->name }}</a>
-	</li>
-	@endforeach
-</ul>
+@include('components.project-list')
 
 @endsection
 

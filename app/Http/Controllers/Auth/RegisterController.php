@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Role;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -21,13 +22,6 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
-
-    /**
-     * Where to redirect users after registration.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -70,8 +64,18 @@ class RegisterController extends Controller
 
         $user
         ->roles()
-        ->attach(Role::where('name', 'employee')->first());
+        ->attach(Role::where('name', 'freelancer')->first());
         
         return $user;
+    }
+
+    /**
+     * Where to redirect users after registration.
+     *
+     * @return Illuminate\Http\Request
+     */
+    public function redirectTo ()
+    {
+        return route('app.home');
     }
 }

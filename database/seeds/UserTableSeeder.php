@@ -8,8 +8,16 @@ class UserTableSeeder extends Seeder
 {
     public function run()
     {
+        $role_admin = Role::where('name', 'admin')->first();
     	$role_freelancer = Role::where('name', 'freelancer')->first();
     	$role_client = Role::where('name', 'client')->first();
+
+        $dave = new User();
+        $dave->name = 'Dave Calnan';
+        $dave->email = 'd@ve.ie';
+        $dave->password = bcrypt('secret');
+        $dave->save();
+        $dave->roles()->attach($role_admin);
 
     	$freelancer = new User();
     	$freelancer->name = 'Freelancer Name';

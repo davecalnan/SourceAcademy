@@ -3,7 +3,14 @@
 @section('title', 'App Home')
 
 @section('header')
-<h1>Hi, name.</h1>
+<h1>
+	Hi, 
+	@isset(Auth::user()->name)
+	{{Auth::user()->name}}.
+	@else
+	there.
+	@endisset
+</h1>
 @endsection
 
 @section('main')
@@ -12,5 +19,5 @@ Homepage
 @endsection
 
 @section('footer')
-Footer bits and pieces
+@parent
 @endsection
