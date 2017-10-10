@@ -70,7 +70,7 @@
 					</div>
 
 					<p>
-						Finally start that online store you've been dream of or begin a complete overhaul of your existing site with the help of one of our talented students.
+						Finally start that online store you've been dreaming of or begin a complete overhaul of your existing site with the help of one of our talented students.
 					</p>
 
 				</div>
