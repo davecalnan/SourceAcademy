@@ -16,7 +16,7 @@
 		</h2>
 
 		<div class="buttons">
-			<a class="button is-primary is-inverted" href="#services">See our services</a>
+			<a class="button is-primary is-inverted" href="#services">View our services</a>
 			<a class="button is-primary is-inverted is-outlined" href="#get-in-touch">Get in touch</a>
 		</div>
 	</div>
