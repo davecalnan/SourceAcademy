@@ -18,8 +18,8 @@
 */
 
 Route::domain(env('APP_DOMAIN'))->group(function () {
-	Route::view('/', 'under-construction')->name('homepage');
-	Route::view('home', 'site.home')->name('site.home');
+	// Route::view('/', 'under-construction')->name('homepage');
+	Route::view('/', 'site.home')->name('site.home');
 
 	Route::view('site', 'site');
 
