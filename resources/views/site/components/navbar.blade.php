@@ -13,9 +13,9 @@
 
     <div class="navbar-menu" id="navMenu">
         <span class="navbar-end">
-            <a class="navbar-item {{Route::currentRouteName() == 'site.home' ? 'is-active' : ''}}" href="/">
+            {{-- <a class="navbar-item {{Route::currentRouteName() == 'site.home' ? 'is-active' : ''}}" href="/">
                 Home
-            </a>
+            </a> --}}
 
             @auth
             <a class="navbar-item" href="/logout">Logout</a>
