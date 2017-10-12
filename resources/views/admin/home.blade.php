@@ -3,18 +3,19 @@
 @section('title', 'Admin Home')
 
 @section('header')
-<h1 class="title">Admin Home</h1>
+<p class="title">Admin Home</p>
 @endsection
 
 @section('main')
 
-<h1 class="title is-5">Users</h1>
+<p class="title is-5">Users</p>
 
-@if ($users)
+@if($users)
 <table class="table is-fullwidth is-striped">
 	<thead>
 		<tr>
 			<th>Name</th>
+			<th>Email</th>
 			<th>Role</th>
 		</tr>
 	</thead>
@@ -22,11 +23,12 @@
 		@foreach ($users as $user)
 		<tr>
 			<td>{{ $user->name }}</td>
-			@forelse($user->roles as $role)
+			<td>{{ $user->email }}</td>
 			<td>
+				@forelse($user->roles as $role)
 				{{ title_case($role->name) }}
+				@empty
 			</td>
-			@empty
 			<td></td>
 			@endforelse
 		</tr>

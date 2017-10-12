@@ -48,6 +48,11 @@ class User extends Authenticatable
       ->withTimestamps();
     }
 
+    public function assets()
+    {
+      return $this->hasMany('App\Asset');
+    }
+
     public function authorizeRoles($roles)
     {
       if ($this->hasAnyRole($roles)) {

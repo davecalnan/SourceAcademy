@@ -15,8 +15,11 @@
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="/css/vendor.css">
     <link rel="stylesheet" type="text/css" href="/css/site.css">
+
+    @include('google-analytics')
 </head>
 <body id="site">
+
     <header class="header">
         @component('site.components.navbar')
         @endcomponent

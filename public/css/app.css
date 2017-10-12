@@ -24,6 +24,10 @@ body {
     border-bottom: 1px solid #ccc;
   }
 
+  .nav img {
+    width: 60%;
+  }
+
   .nav-link:not(:first-child) {
     border-left: 1px solid #fff;
     padding-left: 0.4em;
@@ -31,6 +35,10 @@ body {
 
   .content {
     min-height: 90vh;
+  }
+
+  .table {
+    font-size: 0.5em;
   }
 }
 
@@ -70,18 +78,21 @@ body {
 }
 
 .main {
-  padding: 1em;
+  padding: 0;
 }
 
 .footer {
   border-top: 1px solid #ccc;
-  background: #3c3744;
-  color: #fff;
+  background: #f5f5f5;
   font-size: 0.75em;
   padding: 1em;
 }
 
 .resource-link {
   text-decoration: underline;
+}
+
+section.has-border-bottom {
+  border-bottom: 1px solid #ccc;
 }
 

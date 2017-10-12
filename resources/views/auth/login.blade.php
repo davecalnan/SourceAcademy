@@ -11,10 +11,11 @@ Login
     <div class="hero-body">
         <div class="columns is-centered">
             <div class="column is-narrow card">
-                <h1 class="title">Login</h1>
+                <p class="title">Login</p>
                 <hr>
                 <form method="POST" action="{{ route('login') }}">
                     {{ csrf_field() }}
+                    
                     <div class="field">
                         <label class="label">Your email</label>
                         <div class="control">

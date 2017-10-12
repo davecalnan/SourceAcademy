@@ -36,6 +36,8 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
 	Route::view('site', 'site');
 
 	Auth::routes();
+	Route::get('password/update', '\App\Http\Controllers\Auth\UpdatePasswordController@showPasswordUpdateForm')->name('password.update');
+	Route::post('password/update', '\App\Http\Controllers\Auth\UpdatePasswordController@update')->name('password.update');
 	Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
 
 	Route::post('projects', 'ProjectController@store')->name('projects.store');
@@ -51,6 +53,7 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
 Route::group(['middleware' => 'auth'], function () {
 	Route::domain('app.'.env('APP_DOMAIN'))->group(function () {
 		Route::view('/', 'app.home')->name('app.home');
+		Route::view('app', 'app')->name('app');
 
 		Route::get('projects', 'ProjectController@showUserProjects')->name('app.projects.index');
 		Route::get('projects/{projectSlug}', 'ProjectController@show')->name('app.projects.single');

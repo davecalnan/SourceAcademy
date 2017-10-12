@@ -17,18 +17,18 @@ class ProjectTableSeeder extends Seeder
         $dave = User::first();
         $resource = Resource::first();
 
-        $loveYourWork = new Project();
-        $loveYourWork->name = 'LoveYourWork';
-        $loveYourWork->slug = str_slug($loveYourWork->name);
-        $loveYourWork->save();
-        $loveYourWork->users()->attach($dave);
+        $loveYourWork = Project::create([
+            'name' => 'LoveYourWork',
+            'slug' => str_slug('LoveYourWork')
+        ]);
+        $loveYourWork->users()->attach([1,3,4,5,6,7]);
         $loveYourWork->resources()->attach($resource);
 
-        $sellingPills = new Project();
-        $sellingPills->name = 'Selling Pills';
-        $sellingPills->slug = str_slug($sellingPills->name);
-        $sellingPills->save();
-        $sellingPills->users()->attach($dave);
-        $sellingPills->resources()->attach($resource);
+        $honestRoots = Project::create([
+            'name' => 'Honest Roots',
+            'slug' => str_slug('Honest Roots')
+        ]);
+        $honestRoots->users()->attach([1,2,8,9,10,11,12]);
+        $honestRoots->resources()->attach($resource);
     }
 }

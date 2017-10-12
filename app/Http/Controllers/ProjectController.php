@@ -66,7 +66,6 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        $project->load('resources');
         return view('app.projects.single', compact('project'));
     }
 

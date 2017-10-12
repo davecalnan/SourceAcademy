@@ -8,11 +8,17 @@
 
 @section('main')
 
-@if($project->resources)
+<section class="section has-border-bottom">
+	@if(count($project->assets))
+	@include('components.asset-list')
+	@endif
+</section>
 
-@include('components.resource-list')
-
-@endif
+<section class="section">
+	@if(count($project->resources))
+	@include('components.resource-list')
+	@endif
+</section>
 
 @endsection
 

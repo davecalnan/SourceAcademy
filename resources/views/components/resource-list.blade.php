@@ -1,15 +1,33 @@
 <h2 class="subtitle">Resources:</h2>
 
-@foreach($project->resources as $resource)
+<div class="columns">
+	@foreach($project->resources as $resource)
 
-<hr>
-<div class="resource">
-	<h3 class="resource-title"><strong>{{ $resource->title }}</strong></h3>
-	<p class="resource-content">{{ $resource->content }}</p>
+	<div class="resource column is-one-third">
+		<div class="card">
 
-	@isset($resource->link)
-	<p>Link: <a href="{{ $resource->link }}" class="resource-link">{{ $resource->link }}</a></p>
-	@endisset
+			@isset($resource->image)
+			<div class="card-image">
+				<img src="">
+			</div>
+			@endisset
+
+			<header class="card-header">
+				<p class="card-header-title">{{ $resource->title }}</p>
+			</header>
+
+			<div class="card-content">
+				<p class="resource-content">{{ $resource->content }}</p>
+			</div>
+
+			@isset($resource->link)
+			<footer class="card-footer">
+				<a class="card-footer-item" href="{{ $resource->link }}" class="resource-link">{{ $resource->link }}</a>
+			</footer>
+			@endisset
+
+		</div>
+	</div>
+
+	@endforeach
 </div>
-
-@endforeach

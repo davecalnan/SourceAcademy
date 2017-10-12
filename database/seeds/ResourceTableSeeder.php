@@ -11,10 +11,10 @@ class ResourceTableSeeder extends Seeder
      */
     public function run()
     {
-        $resource = new Resource([
+        App\Resource::create([
         	'title' => 'Resource',
         	'content' => 'Content goes here',
         	'link' => 'https://google.ie'
-        ])->save();
+        ]);
     }
 }

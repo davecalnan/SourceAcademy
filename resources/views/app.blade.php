@@ -19,11 +19,13 @@
 </head>
 <body id="app">
 
-        <nav class="nav">
+    <nav class="nav">
+        <a href="{{ route('site.home') }}">
             <img src="{{ env('APP_URL') }}/img/source-academy-logo.svg">
-            <hr>
-            @include('app.nav')
-        </nav>
+        </a>
+        <hr>
+        @include('app.nav')
+    </nav>
 
     <section class="content hero">
 
@@ -39,13 +41,17 @@
             @show
         </main>
 
-        <footer class="footer hero-foot">
+        <footer class="footer hero-foot has-text-centered">
             @section('footer')
             &copy; SourceAcademy 2017
             @show
         </footer>
         
     </section>
+
+    @section('modal')
+    <div class="modal"></div>
+    @show
 
 </body>
 </html>

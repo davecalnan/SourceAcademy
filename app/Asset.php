@@ -4,14 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Project extends Model
+class Asset extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $table = 'projects';
+    protected $table = 'assets';
 
     /**
      * The attributes that are mass assignable.
@@ -19,7 +19,7 @@ class Project extends Model
      * @var array
      */
     protected $fillable = [
-      'name', 'slug',
+      'project_id', 'user_id', 'name', 'description', 'link'
     ];
 
     /**
@@ -30,23 +30,19 @@ class Project extends Model
     protected $hidden = [
       //
     ];
-
-    public function users()
+	/**
+     * Get the user that owns the asset.
+     */
+    public function user()
     {
-        return $this
-        ->belongsToMany('App\User')
-        ->withTimestamps();
+    	return $this->belongsTo('App\User');
     }
 
-    public function resources()
+    /**
+     * Get the project to which the asset belongs.
+     */
+    public function project()
     {
-        return $this
-        ->belongsToMany('App\Resource')
-        ->withTimestamps();
-    }
-
-    public function assets()
-    {
-        return $this->hasMany('App\Asset');
+    	return $this->belongsTo('App\Project');
     }
 }
