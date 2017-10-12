@@ -16,7 +16,10 @@
     <link rel="stylesheet" type="text/css" href="/css/vendor.css">
     <link rel="stylesheet" type="text/css" href="/css/site.css">
 
-    @include('google-analytics')
+    @if(env('APP_ENV') == 'production')
+        @include('site.google-analytics')
+    @endif
+    
 </head>
 <body id="site">
 
