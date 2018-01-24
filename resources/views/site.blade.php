@@ -15,29 +15,32 @@
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="/css/vendor.css">
     <link rel="stylesheet" type="text/css" href="/css/site.css">
+    
+</head>
+<body class="@yield('body-class')">
+    <div id="app" class="main-grid">
 
+        <header class="header">
+            <navbar></navbar>
+        </header>
+
+        <main class="main">
+            @yield('main')
+        </main>
+
+        <footer class="footer has-text-centered">
+            @section('footer')
+            &copy; 2017 SourceAcademy
+            @show
+        </footer>
+
+    </div>
+
+    @include('window')
     @if(env('APP_ENV') == 'production')
         @include('site.google-analytics')
     @endif
-    
-</head>
-<body id="site">
-
-    <header class="header">
-        @component('site.components.navbar')
-        @endcomponent
-    </header>
-
-    <main>
-        @yield('main')
-    </main>
-
-    <footer class="footer has-text-centered">
-        @section('footer')
-        &copy; Dave Calnan 2017
-        @show
-    </footer>
-
+    @include('intercom')
     <script type="text/javascript" src="/js/site.js"></script>
 </body>
 </html>

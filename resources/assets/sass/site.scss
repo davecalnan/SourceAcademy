@@ -1,18 +1,25 @@
 @import "variables";
 
-.navbar {
-	border-bottom: 1px solid #ccc;
-	color: $grey-dark;
+.main-grid {
+	display: grid;
+	min-height: 100vh;
+	grid-template-areas:
+		"header"
+		"main"
+		"footer";
+	grid-template-rows: auto 1fr auto;
+	align-content: stretch;
 
-	&-logo {
-		height: 2rem;
+	& > .header {
+		grid-area: header;
 	}
 
-	&-item {
+	& > .main {
+		grid-area: main;
+	}
 
-		& img {
-			max-height: 2rem;
-		}
+	& > .footer {
+		grid-area: footer;
 	}
 }
 
@@ -41,4 +48,52 @@
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 2em;
+}
+
+/* - - - - - - -
+ |	Home page  |
+ - - - - - - */
+.home {
+
+	& .buttons {
+		justify-content: center;
+	}
+}
+
+.services-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-gap: 1rem;
+
+	& > .card {
+		display: grid;
+		grid-template-rows: 1fr 3rem;
+		justify-content: space-between;
+	}
+}
+
+/* - - - - - - - -
+ |	Apply page  |
+ - - - - - - - */
+
+ .apply {
+
+ 	@media screen and (max-width: 768px) {
+ 		& .buttons {
+
+ 			& .button {
+
+				&:not(:first-child) {
+					margin-top: 0.5em;
+				}
+ 			}
+ 		}
+ 	}
+}
+
+/* - - - - - - - - - -
+ |	Sourcerors page  |
+ - - - - - - - - - */
+.sourcerors {
+
 }

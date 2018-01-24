@@ -9,13 +9,22 @@ use Illuminate\Http\Request;
 class ResourceController extends Controller
 {
     /**
+     * Constructor function.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        $resources = Resource::all();
+        return view('app.resources.index', compact('resources'));
     }
 
     /**
@@ -36,7 +45,6 @@ class ResourceController extends Controller
      */
     public function store(Request $request)
     {       
-        // return $request; 
         $resource = new Resource($request->all());
 
         $request->validate([
@@ -62,7 +70,7 @@ class ResourceController extends Controller
      */
     public function show(Resource $resource)
     {
-        //
+        return $resource;
     }
 
     /**
@@ -73,7 +81,7 @@ class ResourceController extends Controller
      */
     public function edit(Resource $resource)
     {
-        //
+        return view('admin.resources.edit', compact('resource'));
     }
 
     /**
@@ -85,7 +93,18 @@ class ResourceController extends Controller
      */
     public function update(Request $request, Resource $resource)
     {
-        //
+        $request->validate([
+            'title' => 'required|max:255',
+            'content' => 'required'
+        ]);
+
+        $resource->update([
+            'title' => $request->title,
+            'content' => $request->content,
+            'link' => $request->link
+        ]);
+
+        return redirect(route('admin.home'));
     }
 
     /**
@@ -96,7 +115,9 @@ class ResourceController extends Controller
      */
     public function destroy(Resource $resource)
     {
-        //
+        $resource->delete();
+
+        return back();
     }
 
     /**

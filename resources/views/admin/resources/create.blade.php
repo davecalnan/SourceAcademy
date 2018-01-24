@@ -20,7 +20,7 @@
 	<div class="field">
 		<label class="label">Resource Content</label>
 		<div class="control">
-			<textarea id="content" class="input {{ $errors->has('content') ? ' is-error' : '' }}" type="content" name="content" value="{{ old('content') }}" placeholder="Content goes here..." required></textarea>
+			<textarea id="content" class="input {{ $errors->has('content') ? ' is-error' : '' }}" type="content" name="content" placeholder="Content goes here..." required>{{ old('content') }}</textarea>
 		</div>
 		@if ($errors->has('content'))
 		<p class="help is-danger">{{ $errors->first('content') }}</p>
@@ -40,7 +40,7 @@
 
 	<div class="field">
 		<div class="control">
-			<button class="button is-primary" type="submit">Submit</button>
+			<button class="button is-primary" type="submit">Create</button>
 		</div>
 	</div>
 </form>

@@ -16,7 +16,9 @@
 
 @section('main')
 
-@include('components.project-list')
+<section class="section">
+	@include('components.project-list')
+</section>
 
 @endsection
 

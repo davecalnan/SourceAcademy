@@ -2,5 +2,6 @@
     "/js/site.js": "/js/site.js",
     "/css/site.css": "/css/site.css",
     "/css/app.css": "/css/app.css",
-    "/css/vendor.css": "/css/vendor.css"
+    "/css/vendor.css": "/css/vendor.css",
+    "/js/app.js": "/js/app.js"
 }

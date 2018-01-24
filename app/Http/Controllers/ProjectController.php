@@ -24,6 +24,13 @@ class ProjectController extends Controller
     public function index()
     {
         $projects = Project::all();
+
+        $host = explode('.', parse_url(url()->current())['host']);
+        $subdomain = $host[0];
+
+        if ($subdomain == 'admin') {
+            return view('admin.projects.index', compact('projects'));
+        }
         return view('app.projects.index', compact('projects'));
     }
 
@@ -50,7 +57,7 @@ class ProjectController extends Controller
 
         $request->validate([
             'name' => 'required|unique:projects|max:255',
-            'slug' => 'required|unqiue:projects'
+            'type' => 'required'
         ]);
 
         $project->save();
@@ -66,7 +73,16 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        return view('app.projects.single', compact('project'));
+        $assets = $project->assets;
+        $resources = $project->resources;
+
+        $host = explode('.', parse_url(url()->current())['host']);
+        $subdomain = $host[0];
+
+        if ($subdomain == 'admin') {
+            return view('admin.projects.single', compact('project', 'assets', 'resources'));
+        }
+        return view('app.projects.single', compact('project', 'assets', 'resources'));
     }
 
     /**
@@ -77,7 +93,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return 'edit';
     }
 
     /**
@@ -104,40 +120,21 @@ class ProjectController extends Controller
     }
 
     /**
-     * Display a listing of the user's projects.
+     * If the user has projects, display a listing of their projects.
      *
      * @return \Illuminate\Http\Response
      */
-    public function showUserProjects () {
+    public function showUserProjects()
+    {
         $user = Auth::user();
-        $projects = [];
+        $projects = $user->has('projects') ? $user->projects()->get() : [];
 
-        if ($user->has('projects')) {
-            $projects = $user->projects()->get();
+        if (count($user->projects) == 1) {
+            return redirect('/projects/' . $user->projects()->first()->slug);
         }
 
         $title = 'Your Projects';
-        
+
         return view('app.projects.index', compact('projects', 'title'));
-    }
-
-    /**
-     * Displays all projects for an admin user with a form to create a new project.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function adminIndex () {
-        $projects = Project::all();
-
-        return view('admin.projects.index', compact('projects'));
-    }
-
-    /**
-     * Displays a single project for an admin user with a form to create a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function adminShow (Project $project) {
-        return view('admin.projects.single', compact('project'));
     }
 }

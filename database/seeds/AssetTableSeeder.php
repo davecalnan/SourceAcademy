@@ -13,7 +13,7 @@ class AssetTableSeeder extends Seeder
     {
         App\Asset::create([
         	'project_id' => '1',
-        	'user_id' => '3',
+        	'user_id' => '5',
         	'type' => 'wordpress_website',
         	'name' => 'Ciara\'s Site',
         	'description' => 'Description.',
@@ -23,7 +23,7 @@ class AssetTableSeeder extends Seeder
 
         App\Asset::create([
             'project_id' => '1',
-            'user_id' => '4',
+            'user_id' => '6',
             'type' => 'wordpress_website',
             'name' => 'Seán\'s Site',
             'description' => 'Description.',
@@ -33,7 +33,7 @@ class AssetTableSeeder extends Seeder
 
         App\Asset::create([
             'project_id' => '1',
-            'user_id' => '5',
+            'user_id' => '7',
             'type' => 'wordpress_website',
             'name' => 'Émer\'s Site',
             'description' => 'Description.',
@@ -43,7 +43,7 @@ class AssetTableSeeder extends Seeder
 
         App\Asset::create([
             'project_id' => '1',
-            'user_id' => '6',
+            'user_id' => '8',
             'type' => 'wordpress_website',
             'name' => 'Sinéad\'s Site',
             'description' => 'Description.',
@@ -53,7 +53,7 @@ class AssetTableSeeder extends Seeder
 
         App\Asset::create([
             'project_id' => '1',
-            'user_id' => '7',
+            'user_id' => '9',
             'type' => 'wordpress_website',
             'name' => 'Lev\'s Site',
             'description' => 'Description.',
@@ -63,7 +63,7 @@ class AssetTableSeeder extends Seeder
 
         App\Asset::create([
             'project_id' => '2',
-            'user_id' => '8',
+            'user_id' => '10',
             'type' => 'shopify_website',
             'name' => 'Patrick\'s Site',
             'description' => 'Description.',
@@ -73,7 +73,7 @@ class AssetTableSeeder extends Seeder
 
         App\Asset::create([
             'project_id' => '2',
-            'user_id' => '9',
+            'user_id' => '11',
             'type' => 'shopify_website',
             'name' => 'Roisin\'s Site',
             'description' => 'Description.',
@@ -83,7 +83,7 @@ class AssetTableSeeder extends Seeder
 
         App\Asset::create([
             'project_id' => '2',
-            'user_id' => '10',
+            'user_id' => '12',
             'type' => 'shopify_website',
             'name' => 'Cian\'s Site',
             'description' => 'Description.',
@@ -93,7 +93,7 @@ class AssetTableSeeder extends Seeder
 
         App\Asset::create([
             'project_id' => '2',
-            'user_id' => '11',
+            'user_id' => '13',
             'type' => 'shopify_website',
             'name' => 'Jordan\'s Site',
             'description' => 'Description.',
@@ -103,7 +103,7 @@ class AssetTableSeeder extends Seeder
 
         App\Asset::create([
             'project_id' => '2',
-            'user_id' => '11',
+            'user_id' => '13',
             'type' => 'shopify_website',
             'name' => 'Jordan\'s Site #2',
             'description' => 'Description.',
@@ -113,7 +113,7 @@ class AssetTableSeeder extends Seeder
 
         App\Asset::create([
             'project_id' => '2',
-            'user_id' => '11',
+            'user_id' => '13',
             'type' => 'shopify_website',
             'name' => 'Jordan\'s Site #3',
             'description' => 'Description.',
@@ -123,7 +123,7 @@ class AssetTableSeeder extends Seeder
 
         App\Asset::create([
             'project_id' => '2',
-            'user_id' => '12',
+            'user_id' => '14',
             'type' => 'shopify_website',
             'name' => 'Stephen\'s Site',
             'description' => 'Description.',

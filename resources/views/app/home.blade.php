@@ -40,7 +40,7 @@
 	</p>
 
 	<a class="button is-primary" href="{{ route('app.projects.index') }}">View your projects</a>
-	<a class="button is-primary is-outlined" href="{{ route('password.update') }}s">Update your password</a>
+	<a class="button is-primary is-outlined" href="{{ route('password.update') }}">Update your password</a>
 
 </section>
 @endsection

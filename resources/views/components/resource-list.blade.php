@@ -1,33 +1,39 @@
 <h2 class="subtitle">Resources:</h2>
 
-<div class="columns">
-	@foreach($project->resources as $resource)
+@if(count($resources))
 
-	<div class="resource column is-one-third">
-		<div class="card">
+<div class="columns is-multiline">
+	@foreach($resources as $resource)
 
-			@isset($resource->image)
-			<div class="card-image">
-				<img src="">
-			</div>
-			@endisset
+	@component('components.resource')
 
-			<header class="card-header">
-				<p class="card-header-title">{{ $resource->title }}</p>
-			</header>
+	@isset($resource->image)
+		@slot('image')
+		{{ $resource->image }}
+		@endslot
+	@endisset
 
-			<div class="card-content">
-				<p class="resource-content">{{ $resource->content }}</p>
-			</div>
+	@slot('title')
+	{{ $resource->title }}
+	@endslot
 
-			@isset($resource->link)
-			<footer class="card-footer">
-				<a class="card-footer-item" href="{{ $resource->link }}" class="resource-link">{{ $resource->link }}</a>
-			</footer>
-			@endisset
+	@slot('id')
+	{{ $resource->id }}
+	@endslot
 
-		</div>
-	</div>
+	@slot('content')
+	{{ $resource->content }}
+	@endslot
+
+	@slot('link')
+	{{ $resource->link }}
+	@endslot
+
+	@endcomponent
 
 	@endforeach
 </div>
+
+@else
+<p>No resources found.</p>
+@endif

@@ -1,22 +1,21 @@
 @extends('app')
 
-@section('title', 'My Projects')
+@section('title', 'Test')
 
 @section('header')
-<h1>My Projects</h1>
+<h1>Test</h1>
 @endsection
 
 @section('main')
 
-<h2>Projects:</h2>
-
-<ul>
-	@foreach($projects as $project)
-	<li>
-		<a href="/projects/{{ $project->id }}">{{ $project->name }}</a>
-	</li>
-	@endforeach
-</ul>
+<section class="section">
+	<onboarding
+	name="{{ $query->name }}"
+	email="{{ $query->email }}"
+	>
+		
+	</onboarding>
+</section>
 
 @endsection
 

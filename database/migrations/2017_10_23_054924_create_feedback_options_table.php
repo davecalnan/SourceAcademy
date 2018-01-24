@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFreelancersTable extends Migration
+class CreateFeedbackOptionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateFreelancersTable extends Migration
      */
     public function up()
     {
-        Schema::create('freelancers', function (Blueprint $table) {
+        Schema::create('feedback_options', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('feedback_request_id')->unsigned();
+            $table->string('icon')->required();
+            $table->string('title')->required();
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateFreelancersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('freelancers');
+        Schema::dropIfExists('feedback_options');
     }
 }

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Freelancer;
+use App\FeedbackRequest;
 use Illuminate\Http\Request;
 
-class FreelancerController extends Controller
+class FeedbackRequestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class FreelancerController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Freelancer  $freelancer
+     * @param  \App\FeedbackRequest  $feedbackRequest
      * @return \Illuminate\Http\Response
      */
-    public function show(Freelancer $freelancer)
+    public function show(FeedbackRequest $feedbackRequest)
     {
         //
     }
@@ -52,10 +52,10 @@ class FreelancerController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Freelancer  $freelancer
+     * @param  \App\FeedbackRequest  $feedbackRequest
      * @return \Illuminate\Http\Response
      */
-    public function edit(Freelancer $freelancer)
+    public function edit(FeedbackRequest $feedbackRequest)
     {
         //
     }
@@ -64,10 +64,10 @@ class FreelancerController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Freelancer  $freelancer
+     * @param  \App\FeedbackRequest  $feedbackRequest
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Freelancer $freelancer)
+    public function update(Request $request, FeedbackRequest $feedbackRequest)
     {
         //
     }
@@ -75,10 +75,10 @@ class FreelancerController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Freelancer  $freelancer
+     * @param  \App\FeedbackRequest  $feedbackRequest
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Freelancer $freelancer)
+    public function destroy(FeedbackRequest $feedbackRequest)
     {
         //
     }

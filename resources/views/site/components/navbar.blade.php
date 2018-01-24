@@ -14,21 +14,24 @@
 
         <div class="navbar-menu" id="navMenu">
             <span class="navbar-end">
+
                 @unless(Route::currentRouteName() == 'site.home')
-                <a class="navbar-item {{Route::currentRouteName() == 'site.home' ? 'is-active' : ''}}" href="/">
-                    Home
-                </a>
+                <a class="navbar-item {{Route::currentRouteName() == 'site.home' ? 'is-active' : ''}}" href="/">Home</a>
                 @endunless
 
                 @auth
+
                 <a class="navbar-item" href="/logout">Logout</a>
                 <span class="navbar-item">
                     <a class="button is-primary is-outlined" href="{{ route('app.home') }}">Dashboard</a>
                 </span>
+
                 @else
+
                 <span class="navbar-item">
                     <a class="button is-primary is-outlined" href="{{ route('login') }}">Login</a>
                 </span>
+
                 @endauth
 
             </span>

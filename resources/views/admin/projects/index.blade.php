@@ -2,10 +2,12 @@
 
 @section('main')
 
-@include('components.project-list')
+<section class="section has-border-bottom">
+	@include('components.project-list')
+</section>
 
-<hr>
-
-@include('admin.projects.create')
+<section class="section">
+	@include('admin.projects.create')
+</section>
 
 @endsection

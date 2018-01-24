@@ -1,14 +1,22 @@
-.navbar {
-  border-bottom: 1px solid #ccc;
-  color: #4a4a4a;
+.main-grid {
+  display: grid;
+  min-height: 100vh;
+  grid-template-areas: "header" "main" "footer";
+  grid-template-rows: auto 1fr auto;
+  -ms-flex-line-pack: stretch;
+      align-content: stretch;
 }
 
-.navbar-logo {
-  height: 2rem;
+.main-grid > .header {
+  grid-area: header;
 }
 
-.navbar-item img {
-  max-height: 2rem;
+.main-grid > .main {
+  grid-area: main;
+}
+
+.main-grid > .footer {
+  grid-area: footer;
 }
 
 .is-48x48 img {
@@ -37,4 +45,42 @@
   margin-right: auto;
   margin-top: 2em;
 }
+
+/* - - - - - - -
+ |	Home page  |
+ - - - - - - */
+
+.home .buttons {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+}
+
+.services-grid > .card {
+  display: grid;
+  grid-template-rows: 1fr 3rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+/* - - - - - - - -
+ |	Apply page  |
+ - - - - - - - */
+
+@media screen and (max-width: 768px) {
+  .apply .buttons .button:not(:first-child) {
+    margin-top: 0.5em;
+  }
+}
+
+/* - - - - - - - - - -
+ |	Sourcerors page  |
+ - - - - - - - - - */
 

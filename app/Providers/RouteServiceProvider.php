@@ -24,7 +24,14 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         Route::bind('projectSlug', function($projectSlug) {
-            return \App\Project::with('resources')->where('slug', $projectSlug)->first();
+            return \App\Project::where('slug', $projectSlug)->first();
+        });
+
+        Route::bind('sourceror', function ($id) {
+            $sourceror = \App\Sourceror::with('user')->first();
+            $sourceror->name = $sourceror->user->name;
+            $sourceror->email = $sourceror->user->email;
+            return $sourceror;
         });
 
         parent::boot();
@@ -67,8 +74,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapApiRoutes()
     {
-        Route::prefix('api')
-        ->middleware('api')
+        Route::middleware('api')
         ->namespace($this->namespace)
         ->group(base_path('routes/api.php'));
     }

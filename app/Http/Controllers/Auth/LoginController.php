@@ -33,13 +33,15 @@ class LoginController extends Controller
     }
 
     /**
-     * Where to redirect users after login.
+     * The user has been authenticated.
      *
-     * @return Illuminate\Http\Request
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
      */
-    public function redirectTo ()
+    protected function authenticated(Request $request, $user)
     {
-        return route('app.home');
+        //
     }
 
     /**

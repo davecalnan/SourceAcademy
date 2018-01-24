@@ -12,9 +12,9 @@ class ResourceTableSeeder extends Seeder
     public function run()
     {
         App\Resource::create([
-        	'title' => 'Resource',
-        	'content' => 'Content goes here',
-        	'link' => 'https://google.ie'
+        	'title' => 'Unsplash',
+        	'content' => 'Unsplash is a collection of high-quality royalty-free images.',
+        	'link' => 'https://unsplash.com'
         ]);
     }
 }

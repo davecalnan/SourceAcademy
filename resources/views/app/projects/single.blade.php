@@ -8,16 +8,12 @@
 
 @section('main')
 
-<section class="section has-border-bottom">
-	@if(count($project->assets))
+<section class="section has-border-bottom has-overflow-x-children">
 	@include('components.asset-list')
-	@endif
 </section>
 
 <section class="section">
-	@if(count($project->resources))
 	@include('components.resource-list')
-	@endif
 </section>
 
 @endsection
@@ -25,3 +21,7 @@
 @section('footer')
 @parent
 @endsection
+
+@push('intercom.events')
+	@include('intercom.events.user_views_a_project')
+@endpush
