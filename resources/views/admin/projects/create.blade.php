@@ -1,5 +1,3 @@
-<h2 class="subtitle">New Project</h2>
-
 <form method="POST" action="{{ route('projects.store') }}">
 	{{ csrf_field() }}
 

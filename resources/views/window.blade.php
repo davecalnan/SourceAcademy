@@ -4,7 +4,8 @@ $user = Auth::user();
 
 <script>
 	window.env = {
-		'APP_DOMAIN': '{{ env('APP_DOMAIN') }}'
+		'APP_DOMAIN': '{{ env('APP_DOMAIN') }}',
+		'APP_URL': '{{ env('APP_URL') }}'
 	}
 	window.user = {
 	@if(Auth::user())

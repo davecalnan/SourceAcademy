@@ -15,13 +15,12 @@ class AdminController extends Controller
         $this->middleware('auth');
     }
     
-	/**
-     * Returns the admin home view.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function home() {
 		$users = User::with('roles')->get();
-    	return view('admin.home', compact('users'));
+    	return view('admin.home', ['users' => $users]);
+    }
+	
+    public function servers() {
+    	return view('admin.servers');
     }
 }

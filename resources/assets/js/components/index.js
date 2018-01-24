@@ -1,10 +1,13 @@
-// import Vue from 'vue'
+import Vue from 'vue'
 
 import breadcrumbs from './breadcrumbs.vue'
 Vue.component('breadcrumbs', breadcrumbs)
 
 import breadcrumbsItem from './breadcrumbs-item.vue'
 Vue.component('breadcrumbs-item', breadcrumbsItem)
+
+import card from './card.vue'
+Vue.component('card', card)
 
 import feedback from './feedback.vue'
 Vue.component('feedback', feedback)

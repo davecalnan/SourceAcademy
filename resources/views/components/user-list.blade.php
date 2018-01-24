@@ -1,4 +1,3 @@
-<p class="subtitle">Users</p>
 @if(count($users))
 <table class="table is-fullwidth is-striped">
 	<thead>

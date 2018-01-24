@@ -1,19 +1,15 @@
-@extends('app')
+@extends('layouts.admin')
 
 @section('title', 'Admin Home')
 
 @section('header')
-<p class="title">Admin Home</p>
+<h1 class="app-header-title">Admin Home</h1>
 @endsection
 
 @section('main')
 
-<section class="section">
+<card title="Users">
 	@include('components.user-list')
-</section>
+</card>
 
-@endsection
-
-@section('footer')
-@parent
 @endsection

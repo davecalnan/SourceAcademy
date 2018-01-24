@@ -1,9 +1,9 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('title', 'App Home')
 
 @section('header')
-<h1 class="title">
+<h1 class="app-header-title">
 	Hi, 
 	@isset(Auth::user()->name)
 	{{Auth::user()->name}}.
@@ -14,9 +14,7 @@
 @endsection
 
 @section('main')
-<section class="section">
-	
-	<p class="title">Well hello there.</p>
+<card title="Well hello there.">
 	<p>
 		Welcome to the first version of the SourceAcademy platform. The point here is to put everything in one place and keep everyone up to date.
 	</p>
@@ -42,7 +40,7 @@
 	<a class="button is-primary" href="{{ route('app.projects.index') }}">View your projects</a>
 	<a class="button is-primary is-outlined" href="{{ route('password.update') }}">Update your password</a>
 
-</section>
+</card>
 @endsection
 
 @section('footer')

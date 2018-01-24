@@ -1,5 +1,3 @@
-<h2 class="subtitle">Projects:</h2>
-
 @if(count($projects))
 <ul>
 	@foreach($projects as $project)

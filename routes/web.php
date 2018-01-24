@@ -93,6 +93,7 @@ Route::domain('app.' . env('APP_DOMAIN'))->group(function () {
 Route::group(['middleware' => 'can:admin'], function () {
     Route::domain('admin.' . env('APP_DOMAIN'))->group(function () {
         Route::get('/', 'AdminController@home')->name('admin.home');
+        Route::get('servers', 'AdminController@servers');
 
         Route::get('projects', 'ProjectController@index')->name('admin.projects.index');
         Route::get('projects/{projectSlug}', 'ProjectController@show')->name('admin.projects.single');

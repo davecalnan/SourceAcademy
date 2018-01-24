@@ -1,13 +1,19 @@
-@extends('app.projects.index')
+@extends('layouts.admin')
+
+@section('title', 'Projects')
+
+@section('header')
+<h1 class="app-header-title">Projects</h1>
+@endsection
 
 @section('main')
 
-<section class="section has-border-bottom">
+<card title="Projects">
 	@include('components.project-list')
-</section>
+</card>
 
-<section class="section">
+<card title="New Project">
 	@include('admin.projects.create')
-</section>
+</card>
 
 @endsection

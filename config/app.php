@@ -125,6 +125,8 @@ return [
 
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
+    'forge_token' => env('FORGE_TOKEN'),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
