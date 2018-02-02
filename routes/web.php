@@ -50,11 +50,11 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
 
     Route::patch('projects', 'ProjectController@update')->name('projects.update');
 
+    Route::post('clients/{client}', 'ClientController@store');
+    Route::patch('clients/{client}', 'ClientController@update');
+
     Route::get('sourcerors', 'SourcerorController@index')->name('sourcerors.index');
     Route::get('sourcerors/{sourceror}', 'SourcerorController@show')->name('sourcerors.single');
-
-    Route::post('resources', 'ResourceController@store')->name('resources.store');
-    Route::patch('resources/{resource}', 'ResourceController@update')->name('resources.update');
 
     Route::get('test/auth', 'TestController@authCheck');
 });
@@ -72,13 +72,7 @@ Route::domain('app.' . env('APP_DOMAIN'))->group(function () {
     Route::get('projects', 'ProjectController@showUserProjects')->name('app.projects.index');
     Route::get('projects/{projectSlug}', 'ProjectController@show')->name('app.projects.single');
 
-    Route::get('resources', 'ResourceController@index')->name('app.resources.index');
-
     Route::get('test', 'TestController@app')->name('app.test');
-
-    Route::resource('feedback/requests', 'FeedbackRequestController');
-    Route::resource('feedback/options', 'FeedbackOptionController');
-    Route::resource('feedback/responses', 'FeedbackResponseController');
 
     Route::post('projects', 'ProjectController@store')->name('projects.store');
     Route::post('users', 'UserController@store')->name('user.store');
@@ -94,15 +88,10 @@ Route::group(['middleware' => 'can:admin'], function () {
     Route::domain('admin.' . env('APP_DOMAIN'))->group(function () {
         Route::get('/', 'AdminController@home')->name('admin.home');
         Route::get('servers', 'AdminController@servers');
+        Route::get('projects/{slug?}', 'AdminController@projects');
+        Route::get('clients/{slug?}', 'AdminController@clients');
 
-        Route::get('projects', 'ProjectController@index')->name('admin.projects.index');
-        Route::get('projects/{projectSlug}', 'ProjectController@show')->name('admin.projects.single');
-        Route::get('projects/{projectSlug}/edit', 'ProjectController@edit')->name('admin.projects.edit');
-
-        Route::get('resources', 'ResourceController@index')->name('admin.resources.index');
-        Route::get('resources/{resource}', 'ResourceController@show')->name('admin.resources.single');
-        Route::get('resources/{resource}/edit', 'ResourceController@edit')->name('admin.resources.edit');
-        Route::get('resources/{resource}/delete', 'ResourceController@destroy')->name('resources.delete');
+        Route::get('projects/{slug}/edit', 'ProjectController@edit')->name('admin.projects.edit');
 
         Route::get('users', 'UserController@index')->name('admin.users.index');
         Route::get('users/{user}', 'UserController@show')->name('admin.users.single');

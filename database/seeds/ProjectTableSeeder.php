@@ -1,9 +1,9 @@
 <?php
 
-use Illuminate\Database\Seeder;
+use App\Client;
 use App\Project;
-use App\Resource;
 use App\User;
+use Illuminate\Database\Seeder;
 
 class ProjectTableSeeder extends Seeder
 {
@@ -14,23 +14,18 @@ class ProjectTableSeeder extends Seeder
      */
     public function run()
     {
-        $dave = User::where('email', 'd@ve.ie')->first();
-        $unsplash = Resource::where('title', 'Unsplash')->first();
+        $dave = User::where('name', 'Dave Calnan')->first();
+        $padraic = User::where('name', 'Padraic Vallely')->first();
 
-        $loveYourWork = Project::create([
-            'name' => 'LoveYourWork',
-            'slug' => str_slug('LoveYourWork'),
+        $client = Client::where('name', 'Cork Foundation')->first();
+
+        $project = Project::create([
+            'client_id' => $client->id,
+            'name' => 'Cork Foundation Website',
+            'slug' => str_slug('Cork Foundation Website'),
             'type' => 'wordpress_basic'
         ]);
-        $loveYourWork->users()->attach([1,2,3,5,6,7,8,9]);
-        $loveYourWork->resources()->attach($unsplash);
-
-        $honestRoots = Project::create([
-            'name' => 'Honest Roots',
-            'slug' => str_slug('Honest Roots'),
-            'type' => 'shopify_basic'
-        ]);
-        $honestRoots->users()->attach([1,4,10,11,12,13,14]);
-        $honestRoots->resources()->attach($unsplash);
+        
+        $project->users()->attach([1,2]);
     }
 }

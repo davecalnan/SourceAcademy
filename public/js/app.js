@@ -1774,9 +1774,11 @@ var render = function() {
       _vm._v("Projects")
     ]),
     _vm._v(" "),
-    _c("a", { staticClass: "app-nav-link", attrs: { href: "/resources" } }, [
-      _vm._v("Resources")
-    ]),
+    _vm.user.type == "admin"
+      ? _c("a", { staticClass: "app-nav-link", attrs: { href: "/clients" } }, [
+          _vm._v("Clients")
+        ])
+      : _vm._e(),
     _vm._v(" "),
     _vm.user.type == "admin"
       ? _c("a", { staticClass: "app-nav-link", attrs: { href: "/servers" } }, [

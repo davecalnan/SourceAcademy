@@ -31,22 +31,39 @@ class Project extends Model
       //
     ];
 
+    public function client()
+    {
+        return $this->belongsTo('App\Client');
+    }
+
+    public function sites()
+    {
+        return $this->hasMany('App\Site');
+    }
+
     public function users()
     {
-        return $this
-        ->belongsToMany('App\User')
-        ->withTimestamps();
+        return $this->belongsToMany('App\User')->withTimestamps();
     }
 
-    public function resources()
+    public function createWordpressSite($slug)
     {
-        return $this
-        ->belongsToMany('App\Resource')
-        ->withTimestamps();
-    }
+        $serverDoesNotExist = !$client->hasServer();
 
-    public function assets()
-    {
-        return $this->hasMany('App\Asset');
+        if ($serverDoesNotExist) {
+            createServer('basic');
+            $server = $createdServer;
+        }
+
+        $server->createMySQL($database = 'wp_' . $slug, $user = 'wp_' . $slug);
+        $server->createSite($slug . '.sourceacademysites.com');
+
+        $hover->createRecord('A', $server->IP, $ttl = 30);
+
+        $wordpress->createUser('sourceacademy', $randomPassword);
+        $wordpress->createUser($project->sourceror);
+        $wordpress->createUser($project->client);
+
+        $server->createNginxConfig($clientDomain, $slug.sourceacademysites.com);
     }
 }

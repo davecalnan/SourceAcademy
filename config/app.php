@@ -52,6 +52,7 @@ return [
     |
     */
 
+    'domain' => env('APP_DOMAIN'),
     'url' => env('APP_URL', 'http://localhost'),
 
     /*

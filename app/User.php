@@ -39,28 +39,26 @@ class User extends Authenticatable
       'password', 'remember_token',
     ];
 
+    public function clients()
+    {
+        return $this->belongsToMany('App\Client');
+    }
+
     public function profile()
     {
-        return $this->hasOne('App\Sourceror');
+        if ($this->is('sourceror')) {
+            return $this->hasOne('App\Sourceror');
+        }
     }
 
     public function projects()
     {
-        return $this
-      ->belongsToMany('App\Project')
-      ->withTimestamps();
+        return $this->belongsToMany('App\Project')->withTimestamps();
     }
 
     public function roles()
     {
-        return $this
-      ->belongsToMany('App\Role')
-      ->withTimestamps();
-    }
-
-    public function assets()
-    {
-        return $this->hasMany('App\Asset');
+        return $this->belongsToMany('App\Role')->withTimestamps();
     }
 
     public function authorizeRoles($roles)
@@ -93,6 +91,11 @@ class User extends Authenticatable
             return true;
         }
         return false;
+    }
+
+    public function is($role)
+    {
+        return $this->hasRole($role);
     }
 
     public function getRoles()
