@@ -1769,7 +1769,7 @@ var _this2 = this;
 
         this.stripe = StripeCheckout.configure({
             key: window.sourceacademy.stripeKey,
-            image: '/img/sourceacademy-logo.png',
+            image: 'https://sourceacademy.co/img/sourceacademy-logo.png',
             locale: 'auto',
             token: function token(_token) {
                 _this.stripeToken = _token.id;

@@ -25,7 +25,7 @@ export default {
     created() {
         this.stripe = StripeCheckout.configure({
             key: window.sourceacademy.stripeKey,
-            image: '/img/sourceacademy-logo.png',
+            image: 'https://sourceacademy.co/img/sourceacademy-logo.png',
             locale: 'auto',
             token: token => {
                 this.stripeToken = token.id
