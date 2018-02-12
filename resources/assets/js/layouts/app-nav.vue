@@ -6,9 +6,9 @@
         <hr>
         <a href="/" class="app-nav-link">Home</a>
         <a href="/projects" class="app-nav-link">Projects</a>
-        <a href="/resources" class="app-nav-link">Resources</a>
+        <a v-if="user.type == 'admin'" href="/clients" class="app-nav-link">Clients</a>
         <a v-if="user.type == 'admin'" href="/servers" class="app-nav-link">Servers</a>
-        <a href="/logout" class="app-nav-link">Logout</a>
+        <a :href="getHomeURL('/logout')" class="app-nav-link">Logout</a>
         </div>
     </nav>
 </template>
@@ -65,8 +65,8 @@ export default {
     },
     
     methods: {
-        getHomeURL: () => {
-			return window.env.app_url
+        getHomeURL: path => {
+			return window.env.app_url + path
 		}
     }
 }

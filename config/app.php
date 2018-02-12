@@ -52,6 +52,7 @@ return [
     |
     */
 
+    'domain' => env('APP_DOMAIN'),
     'url' => env('APP_URL', 'http://localhost'),
 
     /*
@@ -126,6 +127,9 @@ return [
     'log_level' => env('APP_LOG_LEVEL', 'debug'),
 
     'forge_token' => env('FORGE_TOKEN'),
+
+    'ssh_key_name' => env('SSH_KEY_NAME'),
+    'ssh_key' => env('SSH_KEY'),
 
     /*
     |--------------------------------------------------------------------------

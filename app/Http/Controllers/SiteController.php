@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\FeedbackOption;
+use App\Site;
 use Illuminate\Http\Request;
 
-class FeedbackOptionController extends Controller
+class SiteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class FeedbackOptionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\FeedbackOption  $feedbackOption
+     * @param  \App\Site  $site
      * @return \Illuminate\Http\Response
      */
-    public function show(FeedbackOption $feedbackOption)
+    public function show(Site $site)
     {
         //
     }
@@ -52,10 +52,10 @@ class FeedbackOptionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\FeedbackOption  $feedbackOption
+     * @param  \App\Site  $site
      * @return \Illuminate\Http\Response
      */
-    public function edit(FeedbackOption $feedbackOption)
+    public function edit(Site $site)
     {
         //
     }
@@ -64,10 +64,10 @@ class FeedbackOptionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\FeedbackOption  $feedbackOption
+     * @param  \App\Site  $site
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, FeedbackOption $feedbackOption)
+    public function update(Request $request, Site $site)
     {
         //
     }
@@ -75,10 +75,10 @@ class FeedbackOptionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\FeedbackOption  $feedbackOption
+     * @param  \App\Site  $site
      * @return \Illuminate\Http\Response
      */
-    public function destroy(FeedbackOption $feedbackOption)
+    public function destroy(Site $site)
     {
         //
     }

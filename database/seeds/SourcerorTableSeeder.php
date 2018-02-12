@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Database\Seeder;
 use App\Sourceror;
+use Illuminate\Database\Seeder;
 
 class SourcerorTableSeeder extends Seeder
 {

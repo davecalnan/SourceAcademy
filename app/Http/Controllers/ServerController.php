@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Asset;
+use App\Server;
 use Illuminate\Http\Request;
 
-class AssetController extends Controller
+class ServerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,8 @@ class AssetController extends Controller
      */
     public function index()
     {
-        //
+        $forge = new \Themsaid\Forge\Forge(config('app.forge_token'));
+        return $forge->servers();
     }
 
     /**
@@ -35,16 +36,22 @@ class AssetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'id' => 'required|unique:servers',
+            'client_id' => 'required',
+            'name' => 'required'
+        ]);
+
+        Server::create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Asset  $asset
+     * @param  \App\Server  $server
      * @return \Illuminate\Http\Response
      */
-    public function show(Asset $asset)
+    public function show(Server $server)
     {
         //
     }
@@ -52,10 +59,10 @@ class AssetController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Asset  $asset
+     * @param  \App\Server  $server
      * @return \Illuminate\Http\Response
      */
-    public function edit(Asset $asset)
+    public function edit(Server $server)
     {
         //
     }
@@ -64,10 +71,10 @@ class AssetController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Asset  $asset
+     * @param  \App\Server  $server
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Asset $asset)
+    public function update(Request $request, Server $server)
     {
         //
     }
@@ -75,10 +82,10 @@ class AssetController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Asset  $asset
+     * @param  \App\Server  $server
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Asset $asset)
+    public function destroy(Server $server)
     {
         //
     }

@@ -23,9 +23,9 @@ class ForgeSDK extends Model
     public static function getServers($ids = [])
     {
         if (count($ids)) {
-            return array_map(getServer($id), $ids);
+            return collect(array_map(getServer($id), $ids));
         }
 
-        return $this->forge->servers();
+        return $this->get->servers();
     }
 }

@@ -3,6 +3,10 @@ $user = Auth::user();
 @endphp
 
 <script>
+	window.sourceacademy = {
+		csrfToken: "{{ csrf_token() }}",
+		stripeKey: "{{ config('services.stripe.key') }}"
+	}
 	window.env = {
 		'APP_DOMAIN': '{{ env('APP_DOMAIN') }}',
 		'APP_URL': '{{ env('APP_URL') }}'

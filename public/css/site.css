@@ -1,1 +1,86 @@
-.main-grid{display:grid;min-height:100vh;grid-template-areas:"header" "main" "footer";grid-template-rows:auto 1fr auto;-ms-flex-line-pack:stretch;align-content:stretch}.main-grid>.header{grid-area:header}.main-grid>.main{grid-area:main}.main-grid>.footer{grid-area:footer}.is-48x48 img{max-height:48px}#get-in-touch{border-top:1px solid #ccc}#get-in-touch a{color:#3273dc}.footer{padding:1em;border-top:1px solid #ccc;font-size:.75em;color:#4a4a4a;background-color:#fff}.flash{max-width:60%;margin-left:auto;margin-right:auto;margin-top:2em}.home .buttons{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));grid-gap:1rem}.services-grid>.card{display:grid;grid-template-rows:1fr 3rem;-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between}@media screen and (max-width:768px){.apply .buttons .button:not(:first-child){margin-top:.5em}}
+.main-grid {
+  display: grid;
+  min-height: 100vh;
+  grid-template-areas: "header" "main" "footer";
+  grid-template-rows: auto 1fr auto;
+  -ms-flex-line-pack: stretch;
+      align-content: stretch;
+}
+
+.main-grid > .header {
+  grid-area: header;
+}
+
+.main-grid > .main {
+  grid-area: main;
+}
+
+.main-grid > .footer {
+  grid-area: footer;
+}
+
+.is-48x48 img {
+  max-height: 48px;
+}
+
+#get-in-touch {
+  border-top: 1px solid #ccc;
+}
+
+#get-in-touch a {
+  color: #3273dc;
+}
+
+.footer {
+  padding: 1em;
+  border-top: 1px solid #ccc;
+  font-size: 0.75em;
+  color: #4a4a4a;
+  background-color: #fff;
+}
+
+.flash {
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2em;
+}
+
+/* - - - - - - -
+ |	Home page  |
+ - - - - - - */
+
+.home .buttons {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+}
+
+.services-grid > .card {
+  display: grid;
+  grid-template-rows: 1fr 3rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+/* - - - - - - - -
+ |	Apply page  |
+ - - - - - - - */
+
+@media screen and (max-width: 768px) {
+  .apply .buttons .button:not(:first-child) {
+    margin-top: 0.5em;
+  }
+}
+
+/* - - - - - - - - - -
+ |	Sourcerors page  |
+ - - - - - - - - - */
+

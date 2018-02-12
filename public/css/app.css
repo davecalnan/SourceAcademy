@@ -1,1 +1,61 @@
-i.icon{font-style:inherit}.icon{font-size:1.5rem}.icon.is-small{font-size:1rem}.icon.is-medium{font-size:2rem}.icon.is-large{font-size:3rem}.notification{-webkit-box-shadow:0 2px 2px 0 rgba(0,0,0,.14);box-shadow:0 2px 2px 0 rgba(0,0,0,.14);z-index:1;overflow-x:wrap}.notification .icon{cursor:pointer}.notification .icon:not(:first-child){margin-left:.75rem}.fullscreen-container{width:100vw;height:100vh;overflow:scroll;padding:10vh 5vw 0}.fullscreen-container>.level{-ms-flex-wrap:wrap;flex-wrap:wrap}.fullscreen-container .description{margin-bottom:1rem}.fullscreen-container .button{margin-top:1rem}@media print,screen and (min-width:769px){.fullscreen-container{padding:15vh 20vw 0}}
+i.icon {
+  font-style: inherit;
+}
+
+.icon {
+  font-size: 1.5rem;
+}
+
+.icon.is-small {
+  font-size: 1rem;
+}
+
+.icon.is-medium {
+  font-size: 2rem;
+}
+
+.icon.is-large {
+  font-size: 3rem;
+}
+
+.notification {
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
+  z-index: 1;
+  overflow-x: wrap;
+}
+
+.notification .icon {
+  cursor: pointer;
+}
+
+.notification .icon:not(:first-child) {
+  margin-left: 0.75rem;
+}
+
+.fullscreen-container {
+  width: 100vw;
+  height: 100vh;
+  overflow: scroll;
+  padding: 10vh 5vw 0;
+}
+
+.fullscreen-container > .level {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.fullscreen-container .description {
+  margin-bottom: 1rem;
+}
+
+.fullscreen-container .button {
+  margin-top: 1rem;
+}
+
+@media screen and (min-width: 769px), print {
+  .fullscreen-container {
+    padding: 15vh 20vw 0;
+  }
+}
+

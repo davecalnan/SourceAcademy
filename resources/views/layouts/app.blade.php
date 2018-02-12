@@ -56,6 +56,8 @@
     @endif
     @include('intercom')
     @stack('intercom.events')
+
+    <script src="https://checkout.stripe.com/checkout.js"></script>
     <script type="text/javascript" src="/js/app.js"></script>
 
 </body>

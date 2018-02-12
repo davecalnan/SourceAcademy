@@ -13,8 +13,8 @@
     </title>
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" href="/css/vendor.css">
-    <link rel="stylesheet" type="text/css" href="/css/site.css">
+    <link rel="stylesheet" type="text/css" href="{{ mix('/css/vendor.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ mix('/css/site.css') }}">
     
 </head>
 <body class="@yield('body-class')">
@@ -30,7 +30,7 @@
 
         <footer class="footer has-text-centered">
             @section('footer')
-            &copy; 2017 SourceAcademy
+            &copy; 2018 SourceAcademy
             @show
         </footer>
 
@@ -41,6 +41,6 @@
         @include('site.google-analytics')
     @endif
     @include('intercom')
-    <script type="text/javascript" src="/js/site.js"></script>
+    <script type="text/javascript" src="{{ mix('/js/app.js') }}"></script>
 </body>
 </html>

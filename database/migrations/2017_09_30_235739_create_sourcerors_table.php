@@ -15,7 +15,7 @@ class CreateSourcerorsTable extends Migration
     {
         Schema::create('sourcerors', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->unsignedInteger('user_id');
             $table->string('title')->nullable();
             $table->boolean('shopify')->default(false);
             $table->boolean('wordpress')->default(false);

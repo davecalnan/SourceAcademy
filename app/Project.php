@@ -19,7 +19,7 @@ class Project extends Model
      * @var array
      */
     protected $fillable = [
-      'name', 'slug', 'type'
+      'client_id', 'name', 'slug', 'type'
     ];
 
     /**
@@ -31,22 +31,18 @@ class Project extends Model
       //
     ];
 
+    public function client()
+    {
+        return $this->belongsTo('App\Client');
+    }
+
+    public function sites()
+    {
+        return $this->hasMany('App\Site');
+    }
+
     public function users()
     {
-        return $this
-        ->belongsToMany('App\User')
-        ->withTimestamps();
-    }
-
-    public function resources()
-    {
-        return $this
-        ->belongsToMany('App\Resource')
-        ->withTimestamps();
-    }
-
-    public function assets()
-    {
-        return $this->hasMany('App\Asset');
+        return $this->belongsToMany('App\User')->withTimestamps();
     }
 }
