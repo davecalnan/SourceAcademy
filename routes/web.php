@@ -87,15 +87,18 @@ Route::domain('app.' . env('APP_DOMAIN'))->group(function () {
 Route::group(['middleware' => 'can:admin'], function () {
     Route::domain('admin.' . env('APP_DOMAIN'))->group(function () {
         Route::get('/', 'AdminController@home')->name('admin.home');
-        Route::get('servers', 'AdminController@servers');
+        Route::get('servers/{slug?}', 'AdminController@servers');
+        Route::get('servers-info', 'ServerController@index');
         Route::get('projects/{slug?}', 'AdminController@projects');
         Route::get('clients/{slug?}', 'AdminController@clients');
+
+        Route::post('clients/{slug}/setupwordpress', 'ClientController@setUpWordPress');
 
         Route::get('projects/{slug}/edit', 'ProjectController@edit')->name('admin.projects.edit');
 
         Route::get('users', 'UserController@index')->name('admin.users.index');
         Route::get('users/{user}', 'UserController@show')->name('admin.users.single');
 
-        Route::get('test', 'TestController@admin')->name('admin.test');
+        Route::get('test', 'TestController@test');
     });
 });

@@ -10,10 +10,6 @@
 	@include('components.project-user-list')
 </card>
 
-<card>
-	@include('admin.resources.create')
-</card>
-
 @if ($project->type == 'wordpress_basic')
 	<card title="Set Up Wordpress Site">
 		<form action="">

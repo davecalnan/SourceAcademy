@@ -14,7 +14,8 @@ class ServerController extends Controller
      */
     public function index()
     {
-        //
+        $forge = new \Themsaid\Forge\Forge(config('app.forge_token'));
+        return $forge->servers();
     }
 
     /**
@@ -35,7 +36,13 @@ class ServerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'id' => 'required|unique:servers',
+            'client_id' => 'required',
+            'name' => 'required'
+        ]);
+
+        Server::create($request->all());
     }
 
     /**

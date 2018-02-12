@@ -30,7 +30,15 @@ class TestController extends Controller
 
     public function test()
     {
-        return response('test');
+        $query = 'forge';
+        $reply = $this->testMethod($query);
+        return $reply;
+    }
+
+    public function testMethod($query)
+    {
+        $reply = $query;
+        return $reply;
     }
 
     public function authCheck()

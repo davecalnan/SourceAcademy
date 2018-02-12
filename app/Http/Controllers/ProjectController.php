@@ -52,15 +52,14 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
-        $project = new Project($request->all());
-        $project->slug = str_slug($request->name);
-
         $request->validate([
-            'name' => 'required|unique:projects|max:255',
+            'client_id' => 'required|exists:clients,id',
+            'name' => 'required',
+            'slug' => 'required|unique:projects',
             'type' => 'required'
         ]);
 
-        $project->save();
+        Project::create($request->all());
 
         return back();
     }

@@ -128,6 +128,9 @@ return [
 
     'forge_token' => env('FORGE_TOKEN'),
 
+    'ssh_key_name' => env('SSH_KEY_NAME'),
+    'ssh_key' => env('SSH_KEY'),
+
     /*
     |--------------------------------------------------------------------------
     | Autoloaded Service Providers
