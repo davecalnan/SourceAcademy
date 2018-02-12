@@ -9,6 +9,9 @@ Vue.component('breadcrumbs-item', breadcrumbsItem)
 import card from './card.vue'
 Vue.component('card', card)
 
+import checkout from './checkout.vue'
+Vue.component('checkout', checkout)
+
 import feedback from './feedback.vue'
 Vue.component('feedback', feedback)
 

@@ -67,7 +67,7 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
 
 // Route::group(['middleware' => 'auth'], function () {
 Route::domain('app.' . env('APP_DOMAIN'))->group(function () {
-    Route::view('/', 'app.home')->name('app.home');
+    Route::view('/', 'app.dashboard')->name('app.dashboard');
 
     Route::get('projects', 'ProjectController@showUserProjects')->name('app.projects.index');
     Route::get('projects/{projectSlug}', 'ProjectController@show')->name('app.projects.single');

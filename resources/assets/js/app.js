@@ -1,4 +1,4 @@
-// import './bootstrap'
+import './bootstrap'
 import Vue from 'vue'
 import Vuex from 'vuex'
 import './components'
