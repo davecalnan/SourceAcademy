@@ -65,8 +65,8 @@ export default {
     },
     
     methods: {
-        getHomeURL: path => {
-			return window.env.app_url + path
+        getHomeURL: (path = '') => {
+			return window.env.APP_URL + path
 		}
     }
 }

@@ -1739,8 +1739,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-var _this2 = this;
-
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1756,26 +1765,36 @@ var _this2 = this;
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: [],
+    props: {
+        items: {
+            type: Array,
+            default: null
+        }
+    },
 
     data: function data() {
         return {
-            stripeToken: '',
-            stripeEmail: ''
+            item: 0
         };
     },
     created: function created() {
         var _this = this;
 
-        this.stripe = StripeCheckout.configure({
-            key: window.sourceacademy.stripeKey,
+        window.stripe = StripeCheckout.configure({
+            key: window.sourceacademy.stripe_key,
             image: 'https://sourceacademy.co/img/sourceacademy-logo.png',
             locale: 'auto',
             token: function token(_token) {
-                _this.stripeToken = _token.id;
-                _this.stripeEmail = _token.email;
-
-                _this.submit();
+                window.axios.post(window.env.APP_URL + '/subscriptions', {
+                    stripeEmail: _token.email,
+                    stripeToken: _token.id,
+                    plan: _this.items[_this.item].private_name
+                }).then(function (response) {
+                    alert('Successful, thank you!');
+                    console.log(response);
+                }).catch(function (error) {
+                    console.log(error);
+                });
             }
         });
     },
@@ -1783,22 +1802,13 @@ var _this2 = this;
 
     methods: {
         open: function open() {
-            _this2.stripe.open({
-                name: 'Hosting',
-                description: 'Hosting',
+            var item = this.items[this.item];
+            window.stripe.open({
+                name: item.public_name,
+                email: window.user.email,
+                description: item.description,
                 currency: 'eur',
-                amount: 1000
-            });
-        },
-
-        submit: function submit() {
-            window.axios.post('/subscriptions', {
-                stripeToken: _this2.stripeToken,
-                stripeEmail: _this2.stripeEmail
-            }).then(function (response) {
-                console.log(response);
-            }).catch(function (error) {
-                console.log(error);
+                amount: item.amount
             });
         }
     }
@@ -2410,8 +2420,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
     methods: {
-        getHomeURL: function getHomeURL(path) {
-            return window.env.app_url + path;
+        getHomeURL: function getHomeURL() {
+            var path = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+
+            return window.env.APP_URL + path;
         }
     }
 });
@@ -2501,7 +2513,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, "\n.dashboard {\n  display: grid;\n  grid-template-columns: repeat(2, 1fr);\n  grid-gap: 1rem;\n}\n", ""]);
 
 // exports
 
@@ -2531,7 +2543,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.app {\n  display: grid;\n  grid-template-areas: \"nav\" \"header\" \"main\";\n  min-height: 100vh;\n}\n.app-nav {\n    grid-area: nav;\n    padding: 1em;\n}\n.app-header {\n    background: #3273dc;\n    color: #fff;\n    grid-area: header;\n    padding: 0.5em 1em;\n}\n.app-header-title {\n      color: #fff;\n      display: inline-block;\n      font-size: 2em;\n      margin-right: 1em;\n}\n.app-main {\n    background: #f1f1f1;\n    grid-area: main;\n    padding: 1em 0;\n}\n.app-footer {\n    border-top: 1px solid #ccc;\n    grid-area: footer;\n    text-align: center;\n}\n@media screen and (max-width: 768px) {\n.app {\n    grid-template-rows: auto auto 1fr;\n}\n}\n@media screen and (min-width: 769px) {\n.app {\n    grid-template-areas: \"nav header\" \"nav main\";\n    grid-template-columns: 1fr 4fr;\n    grid-template-rows: auto 1fr auto;\n}\n.app-nav {\n      border-right: 1px solid #ccc;\n      padding-top: 5em;\n}\n.app-header {\n      padding: 1em 2em;\n}\n.app-main {\n      height: calc(100vh - 5em);\n      overflow-y: auto;\n      padding: 2em;\n}\n}\n", ""]);
+exports.push([module.i, "\n.app {\n  display: grid;\n  grid-template-areas: \"nav\" \"header\" \"main\";\n  min-height: 100vh;\n}\n.app-nav {\n    grid-area: nav;\n    padding: 1em;\n}\n.app-header {\n    background: #3273dc;\n    color: #fff;\n    grid-area: header;\n    padding: 0.54em 14em;\n}\n.app-header-title {\n      color: #fff;\n      display: inline-block;\n      font-size: 2em;\n      margin-right: 1em;\n}\n.app-main {\n    background: #f1f1f1;\n    grid-area: main;\n    padding: 1rem 0;\n}\n.app-footer {\n    border-top: 1px solid #ccc;\n    grid-area: footer;\n    text-align: center;\n}\n@media screen and (max-width: 768px) {\n.app {\n    grid-template-rows: auto auto 1fr;\n}\n}\n@media screen and (min-width: 769px) {\n.app {\n    grid-template-areas: \"nav header\" \"nav main\";\n    grid-template-columns: 1fr 4fr;\n    grid-template-rows: auto 1fr auto;\n}\n.app-nav {\n      border-right: 1px solid #ccc;\n      padding-top: 5rem;\n}\n.app-header {\n      padding: 1rem 2rem;\n}\n.app-main {\n      height: calc(100vh - 5rem);\n      overflow-y: auto;\n      padding: 1rem;\n}\n}\n", ""]);
 
 // exports
 
@@ -3469,67 +3481,77 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "form",
-    { attrs: { action: "/subscriptions", method: "POST", id: "checkout" } },
-    [
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.stripeToken,
-            expression: "stripeToken"
-          }
-        ],
-        attrs: { type: "hidden", name: "stripeToken" },
-        domProps: { value: _vm.stripeToken },
+  return _c("form", [
+    _vm.items.length === 1
+      ? _c("span", [
+          _c("h1", { staticClass: "subtitle" }, [
+            _vm._v(_vm._s(_vm.items[0].public_name))
+          ]),
+          _vm._v(" "),
+          _c("p", [_vm._v(_vm._s(_vm.items[0].details))]),
+          _vm._v(" "),
+          _c("hr")
+        ])
+      : _vm.items.length > 1
+        ? _c("div", { staticClass: "field" }, [
+            _c("label", { attrs: { for: "item" } }, [_vm._v("Subscription:")]),
+            _vm._v(" "),
+            _c("div", { staticClass: "control" }, [
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.item,
+                      expression: "item"
+                    }
+                  ],
+                  attrs: { name: "item" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.item = $event.target.multiple
+                        ? $$selectedVal
+                        : $$selectedVal[0]
+                    }
+                  }
+                },
+                _vm._l(_vm.items, function(item, index) {
+                  return _c(
+                    "option",
+                    { key: item.id, domProps: { value: index } },
+                    [_vm._v(_vm._s(item.public_name))]
+                  )
+                })
+              )
+            ])
+          ])
+        : _c("p", [_vm._v("No available items found.")]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "button is-primary",
+        attrs: { type: "submit" },
         on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.stripeToken = $event.target.value
+          click: function($event) {
+            $event.preventDefault()
+            _vm.open($event)
           }
         }
-      }),
-      _vm._v(" "),
-      _c("input", {
-        directives: [
-          {
-            name: "model",
-            rawName: "v-model",
-            value: _vm.stripeEmail,
-            expression: "stripeEmail"
-          }
-        ],
-        attrs: { type: "hidden", name: "stripeEmail" },
-        domProps: { value: _vm.stripeEmail },
-        on: {
-          input: function($event) {
-            if ($event.target.composing) {
-              return
-            }
-            _vm.stripeEmail = $event.target.value
-          }
-        }
-      }),
-      _vm._v(" "),
-      _c(
-        "button",
-        {
-          attrs: { type: "submit" },
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              _vm.open($event)
-            }
-          }
-        },
-        [_vm._v("Buy")]
-      )
-    ]
-  )
+      },
+      [_vm._v("Purchase")]
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -3609,12 +3631,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "section",
-    { staticClass: "dashboard" },
-    [_c("card", { attrs: { title: "Subscriptions" } }, [_c("checkout")], 1)],
-    1
-  )
+  return _c("section", { staticClass: "dashboard" }, [_vm._t("default")], 2)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -16272,21 +16289,8 @@ var app = new __WEBPACK_IMPORTED_MODULE_1_vue___default.a({
 
 window.axios = __webpack_require__("./node_modules/axios/index.js");
 
+window.axios.defaults.headers.common['X-CSRF-TOKEN'] = window.sourceacademy.csrf_token;
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-
-/**
- * Next we will register the CSRF Token as a common header with Axios so that
- * all outgoing HTTP requests automatically have it attached. This is just
- * a simple convenience so we don't have to attach every token manually.
- */
-
-var token = window.sourceacademy.csrfToken;
-
-if (token) {
-    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
-} else {
-    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
-}
 
 /***/ }),
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Client;
 use App\Project;
 use App\User;
 use Cookie;
@@ -37,16 +38,23 @@ class SignupController extends Controller
                 ],
                 'completed' => false
             ],
+            'business' => [
+                'validation' => [
+                    'test' => true,
+                    'errorMessage' => 'You already have a business!'
+                ],
+                'completed' => false
+            ],
             'project' => [
                 'validation' => [
-                    'test' => !Auth::check(),
+                    'test' => Auth::check(),
                     'errorMessage' => 'You are not signed in!'
                 ],
                 'completed' => false
             ],
         ];
         $this->steps = array_keys($this->stepsArray);
-        $this->redirectTo = route('app.home');
+        $this->redirectTo = route('app.dashboard');
     }
 
     private function setQueryStringsAsCookies(Request $request)
@@ -64,7 +72,7 @@ class SignupController extends Controller
         if ($stepsArray[$step]['validation']['test']) {
             return true;
         }
-        // return false;
+        return false;
     }
 
     public function signup(Request $request)
@@ -95,9 +103,9 @@ class SignupController extends Controller
             $stepsArray[$step]['completed'] = true;
         }
 
-        if ($this->validateStep($step)) {
+        // if ($this->validateStep($step)) {
             return view('client.signup.' . $step, compact('stepsArray'));
-        }
+        // }
         return $stepsArray[$step]['validation']['errorMessage'];
     }
 
@@ -145,6 +153,14 @@ class SignupController extends Controller
         } else {
             $user = User::createWithRole($request);
         }
+
+        if ($request->type === 'client') {
+            $client = Client::create([
+                'name' => 'Cork Foundation',
+                'slug' => 'corkfoundation'
+            ])->users()->attach($user);
+        }
+        
         Auth::login($user, true);
     }
 
@@ -153,12 +169,21 @@ class SignupController extends Controller
         User::setPassword($request, Auth::user());
     }
 
+    public function business(Request $request)
+    {
+        $request->validate(['client_name' => 'required|max:255']);
+        Client::create([
+            'name' => $request->client_name,
+            'slug' => str_slug($request->client_name)
+        ])->users()->attach(Auth::user());
+    }
+
     public function project(Request $request)
     {
-        $request->validate(['project_name' => 'required|max:255']);
+        $request->validate(['project' => 'required|max:255']);
         Project::create([
-            'name' => $request->project_name,
-            'slug' => str_slug($request->project_name)
+            'name' => $request->project,
+            'slug' => str_slug($request->project)
         ])->users()->attach(Auth::user());
     }
 }

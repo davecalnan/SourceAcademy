@@ -4,8 +4,8 @@ $user = Auth::user();
 
 <script>
 	window.sourceacademy = {
-		csrfToken: "{{ csrf_token() }}",
-		stripeKey: "{{ config('services.stripe.key') }}"
+		csrf_token: "{{ csrf_token() }}",
+		stripe_key: "{{ config('services.stripe.key') }}"
 	}
 	window.env = {
 		'APP_DOMAIN': '{{ env('APP_DOMAIN') }}',
@@ -18,7 +18,9 @@ $user = Auth::user();
 		id: '{{ $user->id }}',
 		isLoggedIn: true,
 		name: '{{ $user->name }}',
+		@if(count($user->roles))
 		type: '{{ $user->roles()->first()->name }}'
+		@endif
 	@endif
 	}
 </script>

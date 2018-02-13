@@ -17,6 +17,13 @@ Before we get started - just a few quick details.
 <form method="POST" action="">
 	{{ csrf_field() }}
 
+	@if (Cookie::has('type'))
+	<input type="hidden"
+		name="type"
+		value="{{ Cookie::get('type') }}"
+		>
+	@endif
+
 	<input type="hidden" name="role" value="client">
 
 	<div class="field">

@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravel\Cashier\Billable;
 
 class Client extends Model
 {
+    use Billable;
+
     public $fillable = ['name', 'slug'];
 
     public function getRouteKeyName()
@@ -19,6 +22,10 @@ class Client extends Model
     }
 
     // Relationships
+    public function plans()
+    {
+        return $this->belongsToMany('App\Plan');
+    }
     public function projects()
     {
         return $this->hasMany('App\Server');

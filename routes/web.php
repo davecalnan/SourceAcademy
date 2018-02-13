@@ -56,6 +56,8 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
     Route::get('sourcerors', 'SourcerorController@index')->name('sourcerors.index');
     Route::get('sourcerors/{sourceror}', 'SourcerorController@show')->name('sourcerors.single');
 
+    Route::post('subscriptions', 'SubscriptionController@store');
+
     Route::get('test/auth', 'TestController@authCheck');
 });
 
@@ -67,7 +69,7 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
 
 // Route::group(['middleware' => 'auth'], function () {
 Route::domain('app.' . env('APP_DOMAIN'))->group(function () {
-    Route::view('/', 'app.dashboard')->name('app.dashboard');
+    Route::get('/', 'AppController@dashboard')->name('app.dashboard');
 
     Route::get('projects', 'ProjectController@showUserProjects')->name('app.projects.index');
     Route::get('projects/{projectSlug}', 'ProjectController@show')->name('app.projects.single');
