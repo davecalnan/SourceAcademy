@@ -80,7 +80,7 @@
   }
 }
 
-/* - - - - - - - - - -
- |	Sourcerors page  |
- - - - - - - - - - */
+.rounded {
+  border-radius: 50%;
+}
 

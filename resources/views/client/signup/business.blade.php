@@ -1,11 +1,11 @@
 @extends('layouts.fullscreen')
 
 @section('title')
-About your Business 💼
+About your Organisation 💼
 @endsection
 
 @section('subtitle')
-Please provide a few details about your business.
+Please provide a few details about your organisation.
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@ Please provide a few details about your business.
 	{{ csrf_field() }}
 
 	<div class="field">
-		<label class="label">Business Name:</label>
+		<label class="label">Organisation Name:</label>
 		<div class="control">
 			<input class="input {{ $errors->has('client_name') ? 'is-danger' : null }}"
 			type="text"
@@ -28,5 +28,6 @@ Please provide a few details about your business.
 	</div>
 	
 	<button class="button is-primary" type="submit" title="Yes, these details are correct.">Submit</button>
+	<button class="button is-primary" title="Skip entering organisation">Skip Organisation</button>
 </form>
 @endsection

@@ -33,7 +33,12 @@ Route::domain('www.' . env('APP_DOMAIN'))->group(function () {
 */
 
 Route::domain(env('APP_DOMAIN'))->group(function () {
-    Route::view('/', 'site.home')->name('site.home');
+    // Pages
+    Route::get('/', 'SiteController@home');
+    Route::get('about', 'SiteController@about');
+
+    Route::get('freelancers', 'SiteController@freelancers');
+    Route::get('freelancers/{freelancer}', 'SiteController@freelancer');
 
     Route::view('apply', 'site.apply')->name('site.apply');
 

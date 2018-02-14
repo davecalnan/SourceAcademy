@@ -65,5 +65,6 @@ Before we get started - just a few quick details.
 
 	<button class="button is-primary" type="submit" title="Yes, these details are correct.">Looks good 👍</button>
 </form>
+<p style="margin-top:2em">Already have an account? <a href="/login">Log in</a></p>
 
 @endsection	

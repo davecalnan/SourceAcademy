@@ -27,5 +27,14 @@ Vue.component('sourcerorCard', sourcerorCard)
 import sidebarLayout from './sidebar-layout.vue'
 Vue.component('sidebarLayout', sidebarLayout)
 
+import siteSection from './site-section.vue'
+Vue.component('siteSection', siteSection)
+
+import step from './step.vue'
+Vue.component('step', step)
+
+import steps from './steps.vue'
+Vue.component('steps', steps)
+
 import toast from './toast.vue'
 Vue.component('toast', toast)

@@ -1,51 +1,52 @@
 <template>
     <nav class="navbar">
         <div class="navbar-brand">
-            <a href="/">
+            <a class="navbar-item" href="/">
                 <img class="navbar-logo" src="/img/sourceacademy-logo.svg" alt="SourceAcademy Logo">
             </a>
+            <div class="navbar-burger"
+                    :class="{ 'is-active': navbarMenuVisibility }"
+                    @click="navbarMenuVisibility = !navbarMenuVisibility">
+                <span/>
+                <span/>
+                <span/>
+            </div>
         </div>
-        <div class="navbar-menu">
-            <!-- <a href="" class="navbar-link">Home</a> -->
-            <a v-if="user.isLoggedIn" class="navbar-link" href="/logout">Logout</a>
-            <a v-if="user.isLoggedIn" class="navbar-link button is-primary is-outlined" href="https://app.sourceacademy.co">Dashboard</a>
-            <a v-if="!user.isLoggedIn" class="navbar-link" href="/login">Login</a>
-            <a v-if="!user.isLoggedIn" class="navbar-link button is-primary is-outlined" href="/signup">Signup</a>
+        <div class="navbar-menu"
+             :class="{ 'is-active': navbarMenuVisibility }">
+            <div class="navbar-end">
+                <a href="/freelancers" class="navbar-item">Student Freelancers</a>
+                <!-- <a href="/projects" class="navbar-item">Happy Clients</a> -->
+                <a href="/about" class="navbar-item">About</a>
+                <a v-if="user.isLoggedIn" class="navbar-item" href="/logout">Logout</a>
+                <div class="navbar-item">
+                    <div class="field">
+                        <p class="control">
+                            <a v-if="user.isLoggedIn" class="button is-primary" href="https://app.sourceacademy.co">Dashboard</a>
+                            <a v-if="!user.isLoggedIn" class="button is-primary" href="/signup">Signup</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </nav>
 </template>
 
 <style lang="scss">
-    .navbar {
-        align-items: center;
-        border-bottom: 1px solid #ccc;
-        color: #4a4a4a;
-        display: flex;
-        height: 3rem;
-        justify-content: space-between;
-        padding: 0 5%;
+@import '~@/_variables.scss';
 
-        &-brand {
-            height: 2rem;
-        }
+.navbar {
 
-        &-logo {
-            height: 2rem;
-        }
-
-        &-menu {
-            align-items: center;
-            display: flex;
-        }
-
-        &-link {
-            color: inherit;
-
-            &:not(:first-of-type) {
-                margin-left: 0.5em;
-            }
-        }
+    &-logo {
+        height: 2em;
     }
+}
+
+@media screen and (min-width: 1024px) {
+    .navbar {
+        padding: 0 5%;
+    }
+}
 </style>
 
 <script>
@@ -54,7 +55,7 @@ import { mapState } from 'vuex'
 export default {
     data() {
         return {
-            
+            navbarMenuVisibility: false
         }
     },
     

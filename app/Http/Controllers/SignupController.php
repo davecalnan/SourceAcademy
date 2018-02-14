@@ -38,7 +38,7 @@ class SignupController extends Controller
                 ],
                 'completed' => false
             ],
-            'business' => [
+            'organisation' => [
                 'validation' => [
                     'test' => true,
                     'errorMessage' => 'You already have a business!'
@@ -153,13 +153,6 @@ class SignupController extends Controller
         } else {
             $user = User::createWithRole($request);
         }
-
-        if ($request->type === 'client') {
-            $client = Client::create([
-                'name' => 'Cork Foundation',
-                'slug' => 'corkfoundation'
-            ])->users()->attach($user);
-        }
         
         Auth::login($user, true);
     }
@@ -169,12 +162,12 @@ class SignupController extends Controller
         User::setPassword($request, Auth::user());
     }
 
-    public function business(Request $request)
+    public function organisation(Request $request)
     {
-        $request->validate(['client_name' => 'required|max:255']);
-        Client::create([
-            'name' => $request->client_name,
-            'slug' => str_slug($request->client_name)
+        $request->validate(['organisation_name' => 'required|max:255']);
+        Organisation::create([
+            'name' => $request->organisation_name,
+            'slug' => str_slug($request->organisation_name)
         ])->users()->attach(Auth::user());
     }
 
