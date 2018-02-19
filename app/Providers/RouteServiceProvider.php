@@ -27,11 +27,11 @@ class RouteServiceProvider extends ServiceProvider
             return \App\Project::where('slug', $projectSlug)->first();
         });
 
-        Route::bind('sourceror', function ($id) {
-            $sourceror = \App\Sourceror::with('user')->first();
-            $sourceror->name = $sourceror->user->name;
-            $sourceror->email = $sourceror->user->email;
-            return $sourceror;
+        Route::bind('freelancer', function ($id) {
+            $freelancer = \App\Freelancer::with('user')->first();
+            $freelancer->name = $freelancer->user->name;
+            $freelancer->email = $freelancer->user->email;
+            return $freelancer;
         });
 
         parent::boot();

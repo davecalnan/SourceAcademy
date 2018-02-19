@@ -1,10 +1,10 @@
 <?php
 
-use App\Client;
+use App\Organisation;
 use App\User;
 use Illuminate\Database\Seeder;
 
-class ClientTableSeeder extends Seeder
+class OrganisationTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class ClientTableSeeder extends Seeder
     {
         $user = User::where('name', 'Padraic Vallely')->get();
 
-        $client = Client::create([
+        $organisation = Organisation::create([
             'name' => 'Cork Foundation',
             'slug' => 'corkfoundation'
         ])->users()->attach($user);

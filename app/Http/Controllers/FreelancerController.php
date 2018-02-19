@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Sourceror;
+use App\Freelancer;
 use App\User;
 use Illuminate\Http\Request;
 
-class SourcerorController extends Controller
+class FreelancerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,17 +15,17 @@ class SourcerorController extends Controller
      */
     public function index()
     {
-        $sourcerors = Sourceror::with('user')->get();
-        foreach ($sourcerors as $sourceror) {
-            $sourceror->name = $sourceror->user->name;
+        $freelancers = Freelancer::with('user')->get();
+        foreach ($freelancers as $freelancer) {
+            $freelancer->name = $freelancer->user->name;
         }
-        // dd($sourcerors);
+        // dd($freelancers);
 
-        // $sourcerors = User::whereHas('roles', function ($query) {
-        //     $query->where('name', 'sourceror');
+        // $freelancers = User::whereHas('roles', function ($query) {
+        //     $query->where('name', 'freelancer');
         // })->get();
         
-        return view('site.sourcerors.index', compact('sourcerors'));
+        return view('site.freelancers.index', compact('freelancers'));
     }
 
     /**
@@ -52,24 +52,24 @@ class SourcerorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Sourceror  $sourceror
+     * @param  \App\freelancer  $freelancer
      * @return \Illuminate\Http\Response
      */
-    public function show(Sourceror $sourceror)
+    public function show(Freelancer $freelancer)
     {
-        if ($sourceror) {
-            return $sourceror;
+        if ($freelancer) {
+            return $freelancer;
         }
-        return response('Sourceror not found.', 404);
+        return response('Freelancer not found.', 404);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Sourceror  $sourceror
+     * @param  \App\freelancer  $freelancer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Sourceror $sourceror)
+    public function edit(Freelancer $freelancer)
     {
         //
     }
@@ -78,10 +78,10 @@ class SourcerorController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Sourceror  $sourceror
+     * @param  \App\freelancer  $freelancer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sourceror $sourceror)
+    public function update(Request $request, Freelancer $freelancer)
     {
         //
     }
@@ -89,10 +89,10 @@ class SourcerorController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Sourceror  $sourceror
+     * @param  \App\freelancer  $freelancer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sourceror $sourceror)
+    public function destroy(Freelancer $freelancer)
     {
         //
     }

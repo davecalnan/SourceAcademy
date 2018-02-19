@@ -21,8 +21,8 @@ Vue.component('feedbackOption', feedbackOption)
 import navbar from './navbar.vue'
 Vue.component('navbar', navbar)
 
-import sourcerorCard from './sourceror-card.vue'
-Vue.component('sourcerorCard', sourcerorCard)
+import freelancerCard from './freelancer-card.vue'
+Vue.component('freelancerCard', freelancerCard)
 
 import sidebarLayout from './sidebar-layout.vue'
 Vue.component('sidebarLayout', sidebarLayout)
@@ -35,6 +35,12 @@ Vue.component('step', step)
 
 import steps from './steps.vue'
 Vue.component('steps', steps)
+
+import teamMember from './team-member.vue'
+Vue.component('teamMember', teamMember)
+
+import testimonial from './testimonial.vue'
+Vue.component('testimonial', testimonial)
 
 import toast from './toast.vue'
 Vue.component('toast', toast)

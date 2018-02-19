@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Client;
+use App\Organisation;
 use App\Project;
 use App\User;
 use Cookie;
@@ -84,10 +84,10 @@ class SignupController extends Controller
             $this->setQueryStringsAsCookies($request);
         }
 
-        return redirect(route('client.signup.step', ['step' => $steps[0]]));
+        return redirect(route('organisation.signup.step', ['step' => $steps[0]]));
     }
 
-    public function client(Request $request, $step = null)
+    public function step(Request $request, $step = null)
     {
         $stepsArray = $this->stepsArray;
         $steps = $this->steps;
@@ -95,7 +95,7 @@ class SignupController extends Controller
         $currentStep = $this->currentStep($request);
 
         if (!in_array($step, $steps, true)) {
-            return redirect(route('client.signup.step', ['step' => $steps[0]]));
+            return redirect(route('organisation.signup.step', ['step' => $steps[0]]));
         };
 
         foreach ($steps as $step) {
@@ -104,7 +104,7 @@ class SignupController extends Controller
         }
 
         // if ($this->validateStep($step)) {
-            return view('client.signup.' . $step, compact('stepsArray'));
+            return view('organisation.signup.' . $step, compact('stepsArray'));
         // }
         return $stepsArray[$step]['validation']['errorMessage'];
     }

@@ -15,15 +15,15 @@ Please provide a few details about your organisation.
 	<div class="field">
 		<label class="label">Organisation Name:</label>
 		<div class="control">
-			<input class="input {{ $errors->has('client_name') ? 'is-danger' : null }}"
+			<input class="input {{ $errors->has('organisation_name') ? 'is-danger' : null }}"
 			type="text"
-			name="client_name"
+			name="organisation_name"
 			placeholder="Bravo Enterprises"
-			value="{{ old('client_name') ? old('client_name') : Cookie::get('client_name') }}"
+			value="{{ old('organisation_name') ? old('organisation_name') : Cookie::get('organisation_name') }}"
 			autofocus>
 		</div>
-		@if ($errors->has('client_name'))
-		<p class="help is-danger">{{ $errors->first('client_name') }}</p>
+		@if ($errors->has('organisation_name'))
+		<p class="help is-danger">{{ $errors->first('organisation_name') }}</p>
 		@endif
 	</div>
 	

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateClientPlanTable extends Migration
+class CreateOrganisationPlanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateClientPlanTable extends Migration
      */
     public function up()
     {
-        Schema::create('client_plan', function (Blueprint $table) {
-            $table->unsignedInteger('client_id');
-            $table->foreign('client_id')->references('id')->on('clients');
+        Schema::create('organisation_plan', function (Blueprint $table) {
+            $table->unsignedInteger('organisation_id');
+            $table->foreign('organisation_id')->references('id')->on('organisations');
             $table->unsignedInteger('plan_id');
             $table->foreign('plan_id')->references('id')->on('plans');
             $table->timestamps();
@@ -29,6 +29,6 @@ class CreateClientPlanTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('client_plans');
+        Schema::dropIfExists('organisation_plans');
     }
 }

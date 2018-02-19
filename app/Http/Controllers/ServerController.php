@@ -38,7 +38,7 @@ class ServerController extends Controller
     {
         $request->validate([
             'id' => 'required|unique:servers',
-            'client_id' => 'required',
+            'organisation_id' => 'required',
             'name' => 'required'
         ]);
 

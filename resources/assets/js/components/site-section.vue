@@ -31,7 +31,7 @@
     }
 
     &:last-of-type {
-        margin-bottom: 3rem;
+        padding-bottom: 3rem;
     }
 }
 </style>

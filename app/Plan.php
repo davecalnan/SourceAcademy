@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Plan extends Model
 {
-    public function clients()
+    public function organisations()
     {
-        return $this->belongsToMany('App\Client');
+        return $this->belongsToMany('App\Organisation');
     }
 }

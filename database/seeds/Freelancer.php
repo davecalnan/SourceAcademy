@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class Sourceror extends Seeder
+class Freelancer extends Seeder
 {
     /**
      * Run the database seeds.

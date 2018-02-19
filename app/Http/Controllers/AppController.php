@@ -15,9 +15,9 @@ class AppController extends Controller
         // if ($user->is('client')) {
         $projects = $user->projects;
 
-        $client = $user->clients()->first();
-        if ($client) {
-            $plans = $client->plans()->get();
+        $organisation = $user->organisations()->first();
+        if ($organisation) {
+            $plans = $organisation->plans()->get();
         } else {
             $plans = [];
         }

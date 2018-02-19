@@ -50,10 +50,21 @@
  |	Home page  |
  - - - - - - */
 
-.home .buttons {
+.home .hero:first-child {
+  background-blend-mode: multiply;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-image: url("/img/library.jpg");
+  background-position: center top;
+}
+
+.home .hero:first-child .buttons {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.hero.is-black .navbar-menu {
+  background: transparent !important;
 }
 
 .services-grid {
@@ -70,6 +81,25 @@
           justify-content: space-between;
 }
 
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 1rem;
+}
+
+/* - - - - - - - -
+ |	About page  |
+ - - - - - - - */
+
+.about .hero:first-child {
+  background-blend-mode: multiply;
+  background-color: rgba(0, 0, 0, 0.4);
+  background-image: url("/img/desk.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 /* - - - - - - - -
  |	Apply page  |
  - - - - - - - */
@@ -82,5 +112,39 @@
 
 .rounded {
   border-radius: 50%;
+}
+
+.typed-cursor {
+  opacity: 1;
+  -webkit-animation: blink 0.7s infinite;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 

@@ -14,7 +14,7 @@
             <tr>
                 <th>Server ID</th>
                 <th>Server Name</th>
-                <th>Client</th>
+                <th>Organisation</th>
             </tr>
         </thead>
         <tbody>
@@ -22,7 +22,7 @@
             <tr>
                 <td>{{ $server->id }}</td>
                 <td><a href="/servers/{{ $server->id }}">{{ $server->name }}<a></td>
-                {{--  <td><a href="/clients/{{ $server->client->slug }}">{{ $server->client->name }}<a></td>  --}}
+                {{--  <td><a href="/organisations/{{ $server->organisation->slug }}">{{ $server->organisation->name }}<a></td>  --}}
             </tr>
             @endforeach
         </tbody>

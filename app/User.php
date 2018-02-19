@@ -39,15 +39,15 @@ class User extends Authenticatable
       'password', 'remember_token',
     ];
 
-    public function clients()
+    public function organisations()
     {
-        return $this->belongsToMany('App\Client');
+        return $this->belongsToMany('App\Organisation');
     }
 
     public function profile()
     {
-        if ($this->is('sourceror')) {
-            return $this->hasOne('App\Sourceror');
+        if ($this->is('freelancer')) {
+            return $this->hasOne('App\freelancer');
         }
     }
 

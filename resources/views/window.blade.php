@@ -8,8 +8,8 @@ $user = Auth::user();
 		stripe_key: "{{ config('services.stripe.key') }}"
 	}
 	window.env = {
-		'APP_DOMAIN': '{{ env('APP_DOMAIN') }}',
-		'APP_URL': '{{ env('APP_URL') }}'
+		'app_domain': '{{ env('APP_DOMAIN') }}',
+		'app_url': '{{ env('APP_URL') }}'
 	}
 	window.user = {
 	@if(Auth::user())

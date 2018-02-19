@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSourcerorsTable extends Migration
+class CreateOrganisationUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateSourcerorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sourcerors', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('organisation_user', function (Blueprint $table) {
+            $table->unsignedInteger('organisation_id');
+            $table->foreign('organisation_id')->references('id')->on('organisations');
             $table->unsignedInteger('user_id');
-            $table->string('title')->nullable();
-            $table->boolean('shopify')->default(false);
-            $table->boolean('wordpress')->default(false);
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateSourcerorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sourcerors');
+        Schema::dropIfExists('organisation_user');
     }
 }

@@ -5,7 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Cashier\Billable;
 
-class Client extends Model
+class Organisation extends Model
 {
     use Billable;
 
@@ -18,7 +18,7 @@ class Client extends Model
 
     public function path()
     {
-        return '/clients/' . $this->slug;
+        return '/organisations/' . $this->slug;
     }
 
     // Relationships

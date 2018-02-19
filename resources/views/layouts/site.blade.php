@@ -13,6 +13,7 @@
     </title>
 
     <!-- CSS -->
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{ mix('/css/vendor.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ mix('/css/site.css') }}">
     
@@ -21,7 +22,9 @@
     <div id="app" class="main-grid">
 
         <header class="header">
-            <navbar></navbar>
+            @section('header')
+            <navbar :is-primary="true"></navbar>
+            @show
         </header>
 
         <main class="main">

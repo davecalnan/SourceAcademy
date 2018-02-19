@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Sourceror extends Model
+class Freelancer extends Model
 {
     public function user()
     {

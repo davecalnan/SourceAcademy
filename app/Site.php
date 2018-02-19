@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Site extends Model
 {
-    public function client()
+    public function organisation()
     {
-        return $this->belongsTo('App\Client');
+        return $this->belongsTo('App\Organisation');
     }
 
     public function project()

@@ -53,7 +53,7 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'client_id' => 'required|exists:clients,id',
+            'organisation_id' => 'required|exists:organisations,id',
             'name' => 'required',
             'slug' => 'required|unique:projects',
             'type' => 'required'

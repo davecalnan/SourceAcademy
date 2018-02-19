@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Client;
+use App\Organisation;
 use App\Server;
 use Illuminate\Http\Request;
 
-class ClientController extends Controller
+class OrganisationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,10 +42,10 @@ class ClientController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Client  $client
+     * @param  \App\Organisation  $organisation
      * @return \Illuminate\Http\Response
      */
-    public function show(Client $client)
+    public function show(Organisation $organisation)
     {
         //
     }
@@ -53,10 +53,10 @@ class ClientController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Client  $client
+     * @param  \App\Organisation  $organisation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Client $client)
+    public function edit(Organisation $organisation)
     {
         //
     }
@@ -65,32 +65,32 @@ class ClientController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Client  $client
+     * @param  \App\Organisation  $organisation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Client $client)
+    public function update(Request $request, Organisation $organisation)
     {
-        $client->update($request->all());
+        $organisation->update($request->all());
         return back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Client  $client
+     * @param  \App\Organisation  $organisation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Client $client)
+    public function destroy(Organisation $organisation)
     {
         //
     }
 
-    public function setUpWordPress(Client $client, Request $request)
+    public function setUpWordPress(Organisation $organisation, Request $request)
     {
         $forge = new \Themsaid\Forge\Forge(config('app.forge_token'));
 
-        $server = $this->createServer($forge, $request->size, $request->slug);
-        // $server = $forge->server(179264);
+        // $server = $this->createServer($forge, $request->size, $request->slug);
+        $server = $forge->server(182513);
         $database = $this->createWordPressDatabase($forge, $server, $request->slug);
         $user = $this->createWordPressDatabaseUser($database, $forge, $server, $request->slug);
         $site = $this->createWordPressSite($database, $forge, $server, $request->slug, $user);
@@ -100,7 +100,7 @@ class ClientController extends Controller
 
         Server::create([
             'id' => $server->id,
-            'client_id' => $client->id,
+            'organisation_id' => $organisation->id,
             'name' => $server->name
         ]);
 

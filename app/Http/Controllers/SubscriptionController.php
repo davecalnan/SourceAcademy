@@ -12,12 +12,12 @@ class SubscriptionController extends Controller
     public function store(Request $request)
     {
         $user = User::where('email', $request->stripeEmail)->first();
-        $client = $user->clients()->first();
+        $organisation = $user->organisations()->first();
         $plan = Plan::where('private_name', $request->plan)->first();
 
-        $client->newSubscription($plan->private_name, $plan->private_name)
+        $organisation->newSubscription($plan->private_name, $plan->private_name)
                ->create($request->stripeToken, [
-                   'name' => $client->name,
+                   'name' => $organisation->name,
                    'email' => $user->email
                ]);
 

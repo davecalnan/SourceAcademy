@@ -9,7 +9,7 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         $admin = Role::where('name', 'admin')->first();
-    	$sourceror = Role::where('name', 'sourceror')->first();
+    	$freelancer = Role::where('name', 'freelancer')->first();
     	$client = Role::where('name', 'client')->first();
 
         User::create([
