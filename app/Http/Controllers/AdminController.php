@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Client;
+use App\Organisation;
 use App\Project;
 use App\Server;
 use App\User;
@@ -23,14 +23,14 @@ class AdminController extends Controller
     	return view('admin.home', ['users' => $users]);
     }
 	
-    public function clients($slug = null) {
+    public function organisations($slug = null) {
         if ($slug) {
-            $client = Client::where('slug', $slug)->with('users', 'servers')->first();
-            return view('admin.client', ['client' => $client]);
+            $organisation = organisation::where('slug', $slug)->with('users', 'servers')->first();
+            return view('admin.organisation', ['organisation' => $organisation]);
         }
 
-        $clients = Client::all();
-    	return view('admin.clients', ['clients' => $clients]);
+        $organisations = organisation::all();
+    	return view('admin.organisations', ['organisations' => $organisations]);
     }
 	
     public function projects($slug = null) {
@@ -43,10 +43,10 @@ class AdminController extends Controller
             return array_push($errors, 'This project could not be found');
         }
 
-        $clients = Client::all();
+        $organisations = organisation::all();
         $projects = Project::all();
 
-    	return view('admin.projects', ['clients' => $clients, 'projects' => $projects])->withErrors($errors);
+    	return view('admin.projects', ['organisations' => $organisations, 'projects' => $projects])->withErrors($errors);
     }
 
     public function servers($id = null) {
@@ -54,16 +54,16 @@ class AdminController extends Controller
 
         if ($id) {
             $server = $forge->server($id);
-            $client = Server::findOrFail($id)->with('client')->firstOrFail()->client;
+            $organisation = Server::findOrFail($id)->with('organisation')->firstOrFail()->organisation;
             $sites = $forge->sites($id);
 
-            return view('admin.server', ['client' => $client, 'server' => $server, 'sites' => $sites]);
+            return view('admin.server', ['organisation' => $organisation, 'server' => $server, 'sites' => $sites]);
         }
 
         $servers = $forge->servers();
         // array_map(function($server) {
-        //     if ($client = Server::findOrFail($server->id)->client) { // currently this throws an exception if there is no Server record in the database with this $server->id
-        //         $server->client = $client;
+        //     if ($organisation = Server::findOrFail($server->id)->organisation) { // currently this throws an exception if there is no Server record in the database with this $server->id
+        //         $server->organisation = $organisation;
         //     }
         // }, $servers);
 

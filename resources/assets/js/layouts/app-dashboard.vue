@@ -1,14 +1,14 @@
 <template>
     <section class="dashboard">
-        <card title="Subscriptions">
-            <checkout/>
-        </card>
+        <slot/>
     </section>
 </template>
 
 <style lang="scss">
 .dashboard {
-
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
 }
 </style>
 

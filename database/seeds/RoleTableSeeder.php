@@ -18,7 +18,7 @@ class RoleTableSeeder extends Seeder
         ]);
 
         Role::create([
-            'name' => 'sourceror',
+            'name' => 'freelancer',
             'description' => 'A student freelancer.',
         ]);
 

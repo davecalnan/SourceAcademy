@@ -15,7 +15,7 @@ class CreateSitesTable extends Migration
     {
         Schema::create('sites', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('client_id');
+            $table->unsignedInteger('organisation_id');
             $table->unsignedInteger('server_id');
             $table->string('name');
             $table->string('slug');

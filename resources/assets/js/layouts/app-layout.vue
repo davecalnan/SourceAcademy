@@ -24,7 +24,7 @@
         background: $brand-primary;
         color: #fff;
         grid-area: header;
-        padding: 0.5em 1em;
+        padding: 0.54em 14em;
 
         &-title {
             color: #fff;
@@ -37,7 +37,7 @@
     &-main {
         background: $background-light;
         grid-area: main;
-        padding: 1em 0;
+        padding: 1rem 0;
     }
 
     &-footer {
@@ -63,17 +63,17 @@
 
         &-nav {
             border-right: 1px solid #ccc;
-            padding-top: 5em;
+            padding-top: 5rem;
         }
 
         &-header {
-            padding: 1em 2em;
+            padding: 1rem 2rem;
         }
 
         &-main {
-            height: calc(100vh - 5em);
+            height: calc(100vh - 5rem);
             overflow-y: auto;
-            padding: 2em;
+            padding: 1rem;
         }
 
         &-footer {

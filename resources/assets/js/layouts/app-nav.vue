@@ -1,14 +1,14 @@
 <template>
     <nav class="app-nav">
-		<a :href="getHomeURL()">
+		<a :href="getRootDomainUrl()">
             <img class="app-nav-logo" src="/img/sourceacademy-logo.svg" alt="SourceAcademy Logo">
         </a>
         <hr>
         <a href="/" class="app-nav-link">Home</a>
         <a href="/projects" class="app-nav-link">Projects</a>
-        <a v-if="user.type == 'admin'" href="/clients" class="app-nav-link">Clients</a>
+        <a v-if="user.type == 'admin'" href="/organisations" class="app-nav-link">Organisations</a>
         <a v-if="user.type == 'admin'" href="/servers" class="app-nav-link">Servers</a>
-        <a :href="getHomeURL('/logout')" class="app-nav-link">Logout</a>
+        <a :href="getRootDomainUrl('/logout')" class="app-nav-link">Logout</a>
         </div>
     </nav>
 </template>
@@ -65,7 +65,7 @@ export default {
     },
     
     methods: {
-        getHomeURL: path => {
+        getRootDomainUrl: (path = '') => {
 			return window.env.app_url + path
 		}
     }

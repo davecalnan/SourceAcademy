@@ -1,9 +1,20 @@
 <template>
-    <form action="/subscriptions" method="POST" id="checkout">
-        <input type="hidden" name="stripeToken" v-model="stripeToken">
-        <input type="hidden" name="stripeEmail" v-model="stripeEmail">
-
-        <button type="submit" @click.prevent="open">Buy</button>
+    <form>
+        <span v-if="items.length === 1">
+            <h1 class="subtitle">{{ items[0].public_name }}</h1>
+            <p>{{ items[0].details }}</p>
+            <hr>
+        </span>
+        <div class="field" v-else-if="items.length > 1">
+            <label for="item">Subscription:</label>
+            <div class="control">
+                <select name="item" v-model="item">
+                    <option v-for="(item, index) in items" :key="item.id" :value="index">{{ item.public_name }}</option>
+                </select>
+            </div>
+        </div>
+        <p v-else>No available items found.</p>
+        <button class="button is-primary" type="submit" @click.prevent="open">Purchase</button>
     </form>
 </template>
 
@@ -13,50 +24,51 @@
 
 <script>
 export default {
-    props: [],
+    props: {
+        items: {
+            type: Array,
+            default: null
+        },
+    },
 
     data() {
         return {
-            stripeToken: '',
-            stripeEmail: ''
+            item: 0
         }
     },
     
     created() {
-        this.stripe = StripeCheckout.configure({
-            key: window.sourceacademy.stripeKey,
+        window.stripe = StripeCheckout.configure({
+            key: window.sourceacademy.stripe_key,
             image: 'https://sourceacademy.co/img/sourceacademy-logo.png',
             locale: 'auto',
             token: token => {
-                this.stripeToken = token.id
-                this.stripeEmail = token.email
-
-                this.submit()
+                window.axios.post(window.env.APP_URL + '/subscriptions', {
+                    stripeEmail: token.email,
+                    stripeToken: token.id,
+                    plan: this.items[this.item].private_name
+                })
+                .then(function (response) {
+                    alert('Successful, thank you!')
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
             }
         })
     },
     
     methods: {
-        open: () => {
-            this.stripe.open({
-                name: 'Hosting',
-                description: 'Hosting',
+        open: function () {
+            let item = this.items[this.item]
+            window.stripe.open({
+                name: item.public_name,
+                email: window.user.email,
+                description: item.description,
                 currency: 'eur',
-                amount: 1000
+                amount: item.amount
             })
-        },
-
-        submit: () => {
-            window.axios.post('/subscriptions', {
-                stripeToken: this.stripeToken,
-                stripeEmail: this.stripeEmail
-            })
-            .then(function (response) {
-                console.log(response);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
         }
     }
 }

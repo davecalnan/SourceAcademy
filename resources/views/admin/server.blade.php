@@ -14,8 +14,8 @@
     <table class="table is-striped is-fullwidth">
         <tbody>
             <tr>
-                <th>Client</th>
-                <td><a href="/clients/{{ $client->slug }}">{{ $client->name }}</a></td>
+                <th>Organisation</th>
+                <td><a href="/organisations/{{ $organisation->slug }}">{{ $organisation->name }}</a></td>
             </tr>
             <tr>
                 <th>id</th>

@@ -2,16 +2,16 @@
 	{{ csrf_field() }}
 
 	<div class="field">
-		<label class="label">Client</label>
+		<label class="label">Organisation</label>
 		<div class="control">
 			<div class="select {{ $errors->has('type') ? ' is-error' : '' }}">
-				<select name="client_id" required autofocus>
-					<option value="" selected>Select a Client..</option>
-					@foreach ($clients as $client)
-					<option value="{{ $client->id }}"
-						@if ($client->id == old('client_id'))
+				<select name="organisation_id" required autofocus>
+					<option value="" selected>Select an organisation..</option>
+					@foreach ($organisations as $organisation)
+					<option value="{{ $organisation->id }}"
+						@if ($organisation->id == old('organisation_id'))
 						selected
-						@endif>{{ $client->name }}</option>
+						@endif>{{ $organisation->name }}</option>
 					@endforeach
 				</select>
 			</div>

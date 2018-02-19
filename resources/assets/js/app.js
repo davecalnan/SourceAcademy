@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 import './components'
 import './filters'
 import './layouts'
+import Typed from 'typed.js'
 
 
 Vue.use(Vuex)
@@ -25,3 +26,15 @@ const app = new Vue({
   el: '#app',
   store
 })
+
+let options = {
+  backDelay: 1000,
+  backSpeed: 60,
+  loop: true,
+  smartBackspace: true,
+  startDelay: 400,
+  strings: ['a website', 'an online store', 'a video', 'a poster'],
+  typeSpeed: 60
+}
+
+let typed = new Typed('#typed-services', options)

@@ -33,13 +33,18 @@ Route::domain('www.' . env('APP_DOMAIN'))->group(function () {
 */
 
 Route::domain(env('APP_DOMAIN'))->group(function () {
-    Route::view('/', 'site.home')->name('site.home');
+    // Pages
+    Route::get('/', 'SiteController@home')->name('site.home');
+    Route::get('about', 'SiteController@about');
+
+    Route::get('freelancers', 'SiteController@freelancers');
+    Route::get('freelancers/{freelancer}', 'SiteController@freelancer');
 
     Route::view('apply', 'site.apply')->name('site.apply');
 
-    Route::get('signup', 'SignupController@signup')->name('client.signup');
-    Route::get('signup/{step?}', 'SignupController@client')->name('client.signup.step');
-    Route::post('signup/{step}', 'SignupController@action')->name('client.signup.action');
+    Route::get('signup', 'SignupController@signup')->name('organisation.signup');
+    Route::get('signup/{step?}', 'SignupController@step')->name('organisation.signup.step');
+    Route::post('signup/{step}', 'SignupController@action')->name('organisation.signup.action');
 
     Route::view('site', 'site');
 
@@ -50,11 +55,13 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
 
     Route::patch('projects', 'ProjectController@update')->name('projects.update');
 
-    Route::post('clients/{client}', 'ClientController@store');
-    Route::patch('clients/{client}', 'ClientController@update');
+    Route::post('organisations/{organisation}', 'OrganisationController@store');
+    Route::patch('organisations/{organisation}', 'OrganisationController@update');
 
-    Route::get('sourcerors', 'SourcerorController@index')->name('sourcerors.index');
-    Route::get('sourcerors/{sourceror}', 'SourcerorController@show')->name('sourcerors.single');
+    Route::get('freelancers', 'FreelancerController@index')->name('freelancers.index');
+    Route::get('freelancers/{freelancer}', 'FreelancerController@show')->name('freelancers.single');
+
+    Route::post('subscriptions', 'SubscriptionController@store');
 
     Route::get('test/auth', 'TestController@authCheck');
 });
@@ -65,19 +72,19 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
 |--------------------------------------------------------------------------
 */
 
-// Route::group(['middleware' => 'auth'], function () {
-Route::domain('app.' . env('APP_DOMAIN'))->group(function () {
-    Route::view('/', 'app.dashboard')->name('app.dashboard');
+Route::group(['middleware' => 'auth'], function () {
+    Route::domain('app.' . env('APP_DOMAIN'))->group(function () {
+        Route::get('/', 'AppController@dashboard')->name('app.dashboard');
 
-    Route::get('projects', 'ProjectController@showUserProjects')->name('app.projects.index');
-    Route::get('projects/{projectSlug}', 'ProjectController@show')->name('app.projects.single');
+        Route::get('projects', 'ProjectController@showUserProjects')->name('app.projects.index');
+        Route::get('projects/{projectSlug}', 'ProjectController@show')->name('app.projects.single');
 
-    Route::get('test', 'TestController@app')->name('app.test');
+        Route::get('test', 'TestController@app')->name('app.test');
 
-    Route::post('projects', 'ProjectController@store')->name('projects.store');
-    Route::post('users', 'UserController@store')->name('user.store');
+        Route::post('projects', 'ProjectController@store')->name('projects.store');
+        Route::post('users', 'UserController@store')->name('user.store');
+    });
 });
-// });
 
 /*
 |--------------------------------------------------------------------------
@@ -90,9 +97,9 @@ Route::group(['middleware' => 'can:admin'], function () {
         Route::get('servers/{slug?}', 'AdminController@servers');
         Route::get('servers-info', 'ServerController@index');
         Route::get('projects/{slug?}', 'AdminController@projects');
-        Route::get('clients/{slug?}', 'AdminController@clients');
+        Route::get('organisations/{slug?}', 'AdminController@organisations');
 
-        Route::post('clients/{slug}/setupwordpress', 'ClientController@setUpWordPress');
+        Route::post('organisations/{slug}/setupwordpress', 'OrganisationController@setUpWordPress');
 
         Route::get('projects/{slug}/edit', 'ProjectController@edit')->name('admin.projects.edit');
 

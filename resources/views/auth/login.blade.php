@@ -1,4 +1,4 @@
-@extends('site')
+@extends('layouts.site')
 
 @section('title')
 Login
@@ -57,9 +57,5 @@ Login
         </div>
     </div>
 </div>
-
-@endsection
-
-@section('footer')
 
 @endsection

@@ -39,15 +39,15 @@ class User extends Authenticatable
       'password', 'remember_token',
     ];
 
-    public function clients()
+    public function organisations()
     {
-        return $this->belongsToMany('App\Client');
+        return $this->belongsToMany('App\Organisation');
     }
 
     public function profile()
     {
-        if ($this->is('sourceror')) {
-            return $this->hasOne('App\Sourceror');
+        if ($this->is('freelancer')) {
+            return $this->hasOne('App\freelancer');
         }
     }
 
@@ -93,16 +93,22 @@ class User extends Authenticatable
         return false;
     }
 
-    public function is($role)
-    {
-        return $this->hasRole($role);
-    }
-
     public function getRoles()
     {
         if ($this->roles()) {
             return $this->roles()->get();
         }
+    }
+
+    public function is($type)
+    {
+        $method = $type . 's()';
+        // dd($method);
+        // dd($this->$method->get());
+        if (count($this->$method)) {
+            return true;
+        }
+        return false;
     }
 
     public function isAdmin()

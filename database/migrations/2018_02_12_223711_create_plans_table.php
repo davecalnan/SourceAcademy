@@ -15,6 +15,11 @@ class CreatePlansTable extends Migration
     {
         Schema::create('plans', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('public_name');
+            $table->string('description');
+            $table->string('private_name');
+            $table->unsignedInteger('amount');
+            $table->text('details');
             $table->timestamps();
         });
     }

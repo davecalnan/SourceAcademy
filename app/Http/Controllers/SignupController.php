@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Organisation;
 use App\Project;
 use App\User;
 use Cookie;
@@ -37,16 +38,23 @@ class SignupController extends Controller
                 ],
                 'completed' => false
             ],
+            'organisation' => [
+                'validation' => [
+                    'test' => true,
+                    'errorMessage' => 'You already have a business!'
+                ],
+                'completed' => false
+            ],
             'project' => [
                 'validation' => [
-                    'test' => !Auth::check(),
+                    'test' => Auth::check(),
                     'errorMessage' => 'You are not signed in!'
                 ],
                 'completed' => false
             ],
         ];
         $this->steps = array_keys($this->stepsArray);
-        $this->redirectTo = route('app.home');
+        $this->redirectTo = route('app.dashboard');
     }
 
     private function setQueryStringsAsCookies(Request $request)
@@ -64,7 +72,7 @@ class SignupController extends Controller
         if ($stepsArray[$step]['validation']['test']) {
             return true;
         }
-        // return false;
+        return false;
     }
 
     public function signup(Request $request)
@@ -76,10 +84,10 @@ class SignupController extends Controller
             $this->setQueryStringsAsCookies($request);
         }
 
-        return redirect(route('client.signup.step', ['step' => $steps[0]]));
+        return redirect(route('organisation.signup.step', ['step' => $steps[0]]));
     }
 
-    public function client(Request $request, $step = null)
+    public function step(Request $request, $step = null)
     {
         $stepsArray = $this->stepsArray;
         $steps = $this->steps;
@@ -87,7 +95,7 @@ class SignupController extends Controller
         $currentStep = $this->currentStep($request);
 
         if (!in_array($step, $steps, true)) {
-            return redirect(route('client.signup.step', ['step' => $steps[0]]));
+            return redirect(route('organisation.signup.step', ['step' => $steps[0]]));
         };
 
         foreach ($steps as $step) {
@@ -95,9 +103,9 @@ class SignupController extends Controller
             $stepsArray[$step]['completed'] = true;
         }
 
-        if ($this->validateStep($step)) {
-            return view('client.signup.' . $step, compact('stepsArray'));
-        }
+        // if ($this->validateStep($step)) {
+            return view('organisation.signup.' . $step, compact('stepsArray'));
+        // }
         return $stepsArray[$step]['validation']['errorMessage'];
     }
 
@@ -145,6 +153,7 @@ class SignupController extends Controller
         } else {
             $user = User::createWithRole($request);
         }
+        
         Auth::login($user, true);
     }
 
@@ -153,12 +162,21 @@ class SignupController extends Controller
         User::setPassword($request, Auth::user());
     }
 
+    public function organisation(Request $request)
+    {
+        $request->validate(['organisation_name' => 'required|max:255']);
+        Organisation::create([
+            'name' => $request->organisation_name,
+            'slug' => str_slug($request->organisation_name)
+        ])->users()->attach(Auth::user());
+    }
+
     public function project(Request $request)
     {
-        $request->validate(['project_name' => 'required|max:255']);
+        $request->validate(['project' => 'required|max:255']);
         Project::create([
-            'name' => $request->project_name,
-            'slug' => str_slug($request->project_name)
+            'name' => $request->project,
+            'slug' => str_slug($request->project)
         ])->users()->attach(Auth::user());
     }
 }

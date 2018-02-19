@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Server extends Model
 {
-    public $fillable = ['id', 'client_id', 'name'];
+    public $fillable = ['id', 'organisation_id', 'name'];
 
-    public function client()
+    public function organisation()
     {
-        return $this->belongsTo('App\Client');
+        return $this->belongsTo('App\organisation');
     }
 
     public function sites()

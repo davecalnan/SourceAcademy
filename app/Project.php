@@ -19,7 +19,7 @@ class Project extends Model
      * @var array
      */
     protected $fillable = [
-      'client_id', 'name', 'slug', 'type'
+      'organisation_id', 'name', 'slug', 'type'
     ];
 
     /**
@@ -31,9 +31,9 @@ class Project extends Model
       //
     ];
 
-    public function client()
+    public function organisation()
     {
-        return $this->belongsTo('App\Client');
+        return $this->belongsTo('App\Organisation');
     }
 
     public function sites()
