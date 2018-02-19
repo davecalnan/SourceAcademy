@@ -19,7 +19,7 @@
     
 </head>
 <body class="@yield('body-class')">
-    <div id="app" class="main-grid">
+    <div id="app" class="site">
 
         <header class="header">
             @section('header')
