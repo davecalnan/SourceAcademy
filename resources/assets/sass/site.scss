@@ -1,25 +1,12 @@
 @import "variables";
 
-.main-grid {
-	display: grid;
+.site {
+	display: flex;
+	flex-direction: column;
 	min-height: 100vh;
-	grid-template-areas:
-		"header"
-		"main"
-		"footer";
-	grid-template-rows: auto 1fr auto;
-	align-content: stretch;
-
-	& > .header {
-		grid-area: header;
-	}
 
 	& > .main {
-		grid-area: main;
-	}
-
-	& > .footer {
-		grid-area: footer;
+		flex-grow: 1;
 	}
 }
 
