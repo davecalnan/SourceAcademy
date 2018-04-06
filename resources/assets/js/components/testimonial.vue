@@ -98,6 +98,12 @@
         align-items: flex-end;
     }
 }
+
+@media screen and (max-width: 1023px) {
+    .testimonial-buttons {
+        display: block;
+    }
+}
 </style>
 
 <script>

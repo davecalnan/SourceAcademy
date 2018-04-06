@@ -33,6 +33,12 @@
 
     }
 }
+
+@media screen and (max-width: 1023px) {
+    .step > img {
+        margin-top: 2em;
+    }
+}
 </style>
 
 <script>

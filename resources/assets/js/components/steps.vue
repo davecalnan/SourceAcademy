@@ -10,6 +10,12 @@
     grid-column-gap: 2rem;
     grid-template-columns: repeat(4, minmax(200px, 1fr));
 }
+
+@media screen and (max-width: 1023px) {
+    .steps {
+        grid-template-columns: auto;
+    }
+}
 </style>
 
 <script>
