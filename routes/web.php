@@ -66,7 +66,8 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
     // Temp
     Route::get('test/auth', 'TestController@authCheck');
     Route::get('row-get-started', function () {
-        return redirect('https://youtu.be/PvPVK3WHdlc');
+        return redirect('https://youtu.be/ZhQFhNXP0ME
+');
     });
 });
 
