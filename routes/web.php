@@ -63,7 +63,11 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
 
     Route::post('subscriptions', 'SubscriptionController@store');
 
+    // Temp
     Route::get('test/auth', 'TestController@authCheck');
+    Route::get('row-get-started', function () {
+        return redirect('https://youtu.be/PvPVK3WHdlc');
+    });
 });
 
 /*
