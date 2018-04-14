@@ -100,8 +100,15 @@
 }
 
 @media screen and (max-width: 1023px) {
-    .testimonial-buttons {
-        display: block;
+    .testimonial {
+
+        &-head {
+            margin-bottom: 3rem;
+        }
+
+        &-buttons {
+            display: block;
+        }
     }
 }
 </style>

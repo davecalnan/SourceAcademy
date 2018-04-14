@@ -53,6 +53,15 @@
         padding: 0 5%;
     }
 }
+
+@media screen and (max-width: 1024px) {
+    .navbar {
+
+        &-item {
+            text-align: left;
+        }
+    }
+}
 </style>
 
 <script>
