@@ -13,10 +13,6 @@ use Illuminate\Support\Facades\Auth;
 
 class SignupController extends Controller
 {
-    // protected $steps = [
-    //     'details', 'password', 'project'
-    // ];
-
     protected $steps = [];
 
     protected $redirectTo;

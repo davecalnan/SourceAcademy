@@ -4,17 +4,6 @@ use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-/*
-|--------------------------------------------------------------------------
 | Misc Routes
 |--------------------------------------------------------------------------
 */
@@ -28,7 +17,7 @@ Route::domain('www.' . env('APP_DOMAIN'))->group(function () {
 
 /*
 |--------------------------------------------------------------------------
-| Site Routes
+| Root Domain / Marketing Site Routes
 |--------------------------------------------------------------------------
 */
 
@@ -65,15 +54,11 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
 
     // Temp
     Route::get('test/auth', 'TestController@authCheck');
-    Route::get('row-get-started', function () {
-        return redirect('https://youtu.be/ZhQFhNXP0ME
-');
-    });
 });
 
 /*
 |--------------------------------------------------------------------------
-| App Routes
+| Freelancer App Routes
 |--------------------------------------------------------------------------
 */
 
@@ -93,9 +78,10 @@ Route::group(['middleware' => 'auth'], function () {
 
 /*
 |--------------------------------------------------------------------------
-| Admin Routes
+| Admin Panel Routes
 |--------------------------------------------------------------------------
 */
+
 Route::group(['middleware' => 'can:admin'], function () {
     Route::domain('admin.' . env('APP_DOMAIN'))->group(function () {
         Route::get('/', 'AdminController@home')->name('admin.home');
