@@ -53,7 +53,7 @@
 
 				</div>
 				<footer class="card-footer">
-					<p class="card-footer-item">From €300</p>
+					<p class="card-footer-item">From €400</p>
 					{{--  <a class="card-footer-item is-primary is-pulled-right" href="/wordpress-development">Learn more</a>  --}}
 					<a class="card-footer-item is-primary is-pulled-right" href="mailto:dave@sourceacademy.co">Learn more</a>
 				</footer>
@@ -79,7 +79,7 @@
 
 				</div>
 				<footer class="card-footer">
-					<p class="card-footer-item">From €500</p>
+					<p class="card-footer-item">From €800</p>
 					{{--  <a class="card-footer-item is-primary is-pulled-right" href="/shopify-development">Learn more</a>  --}}
 					<a class="card-footer-item is-primary is-pulled-right" href="mailto:dave@sourceacademy.co">Learn more</a>
 				</footer>
