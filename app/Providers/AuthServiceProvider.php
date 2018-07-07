@@ -30,9 +30,5 @@ class AuthServiceProvider extends ServiceProvider
                 return $user->isAdmin();
             }
         });
-
-        Gate::define('viewResource', function ($user, $resource) {
-            return $user->canAccess($resource);
-        });
     }
 }

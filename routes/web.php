@@ -64,7 +64,7 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
 
 Route::group(['middleware' => 'auth'], function () {
     Route::domain('app.' . env('APP_DOMAIN'))->group(function () {
-        Route::get('/', 'AppController@dashboard')->name('app.dashboard');
+        Route::get('/', 'AppController@home')->name('app.home');
 
         Route::get('projects', 'ProjectController@showUserProjects')->name('app.projects.index');
         Route::get('projects/{projectSlug}', 'ProjectController@show')->name('app.projects.single');
@@ -99,4 +99,21 @@ Route::group(['middleware' => 'can:admin'], function () {
 
         Route::get('test', 'TestController@test');
     });
+});
+
+/*
+|--------------------------------------------------------------------------
+| Customer Dashboard Routes
+|--------------------------------------------------------------------------
+ */
+Route::group(['middleware' => 'auth'], function () {
+    Route::domain('dashboard.' . env('APP_DOMAIN'))->group(function () {
+        Route::get('/', 'DashboardController@home')->name('dashboard.home');
+    });
+
+    Route::get('projects', 'ProjectController@showUserProjects')->name('app.projects.index');
+    Route::get('projects/{projectSlug}', 'ProjectController@show')->name('app.projects.single');
+
+    Route::post('projects', 'ProjectController@store');
+    Route::post('users', 'UserController@store');
 });

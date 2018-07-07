@@ -4,12 +4,12 @@
 
 @section('header')
 <h1 class="app-header-title">
-	Dashboard
+	Freelancer App
 </h1>
 @endsection
 
 @section('main')
-<app-dashboard>
+<dashboard>
 	<card class="projects "title="Projects">
 		<table class="table is-striped">
 			@foreach($projects as $project)
@@ -19,10 +19,5 @@
 			@endforeach
 		</table>
 	</card>
-	@if (count($plans))
-	<card class="subscriptions" title="Subscriptions">
-		<checkout :items="{{ $plans }}"/>
-	</card>
-	@endif
-</app-dashboard>
+</dashboard>
 @endsection
