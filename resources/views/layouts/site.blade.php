@@ -43,7 +43,7 @@
     @if(env('APP_ENV') == 'production')
         @include('site.google-analytics')
     @endif
-    @include('intercom')
-    <script type="text/javascript" src="{{ mix('/js/app.js') }}"></script>
+    @include('scripts.intercom')
+    <script type="text/javascript" src="{{ mix('/js/sourceacademy.js') }}"></script>
 </body>
 </html>

@@ -23,8 +23,8 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Route::bind('projectSlug', function($projectSlug) {
-            return \App\Project::where('slug', $projectSlug)->first();
+        Route::bind('slug', function($slug) {
+            return \App\Project::where('slug', $slug)->first();
         });
 
         Route::bind('freelancer', function ($id) {

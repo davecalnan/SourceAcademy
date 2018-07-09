@@ -1,7 +1,7 @@
-@extends('app.master')
+@extends('admin.master')
 
-@section('meta-title', 'Projects List')
-@section('page-title', 'Projects List')
+@section('meta-title', 'Projects')
+@section('page-title', 'Projects')
 
 @section('main')
 
@@ -11,6 +11,10 @@
 			<li><a href="{{ route('admin.projects.single', ['slug' => $project->slug]) }}">{{ $project->name }}</a></li>
 		@endforeach
 	</ul>
+</card>
+
+<card title="New Project">
+	@include('admin.projects.create')
 </card>
 
 @endsection

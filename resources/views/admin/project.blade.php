@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.platform')
 
 @section('header')
 <h1 class="app-header-title">Project: {{ $project->name }}</h1>
