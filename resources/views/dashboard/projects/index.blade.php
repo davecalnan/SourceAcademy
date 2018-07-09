@@ -1,4 +1,4 @@
-@extends('app.master')
+@extends('dashboard.master')
 
 @section('meta-title', 'Projects List')
 @section('page-title', 'Projects List')

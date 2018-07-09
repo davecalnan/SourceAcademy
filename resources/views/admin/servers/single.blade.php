@@ -1,11 +1,11 @@
-@extends('layouts.platform')
+@extends('admin.master')
 
-@section('title')
+@section('meta-title')
 {{ $server->name }}
 @endsection
 
-@section('header')
-<h1 class="app-header-title">{{ $server->name }}</h1>
+@section('page-title')
+{{ $server->name }}
 @endsection
 
 @section('main')

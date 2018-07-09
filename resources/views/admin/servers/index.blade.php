@@ -1,10 +1,7 @@
-@extends('layouts.platform')
+@extends('admin.master')
 
-@section('title', 'Servers')
-
-@section('header')
-<h1 class="app-header-title">Servers</h1>
-@endsection
+@section('meta-title', 'Servers')
+@section('page-title', 'Servers')
 
 @section('main')
 

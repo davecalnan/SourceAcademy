@@ -81,7 +81,8 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => 'can:admin'], function () {
     Route::domain('admin.' . env('APP_DOMAIN'))->group(function () {
         Route::get('/', 'AdminController@home')->name('admin.home');
-        Route::get('servers/{slug?}', 'AdminController@servers');
+        Route::get('servers', 'AdminController@servers')->name('admin.servers.index');
+        Route::get('servers/{id}', 'AdminController@server')->name('admin.servers.single');
         Route::get('servers-info', 'ServerController@index');
         
         Route::get('organisations', 'AdminController@organisations')->name('admin.organisations.index');
@@ -91,7 +92,7 @@ Route::group(['middleware' => 'can:admin'], function () {
 
         Route::get('projects', 'AdminController@projects')->name('admin.projects.index');
         Route::get('projects/{slug}', 'AdminController@project')->name('admin.projects.single');
-        Route::get('projects/{slug}/edit', 'AdminController@projectEdit')->name('admin.projects.edit');
+        Route::get('projects/{slug}/edit', 'AdminController@editProject')->name('admin.projects.edit');
 
         Route::get('users', 'AdminController@users')->name('admin.users.index');
         Route::get('users/{user}', 'AdminController@user')->name('admin.users.single');
@@ -106,10 +107,10 @@ Route::group(['middleware' => 'can:admin'], function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::domain('dashboard.' . env('APP_DOMAIN'))->group(function () {
         Route::get('/', 'DashboardController@home')->name('dashboard.home');
-    });
 
-    Route::get('projects', 'DashboardController@projects')->name('dashboard.projects.index');
-    Route::get('projects/{slug}', 'DashboardController@project')->name('dashboard.projects.single');
+        Route::get('projects', 'DashboardController@projects')->name('dashboard.projects.index');
+        Route::get('projects/{slug}', 'DashboardController@project')->name('dashboard.projects.single');
+    });
 });
 
 /*
