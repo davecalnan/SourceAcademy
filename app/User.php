@@ -47,7 +47,7 @@ class User extends Authenticatable
     public function profile()
     {
         if ($this->is('freelancer')) {
-            return $this->hasOne('App\freelancer');
+            return $this->hasOne('App\Freelancer');
         }
     }
 
@@ -100,15 +100,9 @@ class User extends Authenticatable
         }
     }
 
-    public function is($type)
+    public function is($role)
     {
-        $method = $type . 's()';
-        // dd($method);
-        // dd($this->$method->get());
-        if (count($this->$method)) {
-            return true;
-        }
-        return false;
+        return $this->hasRole($role);
     }
 
     public function isAdmin()

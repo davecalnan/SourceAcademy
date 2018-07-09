@@ -23,7 +23,7 @@
 
                 <a class="navbar-item" href="/logout">Logout</a>
                 <span class="navbar-item">
-                    <a class="button is-primary is-outlined" href="{{ route('app.dashboard') }}">Dashboard</a>
+                    <a class="button is-primary is-outlined" href="{{ route('dashboard.home') }}">Dashboard</a>
                 </span>
 
                 @else
