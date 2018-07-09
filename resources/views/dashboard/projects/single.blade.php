@@ -1,4 +1,4 @@
-@extends('app.master')
+@extends('dashboard.master')
 
 @section('meta-title')
 {{ $project->name }}
@@ -11,7 +11,7 @@ Project: {{ $project->name }}
 @section('main')
 
 <card>
-	Hey.
+	Thanks for creating your first project. We'll be in touch soon with details!
 </card>
 
 @endsection
