@@ -10,9 +10,6 @@ use App\Http\Controllers\UserController;
 
 // Redirects www URLs to non-www URLs.
 Route::domain('www.' . env('APP_DOMAIN'))->group(function () {
-    // Route::get('{wildcard?}', function ($wildcard = "") {
-    //     return redirect(env('APP_URL') . '/' . $wildcard);
-    // })->where('wildcard', '.+');
     Route::get('{uri?}', 'RedirectController@www')->where('uri', '.+');
 });
 
@@ -68,7 +65,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/', 'AppController@home')->name('app.home');
 
         Route::get('projects', 'AppController@projects')->name('app.projects.index');
-        // Route::get('projects/{slug}', 'AppController@project')->name('app.projects.single');
+        Route::get('projects/{slug}', 'AppController@project')->name('app.projects.single');
 
         Route::post('projects', 'ProjectController@store')->name('projects.store');
         Route::post('users', 'UserController@store')->name('user.store');
@@ -111,8 +108,8 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/', 'DashboardController@home')->name('dashboard.home');
     });
 
-    // Route::get('projects', 'DashboardController@projects')->name('dashboard.projects.index');
-    // Route::get('projects/{slug}', 'DashboardController@project')->name('dashboard.projects.single');
+    Route::get('projects', 'DashboardController@projects')->name('dashboard.projects.index');
+    Route::get('projects/{slug}', 'DashboardController@project')->name('dashboard.projects.single');
 });
 
 /*
