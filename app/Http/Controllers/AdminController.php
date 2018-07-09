@@ -52,22 +52,14 @@ class AdminController extends Controller
         return view('admin.projects.single', ['project' => $project, 'organisation' => $organisation, 'users' => $users]);
     }
 
-    public function projectEdit(Project $project)
+    public function editProject(Project $project)
     {
         return view ('admin.projects.edit', ['project' => $project]);
     }
 
-    public function servers($id = null)
+    public function servers()
     {
         $forge = new \Themsaid\Forge\Forge(config('app.forge_token'));
-
-        if ($id) {
-            $server = $forge->server($id);
-            $organisation = Server::findOrFail($id)->with('organisation')->firstOrFail()->organisation;
-            $sites = $forge->sites($id);
-
-            return view('admin.server', ['organisation' => $organisation, 'server' => $server, 'sites' => $sites]);
-        }
 
         $servers = $forge->servers();
         // array_map(function($server) {
@@ -76,7 +68,18 @@ class AdminController extends Controller
         //     }
         // }, $servers);
 
-    	return view('admin.servers', ['servers' => $servers]);
+    	return view('admin.servers.index', ['servers' => $servers]);
+    }
+
+    public function server($id)
+    {
+        $forge = new \Themsaid\Forge\Forge(config('app.forge_token'));
+
+        $server = $forge->server($id);
+        $organisation = Server::findOrFail($id)->with('organisation')->firstOrFail()->organisation;
+        $sites = $forge->sites($id);
+
+        return view('admin.server.single', ['organisation' => $organisation, 'server' => $server, 'sites' => $sites]);
     }
 
     public function users()
