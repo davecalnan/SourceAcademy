@@ -50,7 +50,7 @@ class SignupController extends Controller
             ],
         ];
         $this->steps = array_keys($this->stepsArray);
-        $this->redirectTo = '//redirect' . env('APP_DOMAIN');
+        $this->redirectTo = '//redirect.' . env('APP_DOMAIN');
     }
 
     private function setQueryStringsAsCookies(Request $request)
