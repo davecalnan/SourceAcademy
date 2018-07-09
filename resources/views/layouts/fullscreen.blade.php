@@ -50,10 +50,10 @@
 	@include('window')
 
 	@if(env('APP_ENV') == 'production')
-	@include('site.google-analytics')
+	@include('scripts.google-analytics')
 	@endif
 
-	@include('intercom')
+	@include('scripts.intercom')
 
 	<script type="text/javascript" src="/js/app.js"></script>
 

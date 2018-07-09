@@ -11,7 +11,7 @@ Project: {{ $project->name }}
 @section('main')
 
 <card>
-	Welcome to your project. We'll provide you with more details shortly.
+	Hey.
 </card>
 
 @endsection

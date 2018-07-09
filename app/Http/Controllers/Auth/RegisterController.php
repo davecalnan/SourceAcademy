@@ -76,6 +76,6 @@ class RegisterController extends Controller
      */
     public function redirectTo ()
     {
-        return route('app.dashboard');
+        return route('dashboard.home');
     }
 }

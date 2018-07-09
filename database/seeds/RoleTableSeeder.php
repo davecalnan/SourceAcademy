@@ -23,8 +23,8 @@ class RoleTableSeeder extends Seeder
         ]);
 
         Role::create([
-            'name' => 'client',
-            'description' => 'A client user.',
+            'name' => 'customer',
+            'description' => 'A customer user.',
         ]);
     }
 }
