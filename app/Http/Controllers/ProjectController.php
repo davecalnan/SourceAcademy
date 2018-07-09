@@ -60,7 +60,8 @@ class ProjectController extends Controller
 
         Project::create($request->all());
 
-        return back();
+        redirect('//redirect.' . env('APP_DOMAIN') . '/projects/' . $project->id);
+
     }
 
     /**
@@ -111,7 +112,7 @@ class ProjectController extends Controller
 
         $project->update($request->all());
 
-        return redirect()->route('admin.projects.single', ['slug' => $project->slug]);
+        return redirect('//redirect.' . env('APP_DOMAIN') . '/projects/' . $project->id);
 
     }
 
