@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>
-        @section('title')
+        @section('meta-title')
         Title goes here.
         @show
         | SourceAcademy
@@ -15,24 +15,24 @@
     <!-- CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" type="text/css" href="{{ mix('/css/vendor.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ mix('/css/app.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ mix('/css/platform.css') }}">
 
 </head>
 <body>
-    <app-layout id="app">
+    <div id="app" class="platform">
+        <nav class="platform-nav">
+            @yield('nav')
+        </nav>
 
-        <app-nav></app-nav>
-
-        <header class="app-header">
-            @section('header')
-            SourceAcademy Admin Panel
-            @show
+        <header class="platform-header">
+            <h1 class="platform-header-title">
+                @yield('page-title')
+            </h1>
+            @yield('header')
         </header>
 
-        <main class="app-main">
-            @section('main')
-            Main
-            @show
+        <main class="platform-main">
+            @yield('main')
             @if ($errors->any())
                 <card title="Something went wrong...">
                     <ul>
@@ -41,24 +41,24 @@
                         @endforeach
                     </ul>
                 </card>
-                @endif
+            @endif
         </main>
 
         @section('modal')
         <div class="modal"></div>
         @show
 
-    </app-layout>
+    </div>
 
     @include('window')
-    @if(env('APP_ENV') == 'production')
-    @include('app.google-analytics')
+    @if(env('APP_ENV') === 'production')
+        @include('scripts.google-analytics')
     @endif
-    @include('intercom')
-    @stack('intercom.events')
+    @include('scripts.intercom')
+    @stack('scripts.intercom.events')
 
     <script src="https://checkout.stripe.com/checkout.js"></script>
-    <script type="text/javascript" src="/js/app.js"></script>
+    <script type="text/javascript" src="{{ mix('/js/sourceacademy.js') }}"></script>
 
 </body>
 </html>

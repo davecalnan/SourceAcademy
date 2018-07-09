@@ -18,38 +18,47 @@ class AdminController extends Controller
         $this->middleware('auth');
     }
     
-    public function home() {
+    public function home()
+    {
 		$users = User::with('roles')->get();
     	return view('admin.home', ['users' => $users]);
     }
 	
-    public function organisations($slug = null) {
-        if ($slug) {
-            $organisation = organisation::where('slug', $slug)->with('users', 'servers')->first();
-            return view('admin.organisation', ['organisation' => $organisation]);
-        }
+    public function organisations()
+    {
+        $organisations = Organisation::all();
 
-        $organisations = organisation::all();
-    	return view('admin.organisations', ['organisations' => $organisations]);
+    	return view('admin.organisations.index', ['organisations' => $organisations]);
+    }
+
+    public function organisation(Organisation $organisation)
+    {
+        return view('admin.organisations.single', ['organisation' => $organisation]);
     }
 	
-    public function projects($slug = null) {
-        $errors = [];
-
-        if ($slug) {
-            if ($project = Project::where('slug', $slug)->with('users')->firstOrFail()) {
-                return view('admin.project', ['project' => $project]);
-            }
-            return array_push($errors, 'This project could not be found');
-        }
-
+    public function projects()
+    {
         $organisations = organisation::all();
         $projects = Project::all();
 
-    	return view('admin.projects', ['organisations' => $organisations, 'projects' => $projects])->withErrors($errors);
+    	return view('admin.projects.index', ['organisations' => $organisations, 'projects' => $projects]);
     }
 
-    public function servers($id = null) {
+    public function project(Project $project)
+    {
+        $organisation = $project->organisation;
+        $users = $project->users;
+
+        return view('admin.projects.single', ['project' => $project, 'organisation' => $organisation, 'users' => $users]);
+    }
+
+    public function projectEdit(Project $project)
+    {
+        return view ('admin.projects.edit', ['project' => $project]);
+    }
+
+    public function servers($id = null)
+    {
         $forge = new \Themsaid\Forge\Forge(config('app.forge_token'));
 
         if ($id) {
@@ -68,5 +77,12 @@ class AdminController extends Controller
         // }, $servers);
 
     	return view('admin.servers', ['servers' => $servers]);
+    }
+
+    public function users()
+    {
+        $users = User::all();
+
+        return view('admin.users.index', ['users' => $users]);
     }
 }

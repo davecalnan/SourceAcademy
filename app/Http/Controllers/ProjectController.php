@@ -55,8 +55,7 @@ class ProjectController extends Controller
         $request->validate([
             'organisation_id' => 'required|exists:organisations,id',
             'name' => 'required',
-            'slug' => 'required|unique:projects',
-            'type' => 'required'
+            'slug' => 'required|unique:projects'
         ]);
 
         Project::create($request->all());
@@ -104,7 +103,16 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
-        //
+        $request->validate([
+            'organisation_id' => 'required|exists:organisations,id',
+            'name' => 'required',
+            'slug' => 'required'
+        ]);
+
+        $project->update($request->all());
+
+        return redirect()->route('admin.projects.single', ['slug' => $project->slug]);
+
     }
 
     /**

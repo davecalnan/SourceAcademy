@@ -1,12 +1,7 @@
-@extends('layouts.app')
+@extends('app.master')
 
-@section('title', 'Dashboard')
-
-@section('header')
-<h1 class="app-header-title">
-	Freelancer App
-</h1>
-@endsection
+@section('meta-title', 'Freelancer App')
+@section('page-title', 'Freelancer App')
 
 @section('main')
 <dashboard>

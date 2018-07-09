@@ -1,7 +1,7 @@
 @extends('admin.master')
 
-@section('meta-title', 'Admin Home')
-@section('page-title', 'Admin Home')
+@section('meta-title', 'Users')
+@section('page-title', 'Users')
 
 @section('main')
 

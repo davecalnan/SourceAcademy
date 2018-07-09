@@ -41,8 +41,11 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
     Route::get('password/update', '\App\Http\Controllers\Auth\UpdatePasswordController@showPasswordUpdateForm')->name('password.update');
     Route::post('password/update', '\App\Http\Controllers\Auth\UpdatePasswordController@update')->name('password.update');
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
+    
+    Route::post('projects', 'ProjectController@store')->name('projects.create');
+    Route::patch('projects/{slug}', 'ProjectController@update')->name('projects.update');
 
-    Route::patch('projects', 'ProjectController@update')->name('projects.update');
+    Route::post('users', 'UserController@store');
 
     Route::post('organisations/{organisation}', 'OrganisationController@store');
     Route::patch('organisations/{organisation}', 'OrganisationController@update');
@@ -51,9 +54,6 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
     Route::get('freelancers/{freelancer}', 'FreelancerController@show')->name('freelancers.single');
 
     Route::post('subscriptions', 'SubscriptionController@store');
-
-    // Temp
-    Route::get('test/auth', 'TestController@authCheck');
 });
 
 /*
@@ -66,10 +66,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::domain('app.' . env('APP_DOMAIN'))->group(function () {
         Route::get('/', 'AppController@home')->name('app.home');
 
-        Route::get('projects', 'ProjectController@showUserProjects')->name('app.projects.index');
-        Route::get('projects/{projectSlug}', 'ProjectController@show')->name('app.projects.single');
-
-        Route::get('test', 'TestController@app')->name('app.test');
+        Route::get('projects', 'AppController@projects')->name('app.projects.index');
+        Route::get('projects/{slug}', 'AppController@project')->name('app.projects.single');
 
         Route::post('projects', 'ProjectController@store')->name('projects.store');
         Route::post('users', 'UserController@store')->name('user.store');
@@ -87,17 +85,18 @@ Route::group(['middleware' => 'can:admin'], function () {
         Route::get('/', 'AdminController@home')->name('admin.home');
         Route::get('servers/{slug?}', 'AdminController@servers');
         Route::get('servers-info', 'ServerController@index');
-        Route::get('projects/{slug?}', 'AdminController@projects');
-        Route::get('organisations/{slug?}', 'AdminController@organisations');
+        
+        Route::get('organisations', 'AdminController@organisations')->name('admin.organisations.index');
+        Route::get('organisations/{slug}', 'AdminController@organisation')->name('admin.organisations.single');
 
         Route::post('organisations/{slug}/setupwordpress', 'OrganisationController@setUpWordPress');
 
-        Route::get('projects/{slug}/edit', 'ProjectController@edit')->name('admin.projects.edit');
+        Route::get('projects', 'AdminController@projects')->name('admin.projects.index');
+        Route::get('projects/{slug}', 'AdminController@project')->name('admin.projects.single');
+        Route::get('projects/{slug}/edit', 'AdminController@projectEdit')->name('admin.projects.edit');
 
-        Route::get('users', 'UserController@index')->name('admin.users.index');
-        Route::get('users/{user}', 'UserController@show')->name('admin.users.single');
-
-        Route::get('test', 'TestController@test');
+        Route::get('users', 'AdminController@users')->name('admin.users.index');
+        Route::get('users/{user}', 'AdminController@user')->name('admin.users.single');
     });
 });
 
@@ -111,9 +110,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('/', 'DashboardController@home')->name('dashboard.home');
     });
 
-    Route::get('projects', 'ProjectController@showUserProjects')->name('app.projects.index');
-    Route::get('projects/{projectSlug}', 'ProjectController@show')->name('app.projects.single');
-
-    Route::post('projects', 'ProjectController@store');
-    Route::post('users', 'UserController@store');
+    Route::get('projects', 'DashboardController@projects')->name('dashboard.projects.index');
+    Route::get('projects/{slug}', 'DashboardController@project')->name('dashboard.projects.single');
 });

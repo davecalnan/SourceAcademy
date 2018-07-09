@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,5 +23,17 @@ class AppController extends Controller
         }
 
         return view('app.home', ['projects' => $projects, 'plans' => $plans]);
+    }
+
+    public function projects()
+    {
+        $projects = Project::all();
+
+        return view('app.projects.index', ['projects' => $projects]);
+    }
+
+    public function project(Project $project)
+    {
+        return view('app.projects.single', ['project' => $project]);
     }
 }

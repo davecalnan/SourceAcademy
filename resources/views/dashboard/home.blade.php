@@ -1,23 +1,18 @@
-@extends('layouts.platform')
+@extends('dashboard.master')
 
-@section('title', 'Dashboard')
+@section('meta-title', 'Dashboard')
 
-@section('header')
-<h1 class="app-header-title">
-	Dashboard
-</h1>
-@endsection
+@section('page-title', 'Dashboard')
 
 @section('main')
-<dashboard>
-	<card class="projects "title="Projects">
-		<table class="table is-striped">
-			@foreach($projects as $project)
-			<tr>
-				<td><a href="/projects/{{$project->slug}}">{{ $project->name}}</a></td>
-			</tr>
-			@endforeach
-		</table>
-	</card>
-</dashboard>
+<card title="Welcome to SourceAcademy, {{ Auth::user()->name }}."></card>
+<card class="projects" title="Projects">
+	<table class="table is-striped">
+		@foreach($projects as $project)
+		<tr>
+			<td><a href="/projects/{{$project->slug}}">{{ $project->name}}</a></td>
+		</tr>
+		@endforeach
+	</table>
+</card>
 @endsection
