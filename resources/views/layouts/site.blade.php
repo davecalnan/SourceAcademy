@@ -41,7 +41,7 @@
 
     @include('window')
     @if(env('APP_ENV') == 'production')
-        @include('site.google-analytics')
+        @include('scripts.google-analytics')
     @endif
     @include('scripts.intercom')
     <script type="text/javascript" src="{{ mix('/js/sourceacademy.js') }}"></script>
