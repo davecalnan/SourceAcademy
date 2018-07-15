@@ -15,16 +15,16 @@ class CreateDonesTable extends Migration
     {
         Schema::create('dones', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('team_id');
-            $table->string('team_domain');
-            $table->string('channel_id');
-            $table->string('channel_name');
-            $table->string('user_id');
-            $table->string('user_name');
-            $table->string('command');
-            $table->string('text');
-            $table->string('response_url');
-            $table->string('trigger_id');
+            $table->string('team_id')->nullable();
+            $table->string('team_domain')->nullable();
+            $table->string('channel_id')->nullable();
+            $table->string('channel_name')->nullable();
+            $table->string('user_id')->nullable();
+            $table->string('user_name')->nullable();
+            $table->string('command')->nullable();
+            $table->string('text')->nullable();
+            $table->string('response_url')->nullable();
+            $table->string('trigger_id')->nullable();
             $table->timestamps();
         });
     }

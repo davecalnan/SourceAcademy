@@ -9,7 +9,18 @@ class DoneController extends Controller
 {
     public function store(Request $request)
     {
-        Done::create($request->all());
+        Done::create([
+            'team_id' => $request->team_id,
+            'team_domain' => $request->team_domain,
+            'channel_id' => $request->channel_id,
+            'channel_name' => $request->channel_name,
+            'user_id' => $request->user_id,
+            'user_name' => $request->user_name,
+            'command' => $request->command,
+            'text' => $request->text,
+            'response_url' => $request->response_url,
+            'trigger_id' => $request->trigger_id
+        ]);
 
         $this->sendSlackNotification($request);
     }
