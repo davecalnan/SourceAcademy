@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "2559ba1e11f228f85ec9899adba99733",
+    "content-hash": "3ce7cee77bd9a76cbdeca16ed154b492",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1845,6 +1845,63 @@
                 "stylesheet"
             ],
             "time": "2016-07-19T19:14:21+00:00"
+        },
+        {
+            "name": "smcrow/laravel-slack-log",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cr0wst/laravel-slack-log.git",
+                "reference": "0a13c5be927dc8554814d70e099eb807a51633dd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cr0wst/laravel-slack-log/zipball/0a13c5be927dc8554814d70e099eb807a51633dd",
+                "reference": "0a13c5be927dc8554814d70e099eb807a51633dd",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.3",
+                "laravel/framework": "~5.0",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "~1.0",
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "~6.0",
+                "squizlabs/php_codesniffer": "^3.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Smcrow\\SlackLog\\SlackLogServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Smcrow\\SlackLog\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Steve Crow",
+                    "email": "steve@smcrow.net"
+                }
+            ],
+            "description": "Utilizes Laravel's notifications to provide logging to slack at various levels.  Inspired by Log4j.",
+            "keywords": [
+                "laravel",
+                "logging",
+                "notifications",
+                "slack"
+            ],
+            "time": "2018-01-15T18:56:22+00:00"
         },
         {
             "name": "spatie/laravel-http-logger",

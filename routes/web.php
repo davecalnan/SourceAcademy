@@ -42,9 +42,13 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
 
     Route::post('subscriptions', 'SubscriptionController@store');
 
-    Route::post('/done', function () {
-        return response('Done', 200);
-    })->middleware(\Spatie\HttpLogger\Middlewares\HttpLogger::class);
+    Route::post('/done', function (\Illuminate\Http\Request $request) {
+        $message = "$request->user completed $request->text";
+
+        SlackLog::info($message);
+        
+        return response($message, 200);
+    });
 });
 
 /*
