@@ -4,17 +4,6 @@ use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
-| Misc Routes
-|--------------------------------------------------------------------------
-*/
-
-// Redirects www URLs to non-www URLs.
-Route::domain('www.' . env('APP_DOMAIN'))->group(function () {
-    Route::get('{uri?}', 'RedirectController@www')->where('uri', '.+');
-});
-
-/*
-|--------------------------------------------------------------------------
 | Root Domain / Marketing Site Routes
 |--------------------------------------------------------------------------
 */
@@ -52,6 +41,14 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
     Route::get('freelancers/{freelancer}', 'FreelancerController@show')->name('freelancers.single');
 
     Route::post('subscriptions', 'SubscriptionController@store');
+
+    Route::post('/done', function (\Illuminate\Http\Request $request) {
+        $message = "$request->user completed $request->text";
+
+        SlackLog::info($message);
+        
+        return response($message, 200);
+    });
 });
 
 /*
@@ -123,3 +120,14 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('{uri?}', 'RedirectController@redirect')->name('redirect.uri')->where('uri', '.+');
     });
 });
+
+// Redirects www URLs to non-www URLs.
+Route::domain('www.' . env('APP_DOMAIN'))->group(function () {
+    Route::get('{uri?}', 'RedirectController@www')->where('uri', '.+');
+});
+
+/*
+|--------------------------------------------------------------------------
+| Misc Routes
+|--------------------------------------------------------------------------
+*/
