@@ -48,7 +48,7 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
         SlackLog::info($message);
         
         return response($message, 200);
-    });
+    })->middleware(\Spatie\HttpLogger\Middlewares\HttpLogger::class);
 });
 
 /*
