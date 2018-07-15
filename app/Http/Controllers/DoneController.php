@@ -27,7 +27,7 @@ class DoneController extends Controller
 
     public function sendSlackNotification(Request $request)
     {
-        $wehbook = 'https://hooks.slack.com/services/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';
+        $webhook = 'https://hooks.slack.com/services/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';
         $message = (object) [
             'text' => "✅ <@$request->user_id> completed:",
             'attachments' => [
