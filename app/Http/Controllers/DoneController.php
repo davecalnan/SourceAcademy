@@ -37,7 +37,7 @@ class DoneController extends Controller
         $responseBody = $response->getBody()->getContents();
         $statusCode = $response->getStatusCode();
 
-        return response($responseBody, $statusCode);
+        return response('', $statusCode);
     }
 }
         

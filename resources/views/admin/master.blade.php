@@ -12,6 +12,7 @@
 <a href="{{ route('admin.users.index') }}" class="platform-nav-link">Users</a>
 <a href="{{ route('admin.organisations.index') }}" class="platform-nav-link">Organisations</a> 
 <a href="{{ route('admin.servers.index') }}" class="platform-nav-link">Servers</a> 
+<a href="{{ route('admin.dones.index') }}" class="platform-nav-link">Activity Feed</a> 
 <a href="{{ route('logout') }}" class="platform-nav-link">Logout</a>
 @endsection
 

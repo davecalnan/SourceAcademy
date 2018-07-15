@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Done;
 use App\Organisation;
 use App\Project;
 use App\Server;
@@ -87,5 +88,12 @@ class AdminController extends Controller
         $users = User::all();
 
         return view('admin.users.index', ['users' => $users]);
+    }
+
+    public function dones()
+    {
+        $dones = Done::orderBy('created_at', 'desc')->simplePaginate(100);
+
+        return view('admin.dones.index', ['dones' => $dones]);
     }
 }

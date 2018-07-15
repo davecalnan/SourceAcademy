@@ -87,6 +87,8 @@ Route::group(['middleware' => 'can:admin'], function () {
 
         Route::get('users', 'AdminController@users')->name('admin.users.index');
         Route::get('users/{user}', 'AdminController@user')->name('admin.users.single');
+
+        Route::get('activity-feed', 'AdminController@dones')->name('admin.dones.index');
     });
 });
 
