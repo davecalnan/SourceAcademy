@@ -43,7 +43,7 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
     Route::post('subscriptions', 'SubscriptionController@store');
 
     Route::post('/done', function (\Illuminate\Http\Request $request) {
-        $message = "<@$request->user_id> completed $request->text";
+        $message = "✅ <@$request->user_id> completed $request->text";
 
         SlackLog::info($message);
         
