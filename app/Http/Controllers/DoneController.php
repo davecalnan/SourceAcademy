@@ -27,6 +27,7 @@ class DoneController extends Controller
 
     public function sendSlackNotification(Request $request)
     {
+        $wehbook = 'https://hooks.slack.com/services/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';
         $message = (object) [
             'text' => "✅ <@$request->user_id> completed:",
             'attachments' => [
@@ -38,12 +39,12 @@ class DoneController extends Controller
         ];
 
         $client = new \GuzzleHttp\Client();
-        $response = $client->post('https://hooks.slack.com/services/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', [
+        $response = $client->post($webhook, [
             'body' => json_encode($message),
             'headers' => [
                 'Content-Type' => 'application/json',
                 ]
-                ]);
+            ]);
 
         $responseBody = $response->getBody()->getContents();
         $statusCode = $response->getStatusCode();

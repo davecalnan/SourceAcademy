@@ -17,7 +17,7 @@
         </tbody>
     </table>
     @else
-    <p>No dones found.</p>
+    <p>No activity found.</p>
     @endif
 
     {{ $dones->links() }}
