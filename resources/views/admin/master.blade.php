@@ -10,8 +10,13 @@
 <a href="{{ route('admin.home') }}" class="platform-nav-link">Home</a>
 <a href="{{ route('admin.projects.index') }}" class="platform-nav-link">Projects</a>
 <a href="{{ route('admin.users.index') }}" class="platform-nav-link">Users</a>
+<<<<<<< HEAD
 <a href="{{ route('admin.organisations.index') }}" class="platform-nav-link">Organisations</a>
 <a href="{{ route('admin.servers.index') }}" class="platform-nav-link">Servers</a>
+=======
+<a href="{{ route('admin.organisations.index') }}" class="platform-nav-link">Organisations</a> 
+<a href="{{ route('admin.servers.index') }}" class="platform-nav-link">Servers</a> 
+>>>>>>> e67c57a055c57f34d30ca7cd750d23fde2d41ef0
 <a href="{{ route('admin.dones.index') }}" class="platform-nav-link">Activity Feed</a> 
 <a href="{{ route('logout') }}" class="platform-nav-link">Logout</a>
 @endsection
