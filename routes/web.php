@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\UserController;
-
 /*
 |--------------------------------------------------------------------------
 | Root Domain / Marketing Site Routes
