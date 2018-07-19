@@ -8,7 +8,7 @@
 .site {
 	display: flex;
 	flex-direction: column;
-	min-height: 100vh;
+    min-height: 100vh;
     
 	& > .main {
 		flex-grow: 1;
@@ -109,6 +109,7 @@
     -webkit-overflow-scrolling: touch;
     overflow-x: scroll;
     overflow-y: hidden;
+    padding: 1.5rem 0;
     white-space: nowrap;
 
     &::-webkit-scrollbar {
@@ -132,4 +133,23 @@
 
 .section.no-padding-x {
     padding: 3rem 0 !important;
+}
+
+.pricing-table {
+    
+    & .pricing-plan {
+        width: 0;
+
+        & .plan-footer {
+
+            & small {
+                font-size: 0.75em;
+            }
+        }
+    }   
+}
+
+.dropdown {
+  box-shadow: 0 0 8px #777;
+  width: calc(100% - 10em);
 }

@@ -1,6 +1,6 @@
 @extends('site.master')
 
-@section('meta-title', 'About SourceAcademy')
+@section('meta-title', 'About us')
 
 @section('body-class', 'about')
 

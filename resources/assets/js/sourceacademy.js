@@ -2,7 +2,10 @@ import './bootstrap'
 import Vue from 'vue'
 import './components'
 import './filters'
+import InstantSearch from 'vue-instantsearch'
 import Typed from 'typed.js'
+
+Vue.use(InstantSearch);
 
 const app = new Vue({
   el: '#app',

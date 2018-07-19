@@ -19,6 +19,8 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
         Route::get('online-retailers', 'SiteController@forOnlineRetailers')->name('site.pages.for-online-retailers');
     });
 
+    Route::get('problems', 'SiteController@problems')->name('site.pages.problems');
+
     Route::get('freelancers', 'SiteController@freelancers');
     Route::get('freelancers/{freelancer}', 'SiteController@freelancer');
 
