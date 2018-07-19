@@ -12,14 +12,14 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/sourceacademy.js', 'public/js')
-    .sass('resources/assets/sass/site.scss', 'public/css')
-    .sass('resources/assets/sass/platform.scss', 'public/css')
-    .sass('resources/assets/sass/vendor.scss', 'public/css')
-    .version()
-    .webpackConfig({
-        resolve: {
-            alias: {
-                '@': path.resolve('resources/assets/sass')
+   .sass('resources/assets/sass/site.scss', 'public/css')
+   .sass('resources/assets/sass/platform.scss', 'public/css')
+   .sass('resources/assets/sass/vendor.scss', 'public/css')
+   .version()
+   .webpackConfig({
+       resolve: {
+           alias: {
+               '@': path.resolve('resources/assets/sass')
             }
         }
     });

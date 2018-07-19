@@ -9,18 +9,24 @@
 Route::domain(env('APP_DOMAIN'))->group(function () {
     // Pages
     Route::get('/', 'SiteController@home')->name('site.home');
-    Route::get('about', 'SiteController@about');
+    Route::get('about', 'SiteController@about')->name('site.pages.about');
+    Route::get('what-we-do-differently', 'SiteController@whatWeDoDifferently')->name('site.pages.what-we-do-differently');
+
+    Route::prefix('for')->group(function () {
+        Route::get('business-owners', 'SiteController@forBusinessOwners')->name('site.pages.for-business-owners');
+        Route::get('freelancers', 'SiteController@forFreelancers')->name('site.pages.for-freelancers');
+        Route::get('entrepreneurs', 'SiteController@forEntrepreneurs')->name('site.pages.for-entrepreneurs');
+        Route::get('online-retailers', 'SiteController@forOnlineRetailers')->name('site.pages.for-online-retailers');
+    });
 
     Route::get('freelancers', 'SiteController@freelancers');
     Route::get('freelancers/{freelancer}', 'SiteController@freelancer');
 
     Route::view('apply', 'site.apply')->name('site.apply');
 
-    Route::get('signup', 'SignupController@signup')->name('organisation.signup');
-    Route::get('signup/{step?}', 'SignupController@step')->name('organisation.signup.step');
-    Route::post('signup/{step}', 'SignupController@action')->name('organisation.signup.action');
-
-    Route::view('site', 'site');
+    Route::get('signup', 'SignupController@signup')->name('signup');
+    Route::get('signup/{step?}', 'SignupController@step')->name('signup.step');
+    Route::post('signup/{step}', 'SignupController@action')->name('signup.action');
 
     Auth::routes();
     Route::get('password/update', '\App\Http\Controllers\Auth\UpdatePasswordController@showPasswordUpdateForm')->name('password.update');
@@ -112,6 +118,8 @@ Route::group(['middleware' => 'auth'], function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::domain('redirect.' . env('APP_DOMAIN'))->group(function () {
         Route::get('{uri?}', 'RedirectController@redirect')->name('redirect.uri')->where('uri', '.+');
+
+        Route::get('/', 'RedirectController@redirect')->name('redirect.home');
     });
 });
 

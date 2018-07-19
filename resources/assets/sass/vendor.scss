@@ -12,7 +12,7 @@
 @import "node_modules/bulma/sass/utilities/controls";
 
 /* Base */
-@import "node_modules/bulma/sass/base/_all";
+@import "node_modules/bulma/sass/base/all";
 
 /* Elements */
 @import "node_modules/bulma/sass/elements/box";
@@ -44,8 +44,11 @@
 @import "node_modules/bulma/sass/components/tabs";
 
 /* Grid */
-@import "node_modules/bulma/sass/grid/_all";
+@import "node_modules/bulma/sass/grid/all";
 
 /* Layout */
 @import "node_modules/bulma/sass/layout/hero";
 @import "node_modules/bulma/sass/layout/section";
+
+/* Bulma Extentions */
+@import "node_modules/bulma-pricingtable/src/sass/index"

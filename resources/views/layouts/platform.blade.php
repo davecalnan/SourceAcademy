@@ -7,7 +7,7 @@
 
     <title>
         @section('meta-title')
-        Title goes here.
+        Hire talented student freelancers
         @show
         | SourceAcademy
     </title>

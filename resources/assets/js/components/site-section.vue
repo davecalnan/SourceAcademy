@@ -10,6 +10,7 @@
 @import '~@/_variables.scss';
 
 .site-section {
+    background-color: #ffffff;
     padding-bottom: 4rem;
 
     &-title {

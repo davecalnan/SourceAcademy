@@ -14,7 +14,12 @@ class SiteController extends Controller
 
     public function about()
     {
-        return view('site.about');
+        return view('site.pages.about');
+    }
+
+    public function wordpress()
+    {
+        return view('site.pages.wordpress');
     }
 
     public function freelancers()
@@ -26,5 +31,25 @@ class SiteController extends Controller
     public function freelancer(Freelancer $freelancer)
     {
         return view('site.freelancer', ['freelancer' => $freelancer]);
+    }
+
+    public function forBusinessOwners()
+    {
+        return view('site.pages.for-business-owners');
+    }
+
+    public function forEntrepreneurs()
+    {
+        return view('site.pages.for-entrepreneurs');
+    }
+
+    public function forFreelancers()
+    {
+        return view('site.pages.for-freelancers');
+    }
+
+    public function forOnlineRetailers()
+    {
+        return view('site.pages.for-online-retailers');
     }
 }
