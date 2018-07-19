@@ -1,5 +1,11 @@
 import Vue from 'vue'
 
+import answer from './answer.vue'
+Vue.component('answer', answer)
+
+import answers from './answers.vue'
+Vue.component('answers', answers)
+
 import breadcrumbs from './breadcrumbs.vue'
 Vue.component('breadcrumbs', breadcrumbs)
 

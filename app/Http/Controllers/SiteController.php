@@ -52,4 +52,14 @@ class SiteController extends Controller
     {
         return view('site.pages.for-online-retailers');
     }
+
+    public function whatWeDoDifferently()
+    {
+        return view('site.pages.what-we-do-differently');
+    }
+
+    public function problems()
+    {
+        return view('site.pages.problems');
+    }
 }

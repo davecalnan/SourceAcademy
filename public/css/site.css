@@ -341,6 +341,7 @@
   -webkit-overflow-scrolling: touch;
   overflow-x: scroll;
   overflow-y: hidden;
+  padding: 1.5rem 0;
   white-space: nowrap;
 }
 
@@ -364,5 +365,19 @@
 
 .section.no-padding-x {
   padding: 3rem 0 !important;
+}
+
+.pricing-table .pricing-plan {
+  width: 0;
+}
+
+.pricing-table .pricing-plan .plan-footer small {
+  font-size: 0.75em;
+}
+
+.dropdown {
+  -webkit-box-shadow: 0 0 8px #777;
+          box-shadow: 0 0 8px #777;
+  width: calc(100% - 10em);
 }
 

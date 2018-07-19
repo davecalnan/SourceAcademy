@@ -21,7 +21,9 @@
                     <a href="{{ route('site.pages.for-online-retailers') }}" class="navbar-item">Online Retailers</a>
                 </div>
             </div>
-            <a href="{{ route('site.pages.about') }}" class="navbar-item">About</a>
+            <a href="{{ route('site.pages.problems') }}" class="navbar-item">Problems</a>
+            <a href="{{ route('site.pages.what-we-do-differently') }}" class="navbar-item">What we do differently</a>
+            <a href="{{ route('site.pages.about') }}" class="navbar-item">About us</a>
             @if (Auth::check())
             <a href="{{ route('logout') }}" class="navbar-item">Logout</a>
             @else
