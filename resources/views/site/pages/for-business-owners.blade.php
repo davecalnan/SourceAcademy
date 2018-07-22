@@ -49,7 +49,7 @@
 </site-section>
 
 <site-section class="has-background-light" title="Our Process 📈" subtitle="We're continually improving this to make your life easier">
-    <div class="columns has-text-centered" style="margin-bottom: 3rem">
+    <div class="columns has-text-centered">
         <div class="column is-4 is-offset-2">
             <h1 class="title">1. Form 📋</h1>
             <h2 class="subtitle">You fill out a brief form</h2>
@@ -81,11 +81,13 @@
 </site-section>
 
 <site-section title="Questions? 🤔" subtitle="Anything we haven't answered yet?">
-    @include('components.site.questions')
+    <div class="container">
+        @include('components.site.questions')
+    </div>
 </site-section>
 
 <site-section class="has-background-light no-padding-x" title="Portfolio 🖥" subtitle="Sites we have made for people like you">
-    @include('content.site.portfolio')
+    {{-- @include('content.site.portfolio') --}}
 </site-section>
 
 <site-section title="Testimonials 🙌🏻" subtitle="What customers like you have to say">

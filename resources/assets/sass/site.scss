@@ -138,7 +138,6 @@
 .pricing-table {
     
     & .pricing-plan {
-        width: 0;
 
         & .plan-footer {
 
@@ -147,6 +146,12 @@
             }
         }
     }   
+}
+
+@media screen and (min-width: 1024px) {
+    .pricing-plan {
+        width: 0;
+    }
 }
 
 .dropdown {

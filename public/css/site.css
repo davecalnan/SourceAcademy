@@ -367,12 +367,14 @@
   padding: 3rem 0 !important;
 }
 
-.pricing-table .pricing-plan {
-  width: 0;
-}
-
 .pricing-table .pricing-plan .plan-footer small {
   font-size: 0.75em;
+}
+
+@media screen and (min-width: 1024px) {
+  .pricing-plan {
+    width: 0;
+  }
 }
 
 .dropdown {

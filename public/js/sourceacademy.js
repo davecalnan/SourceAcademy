@@ -9619,12 +9619,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    props: {
+        result: {
+            type: Object,
+            default: null
+        }
+    },
+
     data: function data() {
         return {};
     },
 
-
-    props: [],
 
     methods: {}
 });
@@ -28411,8 +28416,6 @@ var render = function() {
   return _c(
     "a",
     {
-      staticClass: "answer",
-      attrs: { href: "" },
       on: {
         click: function($event) {
           _vm.alert("hi")
