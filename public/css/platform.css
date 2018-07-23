@@ -1,3 +1,84 @@
+.browser-mockup {
+  border-top: 2.2em solid rgba(230, 230, 230, 0.7);
+  -webkit-box-shadow: 0 0.1em 1em 0 rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0.1em 1em 0 rgba(0, 0, 0, 0.4);
+  position: relative;
+  border-radius: 3px 3px 0 0;
+}
+
+.browser-mockup:before {
+  display: block;
+  position: absolute;
+  content: '';
+  top: -1.25em;
+  left: 1em;
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background-color: #f44;
+  -webkit-box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;
+          box-shadow: 0 0 0 2px #f44, 1.5em 0 0 2px #9b3, 3em 0 0 2px #fb5;
+}
+
+.browser-mockup.with-tab:after {
+  display: block;
+  position: absolute;
+  content: '';
+  top: -2em;
+  left: 5.5em;
+  width: 20%;
+  height: 0em;
+  border-bottom: 2em solid white;
+  border-left: 0.8em solid transparent;
+  border-right: 0.8em solid transparent;
+}
+
+.browser-mockup.with-url > .search-bar {
+  display: block;
+  position: absolute;
+  content: '';
+  color: #4a4a4a;
+  top: -1.8em;
+  left: 5.5em;
+  width: calc(100% - 11em);
+  min-width: 10em;
+  height: 1.5em;
+  border-radius: 2px;
+  background-color: white;
+  text-align: center;
+}
+
+.browser-mockup > * {
+  display: block;
+}
+
+.browser-mockup .iframe-container {
+  width: 100%;
+}
+
+.browser-mockup .iframe-container iframe {
+  width: 100%;
+  height: 100vh;
+}
+
+.website-review {
+  display: grid;
+  grid-template-areas: "browser nav";
+  grid-template-columns: 3fr 1fr;
+  height: 100%;
+}
+
+.website-review-browser {
+  grid-area: browser;
+  padding: 1rem;
+}
+
+.website-review-nav {
+  background-color: white;
+  border-left: 1px solid #ccc;
+  grid-area: nav;
+}
+
 i.icon {
   font-style: inherit;
 }
@@ -92,6 +173,10 @@ i.icon {
   background: #f1f1f1;
   grid-area: main;
   padding: 1rem 0;
+}
+
+.platform-main.no-padding {
+  padding: 0;
 }
 
 .platform-footer {

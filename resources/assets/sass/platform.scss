@@ -1,4 +1,6 @@
 @import "variables";
+@import "components/common/browser";
+@import "components/platform/review";
 
 i.icon {
 	font-style: inherit;
@@ -96,6 +98,10 @@ i.icon {
         background: $background-light;
         grid-area: main;
         padding: 1rem 0;
+
+        &.no-padding {
+            padding: 0;
+        }
     }
 
     &-footer {

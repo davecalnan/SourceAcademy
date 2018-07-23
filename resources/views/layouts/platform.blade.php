@@ -31,7 +31,7 @@
             @yield('header')
         </header>
 
-        <main class="platform-main">
+        <main class="platform-main @yield('main-class')">
             @yield('main')
             @if ($errors->any())
                 <card title="Something went wrong...">

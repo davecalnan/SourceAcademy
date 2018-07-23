@@ -106,6 +106,7 @@ Route::group(['middleware' => 'can:admin'], function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::domain('dashboard.' . env('APP_DOMAIN'))->group(function () {
         Route::get('/', 'DashboardController@home')->name('dashboard.home');
+        Route::get('review', 'DashboardController@review')->name('dashboard.review');
 
         Route::get('projects', 'DashboardController@projects')->name('dashboard.projects.index');
         Route::get('projects/{slug}', 'DashboardController@project')->name('dashboard.projects.single');

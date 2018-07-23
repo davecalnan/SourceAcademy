@@ -1,0 +1,17 @@
+.website-review {
+    display: grid;
+    grid-template-areas: "browser nav";
+    grid-template-columns: 3fr 1fr;
+    height: 100%;
+
+    &-browser {
+        grid-area: browser;
+        padding: 1rem;
+    }
+
+    &-nav {
+        background-color: white;
+        border-left: 1px solid #ccc;
+        grid-area: nav;
+    }
+}
