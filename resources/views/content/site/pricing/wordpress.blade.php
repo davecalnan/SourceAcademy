@@ -51,5 +51,5 @@
 <div class="section has-text-centered">
     <p>Looking for something more bespoke?</p>
     <br>
-    <a class="button is-primary" onclick="Intercom('showNewMessage', 'Hi 👋🏻,\n\nI\'m interested in a bespoke website:\n\n')">Tell us what you need</a>
+    <a class="button is-primary is-outlined" onclick="Intercom('showNewMessage', 'Hi 👋🏻,\n\nI\'m interested in a bespoke website:\n\n')">Tell us what you need</a>
 </div>

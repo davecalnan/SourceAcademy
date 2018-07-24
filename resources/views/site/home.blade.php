@@ -8,7 +8,7 @@
 
 @section('main')
 
-<section class="hero is-black is-medium has-text-centered">
+<section class="hero is-black is-medium">
     <div class="hero-head">
         @component('components.site.navbar')
             @slot('class')
@@ -17,16 +17,19 @@
         @endcomponent
     </div>
 	<div class="hero-body">
-		<h1 class="title">
-			We make getting <span id="typed-services"></span> easy.
-		</h1>
-		<h2 class="subtitle">
-			Grow your business with the help of talented student freelancers.
-		</h2>
 
-		<div class="centered">
-			<a href="{{ route('signup') }}" class="button is-primary">Start a project</a>
-			<a onclick="Intercom('showNewMessage')" class="button is-white is-outlined">Get in touch</a>
+        <div class="columns">
+            <div class="column is-8 is-offset-2">
+                <h1 class="title">
+                    We make getting <span id="typed-services"></span>easy.
+                </h1>
+                <h2 class="subtitle">
+                    Grow your business with the help of talented student freelancers.
+                </h2>
+                
+                <a href="{{ route('signup') }}" class="button is-primary">Start a project</a>
+                <a onclick="Intercom('showNewMessage')" class="button is-white is-outlined">Get in touch</a>
+            </div>
 		</div>
 	</div>
 </section>
@@ -86,8 +89,9 @@
                     <p>Our team has started businesses in the past - some successful, others less so! If you're looking for a partner to help with a new venture, we're here.</p>
                 @endslot
                 @slot('footer')
-                    <p class="card-footer-item">From €700</p>
-					<a class="card-footer-item is-primary" href="{{ route('site.pages.for-entrepreneurs') }}">Learn more</a>
+                    <p class="card-footer-item">From €1000</p>
+                    {{-- <a class="card-footer-item is-primary" href="{{ route('site.pages.for-entrepreneurs') }}">Learn more</a> --}}
+                    <p class="card-footer-item">Coming soon ⏱</p>
                 @endslot
             @endcomponent
 
@@ -106,7 +110,8 @@
                 @endslot
                 @slot('footer')
                     <p class="card-footer-item">From €1200</p>
-                    <a class="card-footer-item is-primary" href="{{ route('site.pages.for-online-retailers') }}">Learn more</a>
+                    {{-- <a class="card-footer-item is-primary" href="{{ route('site.pages.for-online-retailers') }}">Learn more</a> --}}
+                    <p class="card-footer-item">Coming soon ⏱</p>
                 @endslot
             @endcomponent
 		</div>
@@ -121,9 +126,9 @@
 	<div class="container content">
         <div class="columns">
             <div class="column is-8 is-offset-2">
-                <p>This paragraph will say stuff about why students will deliver work quicker. Including our process.</p>
+                <p><span class="sa-logotype">SourceAcademy</span> is the easiest way to get a website made. Work with us and our student freelancers to get your website or online store delivered quickly, affordably and with no headaches.</p>
                 <br>
-                <p>This paragraph will say stuff about why students will deliver work cheaper.</p> 
+                <p>Students are digital natives. They have grown up on the internet and can bring a unique edge to your new home on the web. We only work with the best.</p> 
 			</div>
 		</div>
 	</div>

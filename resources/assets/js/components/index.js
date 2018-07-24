@@ -27,6 +27,9 @@ Vue.component('feedbackOption', feedbackOption)
 import freelancerCard from './freelancer-card.vue'
 Vue.component('freelancerCard', freelancerCard)
 
+import searchResult from './search-result.vue'
+Vue.component('searchResult', searchResult)
+
 import sidebarLayout from './sidebar-layout.vue'
 Vue.component('sidebarLayout', sidebarLayout)
 

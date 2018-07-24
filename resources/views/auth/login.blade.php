@@ -1,4 +1,4 @@
-@extends('layouts.site')
+@extends('site.master')
 
 @section('title')
 Login

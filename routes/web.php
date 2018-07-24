@@ -9,8 +9,12 @@
 Route::domain(env('APP_DOMAIN'))->group(function () {
     // Pages
     Route::get('/', 'SiteController@home')->name('site.home');
-    Route::get('about', 'SiteController@about')->name('site.pages.about');
-    Route::get('what-we-do-differently', 'SiteController@whatWeDoDifferently')->name('site.pages.what-we-do-differently');
+    
+    Route::prefix('about')->group(function () {
+        Route::get('us', 'SiteController@aboutUs')->name('site.pages.about-us');
+        Route::get('our-process', 'SiteController@ourProcess')->name('site.pages.our-process');
+        Route::get('what-we-do-differently', 'SiteController@whatWeDoDifferently')->name('site.pages.what-we-do-differently');
+    });
 
     Route::prefix('for')->group(function () {
         Route::get('business-owners', 'SiteController@forBusinessOwners')->name('site.pages.for-business-owners');
