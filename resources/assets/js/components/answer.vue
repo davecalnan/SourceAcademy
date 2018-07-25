@@ -1,6 +1,6 @@
 <template>
-    <a href="" class="answer" @click="alert('hi')">
-        <slot></slot>
+    <a @click="alert('hi')">
+        <slot/>
     </a>
 </template>
 
@@ -12,13 +12,18 @@
 
 <script>
 export default {
+    props: {
+        result: {
+            type: Object,
+            default: null
+        }
+    },
+
     data() {
         return {
             
         }
     },
-    
-    props: [],
     
     methods: {
         

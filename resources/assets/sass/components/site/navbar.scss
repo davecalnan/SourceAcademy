@@ -38,6 +38,13 @@
     }
 }
 
+.navbar.is-primary {
+
+    & .navbar-burger, .navbar-burger:hover {
+        color: white;
+    }
+}
+
 .navbar.is-transparent {
 
     & .navbar-item:hover, .navbar-item.has-dropdown:hover, .navbar-link, .navbar-dropdown {

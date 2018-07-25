@@ -138,7 +138,6 @@
 .pricing-table {
     
     & .pricing-plan {
-        width: 0;
 
         & .plan-footer {
 
@@ -149,7 +148,41 @@
     }   
 }
 
+@media screen and (min-width: 1024px) {
+    .pricing-plan {
+        width: 0;
+    }
+}
+
 .dropdown {
   box-shadow: 0 0 8px #777;
-  width: calc(100% - 10em);
+  width: calc(100% - 6em);
+}
+
+.section.has-background-light {
+
+    & .timeline {
+
+        & .tag {
+            background-color: white;
+        }
+    }
+}
+
+.search-by-algolia {
+    float: right;
+    padding-top: 0.5rem;
+    padding-right: 6.5rem;
+}
+
+.ais-results {
+    width: 100%;
+}
+
+.ais-no-results {
+    padding: 1rem;
+}
+
+button.search {
+    width: 6rem;
 }
