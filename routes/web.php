@@ -127,3 +127,7 @@ Route::domain('www.' . env('APP_DOMAIN'))->group(function () {
 | Misc Routes
 |--------------------------------------------------------------------------
 */
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
