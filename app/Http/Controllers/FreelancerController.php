@@ -24,7 +24,7 @@ class FreelancerController extends Controller
         // $freelancers = User::whereHas('roles', function ($query) {
         //     $query->where('name', 'freelancer');
         // })->get();
-        
+
         return view('site.freelancers.index', compact('freelancers'));
     }
 
@@ -46,7 +46,7 @@ class FreelancerController extends Controller
      */
     public function store(Request $request)
     {
-        
+        print("Request sent");
     }
 
     /**

@@ -28,7 +28,7 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
     Route::get('password/update', '\App\Http\Controllers\Auth\UpdatePasswordController@showPasswordUpdateForm')->name('password.update');
     Route::post('password/update', '\App\Http\Controllers\Auth\UpdatePasswordController@update')->name('password.update');
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
-    
+
     Route::post('projects', 'ProjectController@store')->name('projects.create');
     Route::patch('projects/{slug}', 'ProjectController@update')->name('projects.update');
 
@@ -75,7 +75,7 @@ Route::group(['middleware' => 'can:admin'], function () {
         Route::get('servers', 'AdminController@servers')->name('admin.servers.index');
         Route::get('servers/{id}', 'AdminController@server')->name('admin.servers.single');
         Route::get('servers-info', 'ServerController@index');
-        
+
         Route::get('organisations', 'AdminController@organisations')->name('admin.organisations.index');
         Route::get('organisations/{slug}', 'AdminController@organisation')->name('admin.organisations.single');
 
@@ -87,6 +87,10 @@ Route::group(['middleware' => 'can:admin'], function () {
 
         Route::get('users', 'AdminController@users')->name('admin.users.index');
         Route::get('users/{user}', 'AdminController@user')->name('admin.users.single');
+
+        Route::get('freelancers', 'AdminController@freelancers')->name('admin.freelancers.index');
+        Route::get('freelancers/new', 'AdminController@addFreelancers')->name('admin.freelancers.create');
+        Route::post('freelancers', 'AdminController@storeFreelancer')->name('admin.freelancers.store');
 
         Route::get('activity-feed', 'AdminController@dones')->name('admin.dones.index');
     });
@@ -127,3 +131,7 @@ Route::domain('www.' . env('APP_DOMAIN'))->group(function () {
 | Misc Routes
 |--------------------------------------------------------------------------
 */
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Helpers;
 use App\Done;
 use App\Organisation;
 use App\Project;
 use App\Server;
 use App\User;
+use App\Freelancer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -18,13 +21,13 @@ class AdminController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function home()
     {
-		$users = User::with('roles')->get();
-    	return view('admin.home', ['users' => $users]);
+  		$users = User::with('roles')->get();
+      	return view('admin.home', ['users' => $users]);
     }
-	
+
     public function organisations()
     {
         $organisations = Organisation::all();
@@ -36,13 +39,13 @@ class AdminController extends Controller
     {
         return view('admin.organisations.single', ['organisation' => $organisation]);
     }
-	
+
     public function projects()
     {
         $organisations = organisation::all();
         $projects = Project::all();
 
-    	return view('admin.projects.index', ['organisations' => $organisations, 'projects' => $projects]);
+    	  return view('admin.projects.index', ['organisations' => $organisations, 'projects' => $projects]);
     }
 
     public function project(Project $project)
@@ -69,7 +72,7 @@ class AdminController extends Controller
         //     }
         // }, $servers);
 
-    	return view('admin.servers.index', ['servers' => $servers]);
+    	  return view('admin.servers.index', ['servers' => $servers]);
     }
 
     public function server($id)
@@ -88,6 +91,26 @@ class AdminController extends Controller
         $users = User::all();
 
         return view('admin.users.index', ['users' => $users]);
+    }
+
+    public function freelancers()
+    {
+        $freelancers = DB::table('freelancers')
+                    ->join('users', 'users.id', '=', 'freelancers.user_id')
+                    ->get();
+
+        return view('admin.freelancers.index', ['freelancers' => $freelancers]);
+    }
+
+    public function addFreelancers()
+    {
+        return view('admin.freelancers.create');
+    }
+
+    public function storeFreelancer(Request $request)
+    {
+        Helpers::checkIfUserExists($request);
+        return redirect(route('admin.freelancers.index'));
     }
 
     public function dones()
