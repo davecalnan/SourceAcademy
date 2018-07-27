@@ -10226,6 +10226,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -10583,7 +10587,7 @@ exports = module.exports = __webpack_require__("./node_modules/css-loader/lib/cs
 
 
 // module
-exports.push([module.i, "\n.site-section {\n  background-color: #ffffff;\n  padding-bottom: 4rem;\n}\n.site-section-title {\n    text-align: center;\n    font-size: 2em;\n    font-weight: 800;\n    margin: 1em auto 2em;\n}\n.site-section-subtitle {\n    text-align: center;\n    font-size: 1.5em;\n    font-weight: 400;\n    margin: -3em auto 2em;\n}\n.site-section.has-background-light {\n    background: #f1f1f1;\n}\n.site-section:last-of-type {\n    padding-bottom: 3rem;\n}\n", ""]);
+exports.push([module.i, "\n.site-section {\n  background-color: #ffffff;\n  padding-bottom: 4rem;\n}\n.site-section-title {\n    text-align: center;\n    font-size: 2em;\n    font-weight: 800;\n    margin: 1em auto 2em;\n}\n.site-section-subtitle {\n    text-align: center;\n    font-size: 1.5em;\n    font-weight: 400;\n    margin: -3em auto 2em;\n}\n.site-section.has-background-light {\n    background: #f1f1f1;\n}\n.site-section:last-of-type {\n    padding-bottom: 3rem;\n}\n.site-section p {\n    padding-bottom: 1.5rem;\n}\n", ""]);
 
 // exports
 

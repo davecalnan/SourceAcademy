@@ -10,7 +10,7 @@
             <div class="plan-item">-</div>
         </div>
         <div class="plan-footer">
-            <button class="button is-black is-fullwidth">Get started</button>
+            <a href="{{ route('signup') }}" class="button is-fullwidth">Get started</a>
             <small>Nothing to pay now, you can change plan later.</small>
         </div>
     </div>
@@ -26,7 +26,7 @@
             <div class="plan-item">-</div>
         </div>
         <div class="plan-footer">
-            <button class="button is-fullwidth">Get started</button>
+            <a href="{{ route('signup') }}" class="button is-fullwidth">Get started</a>
             <small>Nothing to pay now, you can change plan later.</small>
         </div>
     </div>
@@ -38,11 +38,11 @@
             <div class="plan-item">20 pages with copywriting service</div>
             <div class="plan-item">Analytics setup, monthly report &amp; consultation</div>
             <div class="plan-item">SEO &amp; monthly consultation</div>
-            <div class="plan-item">Up to three features like...</div>
+            <div class="plan-item">Up to three additional features</div>
             <div class="plan-item">Sell products online</div>
         </div>
         <div class="plan-footer">
-            <button class="button is-fullwidth">Get started</button>
+            <a href="{{ route('signup') }}" class="button is-fullwidth">Get started</a>
             <small>Nothing to pay now, you can change plan later.</small>
         </div>
     </div>

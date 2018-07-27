@@ -122,16 +122,12 @@
 	@include('content.site.testimonials')
 </site-section>
 
-<site-section title="Save time, save money 💰" subtitle="Hire a student freelancer">
-	<div class="container content">
-        <div class="columns">
-            <div class="column is-8 is-offset-2">
-                <p><span class="sa-logotype">SourceAcademy</span> is the easiest way to get a website made. Work with us and our student freelancers to get your website or online store delivered quickly, affordably and with no headaches.</p>
-                <br>
-                <p>Students are digital natives. They have grown up on the internet and can bring a unique edge to your new home on the web. We only work with the best.</p> 
-			</div>
-		</div>
-	</div>
+<site-section title="What's currently wrong with web development 🤬" subtitle="And what we do differently">
+    @include('content.site.issues-with-web-development')
+    <div class="has-text-centered">
+        <br>
+        <a href="{{ route('site.pages.what-we-do-differently') }}" class="button is-primary is-outlined">What we do differently</a>
+    </div>
 </site-section>
 
 <site-section class="has-background-light no-padding-x" title="Portfolio 🖥" subtitle="Here's some we made earlier">

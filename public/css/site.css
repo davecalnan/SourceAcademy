@@ -221,6 +221,15 @@
   }
 }
 
+.what-we-do-differently .hero:first-child {
+  background-blend-mode: multiply;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-image: url("/img/different-lemon.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 .site {
   display: -webkit-box;
   display: -ms-flexbox;

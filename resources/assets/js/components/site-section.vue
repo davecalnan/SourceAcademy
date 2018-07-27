@@ -34,6 +34,10 @@
     &:last-of-type {
         padding-bottom: 3rem;
     }
+
+    & p {
+        padding-bottom: 1.5rem;
+    }
 }
 </style>
 

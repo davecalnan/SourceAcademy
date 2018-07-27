@@ -13,7 +13,7 @@
         <div class="column">
             <h1 class="title">Expensive 🤑</h1>
             <h2 class="subtitle">Getting a website made is expensive</h2>
-            <p>Working with a student freelancer gets you a developer who is up to date with the latest design trends, and fundamentally understands how a website should work as they have grown up on it.</p>
+            <p>We match you with a talented student freelancer. You get a developer up to date with the latest design trends, at a more affordable caust, with the guarantee of an established company.</p>
         </div>
     </div>
 </div>
