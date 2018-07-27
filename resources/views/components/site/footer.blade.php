@@ -16,7 +16,7 @@
         <div class="column is-3">
             <h1 class="footer-title">Get to know us</h1>
             <ul class="footer-links">
-                <li class="footer-link"><a href="{{ route('site.pages.about-us') }}">About us</a></li>
+                {{-- <li class="footer-link"><a href="{{ route('site.pages.about-us') }}">About us</a></li> --}}
                 <li class="footer-link"><a href="{{ route('site.pages.what-we-do-differently') }}">What we do differently</a></li>
             </ul>
         </div>

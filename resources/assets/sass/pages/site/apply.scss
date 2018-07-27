@@ -1,0 +1,14 @@
+.apply {
+
+ 	@media screen and (max-width: 768px) {
+ 		& .buttons {
+
+ 			& .button {
+
+				&:not(:first-child) {
+					margin-top: 0.5em;
+				}
+ 			}
+ 		}
+ 	}
+}

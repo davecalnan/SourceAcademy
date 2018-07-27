@@ -1,0 +1,11 @@
+ .for-freelancers {
+    
+	.hero:first-child {
+		background-blend-mode: multiply;
+		background-color: rgba(0, 0, 0, 0.5);
+		background-image: url('/img/people-collaborating.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+	}
+}

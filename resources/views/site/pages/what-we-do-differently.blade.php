@@ -26,7 +26,7 @@
 	</div>
 </section>
 
-<site-section title="Getting creative help for your business shouldn't be this hard 🚫" subtitle="We're on a mission to make it easier">
+{{-- <site-section title="Getting creative help for your business shouldn't be this hard 🚫" subtitle="We're on a mission to make it easier">
     <div class="container content">
         <div class="columns">
             <div class="column is-8 is-offset-2">
@@ -46,7 +46,7 @@
             </div>
         </div>
     </div>
-</site-section>
+</site-section> --}}
 
 <site-section title="What's currently wrong with web development 🤬" subtitle="And what we do differently">
     @include('content.site.issues-with-web-development')

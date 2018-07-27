@@ -1,0 +1,38 @@
+.home {
+
+	& .hero:first-child {
+		background-blend-mode: multiply;
+		background-color: rgba(0, 0, 0, 0.4);
+		background-image: url('/img/students-on-train.jpg');
+        background-position: center center;
+        background-size: cover;
+	}
+}
+
+@media screen and (max-width: 677px) {
+    .home {
+
+        & .hero-body {
+            & .title {
+                min-height:2.5em;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .home {
+
+        & .hero:first-child {
+            background: none;
+
+            & .hero-body {
+                background-blend-mode: multiply;
+                background-color: rgba(0, 0, 0, 0.4);
+                background-image: url('/img/students-on-train.jpg');
+                background-position: center center;
+                background-size: cover;
+            }
+        }
+    }
+}
