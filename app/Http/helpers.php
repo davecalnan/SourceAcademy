@@ -60,6 +60,15 @@ class Helpers{
 					    'user_id' => $user->id,
 					    'role_id' => 2
 							));
+
+		$token = app('auth.password.broker')->createToken($user);
+    print($token);
+      // Send email
+    #Mail::send('emails.welcome', ['user' => $user, 'token' => $token], function ($m) use ($user) {
+  	#	$m->from('hello@appsite.com', 'Your App Name');
+    #  $m->to($user->email, $user->name)->subject('Welcome to APP');
+    #});
+
 		}
 	}
 }

@@ -110,7 +110,7 @@ class AdminController extends Controller
     public function storeFreelancer(Request $request)
     {
         Helpers::checkIfUserExists($request);
-        return redirect(route('admin.freelancers.index'));
+        #return redirect(route('admin.freelancers.index'));
     }
 
     public function dones()
