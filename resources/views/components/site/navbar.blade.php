@@ -35,7 +35,8 @@
                         @if (Auth::check())
                         <a href="{{ route('redirect.home') }}" class="button">Dashboard</a>
                         @else
-                        <a href="{{ route('signup') }}" class="button">Signup</a>
+                        {{-- <a href="{{ route('signup') }}" class="button">Signup</a> --}}
+                        <a onclick="Intercom('showNewMessage')" class="button">Get in touch</a>
                         @endif
                     </p>
                 </div>
