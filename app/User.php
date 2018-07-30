@@ -4,6 +4,7 @@ namespace App;
 
 use App\Role;
 use Exception;
+use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;

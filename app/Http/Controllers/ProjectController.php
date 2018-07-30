@@ -59,9 +59,8 @@ class ProjectController extends Controller
         ]);
 
         Project::create($request->all());
-
+        
         redirect('//redirect.' . env('APP_DOMAIN') . '/projects/' . $project->id);
-
     }
 
     /**

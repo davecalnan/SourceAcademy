@@ -74,7 +74,7 @@ class SignupController extends Controller
     public function signup(Request $request)
     {
         $steps = $this->steps;
-        
+
         if ($request->fullUrl() !== $request->url()) // Will be false unless the request has a query string.
         {
             $this->setQueryStringsAsCookies($request);
@@ -87,7 +87,7 @@ class SignupController extends Controller
     {
         $stepsArray = $this->stepsArray;
         $steps = $this->steps;
-        
+
         $currentStep = $this->currentStep($request);
 
         if (!in_array($step, $steps, true)) {
@@ -149,7 +149,7 @@ class SignupController extends Controller
         } else {
             $user = User::createWithRole($request);
         }
-        
+
         Auth::login($user, true);
     }
 
