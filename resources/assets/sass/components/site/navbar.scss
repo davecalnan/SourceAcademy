@@ -1,0 +1,61 @@
+.navbar {
+
+    &-logo {
+        height: 2em;
+    }
+
+    &.is-transparent {
+        background-color: transparent !important;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .navbar {
+        padding: 0 5%;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .navbar {
+
+        &-item {
+            text-align: left;
+        }
+
+        &-dropdown {
+            font-size: 1em;
+            padding: 0;
+
+            & .navbar-item {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+        }
+    }
+
+    & .navbar.is-transparent {
+        background-color: black !important;
+    }
+}
+
+.navbar.is-primary {
+
+    & .navbar-burger, .navbar-burger:hover {
+        color: white;
+    }
+}
+
+.navbar.is-transparent {
+
+    & .navbar-item:hover, .navbar-item.has-dropdown:hover, .navbar-link, .navbar-dropdown {
+        background-color: transparent !important;
+    }
+
+    & .navbar-item, .navbar-link {
+        color: #ffffff !important;
+    }
+
+    & .navbar-dropdown {
+        box-shadow: none !important;
+    }
+}

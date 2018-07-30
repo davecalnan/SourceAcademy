@@ -1,0 +1,11 @@
+ .for-entrepreneurs {
+    
+	.hero:first-child {
+		background-blend-mode: multiply;
+		background-color: rgba(0, 0, 0, 0.6);
+		background-image: url('/img/entrepreneurs-desk.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+	}
+}

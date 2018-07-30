@@ -10,6 +10,7 @@
 @import '~@/_variables.scss';
 
 .site-section {
+    background-color: #ffffff;
     padding-bottom: 4rem;
 
     &-title {
@@ -32,6 +33,10 @@
 
     &:last-of-type {
         padding-bottom: 3rem;
+    }
+
+    & p {
+        padding-bottom: 1.5rem;
     }
 }
 </style>

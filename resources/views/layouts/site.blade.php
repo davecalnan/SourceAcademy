@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>
-        @section('title')
+        @section('meta-title')
         Hire top quality student freelancers
         @show
         | SourceAcademy
@@ -22,8 +22,8 @@
     <div id="app" class="site">
 
         <header class="header">
-            @section('header')
-            <navbar :is-primary="true"></navbar>
+            @section('nav')
+            @component('site.components.navbar')
             @show
         </header>
 
@@ -31,10 +31,9 @@
             @yield('main')
         </main>
 
-        <footer class="footer has-text-centered">
-            @section('footer')
-            &copy; 2018 SourceAcademy
-            @show
+        <footer class="footer">
+            @component('components.site.footer')
+            @endcomponent
         </footer>
 
     </div>

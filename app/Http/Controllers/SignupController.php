@@ -80,7 +80,7 @@ class SignupController extends Controller
             $this->setQueryStringsAsCookies($request);
         }
 
-        return redirect(route('organisation.signup.step', ['step' => $steps[0]]));
+        return redirect(route('signup.step', ['step' => $steps[0]]));
     }
 
     public function step(Request $request, $step = null)
@@ -91,7 +91,7 @@ class SignupController extends Controller
         $currentStep = $this->currentStep($request);
 
         if (!in_array($step, $steps, true)) {
-            return redirect(route('organisation.signup.step', ['step' => $steps[0]]));
+            return redirect(route('signup.step', ['step' => $steps[0]]));
         };
 
         foreach ($steps as $step) {
@@ -100,7 +100,7 @@ class SignupController extends Controller
         }
 
         // if ($this->validateStep($step)) {
-            return view('organisation.signup.' . $step, compact('stepsArray'));
+            return view('signup.' . $step, compact('stepsArray'));
         // }
         return $stepsArray[$step]['validation']['errorMessage'];
     }

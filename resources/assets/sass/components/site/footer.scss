@@ -1,0 +1,45 @@
+.footer {
+    border-top: 1px solid #ccc;
+    font-size: 1em;
+
+    & .container {
+        padding: 1.5rem;
+    }
+
+    &-title {
+        border-bottom: 1px solid #ccc;
+        font-size: 1.25em;
+        font-weight: 500;
+        margin-bottom: 0.5em;
+    }
+
+    &-link {
+
+        & a {
+            color: inherit;
+        }
+    }
+
+    &-logo {
+        margin: auto;
+        // width: 75%;
+    }
+
+    &-copyright {
+        font-size: 0.75em;
+    }
+
+    & .has-logo {
+        align-self: center;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .footer {
+
+        & .has-logo {
+            // text-align: center;
+        }
+    }
+}

@@ -1,182 +1,139 @@
-@extends('layouts.site')
+@extends('site.master')
 
-@section('title', 'Hire top quality student freelancers')
+@section('meta-title', 'Hire top quality student freelancers')
 
 @section('body-class', 'home')
 
-@section('header')
-@endsection
+@section('nav', '')
 
 @section('main')
 
-<section class="hero is-black is-medium has-text-centered">
+<section class="hero is-black is-medium">
     <div class="hero-head">
-        <navbar></navbar>
+        @component('components.site.navbar')
+            @slot('class')
+                is-transparent
+            @endslot
+        @endcomponent
     </div>
 	<div class="hero-body">
-		<h1 class="title">
-			Getting <span id="typed-services"></span> made doesn't have to be so hard.
-		</h1>
-		<h2 class="subtitle">
-			Grow your business with the help of talented student freelancers.
-		</h2>
 
-		<div class="buttons">
-			<a class="button is-primary" href="/signup">Start a project</a>
-			{{--  <a class="button is-white is-outlined" href="/freelancers">View students</a>  --}}
-			<a class="button is-white is-outlined" href="mailto:dave@sourceacademy.co">Get in touch</a>
+        <div class="columns">
+            <div class="column is-8 is-offset-2">
+                <h1 class="title">
+                    We make getting <span id="typed-services"></span>easy.
+                </h1>
+                <h2 class="subtitle">
+                    Grow your business with the help of talented student freelancers.
+                </h2>
+                
+                <a href="{{ route('signup') }}" class="button is-primary">Start a project</a>
+                <a onclick="Intercom('showNewMessage')" class="button is-white is-outlined">Get in touch</a>
+            </div>
 		</div>
 	</div>
 </section>
 
-<site-section title="Get it done better with a student freelancer" subtitle="Focus on running your business, we'll do the rest">
+<site-section title="Get it done better with a student freelancer ✅" subtitle="Focus on running your business, we'll do the rest">
 	<div class="container">
 		<div class="services-grid">
-			<div class="card">
-				<div class="card-content">
-					<div class="media">
-						<div class="media-left">
-							<figure class="image is-48x48">
-								<img src="/img/wordpress-icon.svg" alt="Wordpress icon">
-							</figure>
-						</div>
-						<div class="media-content">
-							<p class="title is-4">Basic Website</p>
-							<p class="subtitle is-6">Wordpress Development</p>
-						</div>
-					</div>
+            @component('components.card')
+                @slot('icon')
+                    <img src="/img/brick-and-mortar-store.svg" alt="An illustration of a brick and mortar store">
+                @endslot
+                @slot('title')
+                    Business Owner
+                @endslot
+                @slot('subtitle')
+                    Want to launch or refresh your online presence?
+                @endslot
+                @slot('content')
+                    <p>Whether you already have a website or not, we can help you attract new customers with a website showcasing your business and sharing your brand's story.</p>
+                @endslot
+                @slot('footer')
+                    <p class="card-footer-item">From €700</p>
+                    <a class="card-footer-item is-primary" href="{{ route('site.pages.for-business-owners') }}">Learn more</a>
+                @endslot
+            @endcomponent
 
-					<p>
-						Need a personal website or a brochure website for your business?
-						One of our freelancers will help you launch or refresh your home on the web with a Wordpress website.
-					</p>
+            @component('components.card')
+                @slot('icon')
+                    <img src="/img/looking-for-growth.svg" alt="An illustration of a woman with a bubble and an arrow showing growth">
+                @endslot
+                @slot('title')
+                    Freelancer
+                @endslot
+                @slot('subtitle')
+                    Want to have a professional home online for clients?
+                @endslot
+                @slot('content')
+                    <p>We started as freelancers in college. We know how hard it is to get around to building your own portfolio and making your home on the web. Let us help.<p>
+                @endslot
+                @slot('footer')
+                    <p class="card-footer-item">From €700</p>
+					<a class="card-footer-item is-primary" href="{{ route('site.pages.for-freelancers') }}">Learn more</a>
+                @endslot
+            @endcomponent
 
-				</div>
-				<footer class="card-footer">
-					<p class="card-footer-item">From €400</p>
-					{{--  <a class="card-footer-item is-primary is-pulled-right" href="/wordpress-development">Learn more</a>  --}}
-					<a class="card-footer-item is-primary is-pulled-right" href="mailto:dave@sourceacademy.co">Get in touch</a>
-				</footer>
-			</div>
+            @component('components.card')
+                @slot('icon')
+                    <img src="/img/line-chart-on-laptop.svg" alt="An illustration of laptop displaying a line chart showing positive growth">
+                @endslot
+                @slot('title')
+                    Entrepreneur
+                @endslot
+                @slot('subtitle')
+                    Want help validating or launching a new idea?
+                @endslot
+                @slot('content')
+                    <p>Our team has started businesses in the past - some successful, others less so! If you're looking for a partner to help with a new venture, we're here.</p>
+                @endslot
+                @slot('footer')
+                    <p class="card-footer-item">From €1000</p>
+                    {{-- <a class="card-footer-item is-primary" href="{{ route('site.pages.for-entrepreneurs') }}">Learn more</a> --}}
+                    <p class="card-footer-item">Coming soon ⏱</p>
+                @endslot
+            @endcomponent
 
-			<div class="card">
-				<div class="card-content">
-					<div class="media">
-						<div class="media-left">
-							<figure class="image is-48x48">
-								<img src="/img/shopify-icon.svg" alt="Shopify icon">
-							</figure>
-						</div>
-						<div class="media-content">
-							<p class="title is-4">eCommerce Website</p>
-							<p class="subtitle is-6">Shopify Development</p>
-						</div>
-					</div>
-
-					<p>
-						Finally start that online store you've been dreaming of or begin a complete overhaul of your existing site with the help of one of our talented students.
-					</p>
-
-				</div>
-				<footer class="card-footer">
-					<p class="card-footer-item">From €800</p>
-					{{--  <a class="card-footer-item is-primary is-pulled-right" href="/shopify-development">Learn more</a>  --}}
-					<a class="card-footer-item is-primary is-pulled-right" href="mailto:dave@sourceacademy.co">Get in touch</a>
-				</footer>
-			</div>
-
-			<div class="card">
-				<div class="card-content">
-					<div class="media">
-						<div class="media-left">
-							<figure class="image is-48x48">
-								<img src="/img/video-camera.svg" alt="Videography">
-							</figure>
-						</div>
-						<div class="media-content">
-							<p class="title is-4">Videography</p>
-							<p class="subtitle is-6">Promotional or Event Videos</p>
-						</div>
-					</div>
-
-					<p>
-						Promote your business through of video or capture an event to share with your customers. Hire videographers on-demand for whatever your need.
-					</p>
-
-				</div>
-				<footer class="card-footer">
-					<p class="card-footer-item">From €200</p>
-					<a class="card-footer-item is-primary" href="/videography">Get in touch</a>
-				</footer>
-			</div>
+            @component('components.card')
+                @slot('icon')
+                    <img src="/img/shopify-icon.svg" alt="An icon of the Shopify logo">
+                @endslot
+                @slot('title')
+                    Online Retailer
+                @endslot
+                @slot('subtitle')
+                    Want an online store or move from Magento to Shopify?
+                @endslot
+                @slot('content')
+                    <p>Decided it's time you start selling your products online, or time for a change with your online store? We love to develop and launch E-Commerce sites.<p>
+                @endslot
+                @slot('footer')
+                    <p class="card-footer-item">From €1200</p>
+                    {{-- <a class="card-footer-item is-primary" href="{{ route('site.pages.for-online-retailers') }}">Learn more</a> --}}
+                    <p class="card-footer-item">Coming soon ⏱</p>
+                @endslot
+            @endcomponent
 		</div>
 	</div>
 </site-section>
 
-<site-section class="has-background-light" title="Save time, save money" subtitle="Hire a student freelancer">
-	<div class="container content">
-        <div class="columns">
-            <div class="column is-8 is-offset-2">
-				{{--  <p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.
-				</p>  --}}
-			</div>
-		</div>
-	</div>
+<site-section class="has-background-light" title="Testimonials 🙌🏻" subtitle="See what our customers have to say">
+	@include('content.site.testimonials')
 </site-section>
 
-<site-section class="container" title="How it works">
-	<steps>
-		<step image="/img/search.svg" alt="Browse available project types." title="Browse" details="Select the type of project you want help with."></step>
-		<step image="/img/users.svg" alt="Choose a student freelancer to hire." title="Pick" details="Pick the perfect student freelancer for your job."></step>
-		<step image="/img/smartphone-talk.svg" alt="Tell us about your project." title="Tell us" details="Give us the details of your project and we'll get started."></step>
-		<step image="/img/list.svg" alt="Sit back and relax." title="Relax" details="Sit back and relax, your student freelancer will complete your project and seek your approval and final sign-off."></step>
-	</steps>
+<site-section title="What's currently wrong with web development 🤬" subtitle="And what we do differently">
+    @include('content.site.issues-with-web-development')
+    <div class="has-text-centered">
+        <br>
+        <a href="{{ route('site.pages.what-we-do-differently') }}" class="button is-primary is-outlined">What we do differently</a>
+    </div>
 </site-section>
 
-<site-section class="has-background-light" title="Testimonials" subtitle="See what our clients have to say">
-	<div class="container">
-		<div class="testimonials-grid">
-			<testimonial client-picture="/img/finbarr-pyne.jpg"
-				client-name="Finbarr Pyne"
-				client-logo="/img/castlegale-logo.png"
-				client-company="Castlegale"
-				client-position="Owner"
-				:client-quote="['As a provider of technical consultancy services, I wanted my website to look professional and to demonstrate my experience to potential clients.','SourceAcademy gave me just that. The process was super-efficient, with swift turnaround from content delivery to live working website.','All delivered on budget by people who were easy to work with – just like Castlegale!']"
-				project-url="https://castlegale.com"
-				{{--  freelancer-url="/freelancers/seandonnellan"  --}}
-				freelancer-name="Sean Donnellan">
-			</testimonial>
-			{{--  <testimonial client-picture="/img/dc-cahalane.jpg"
-				client-name="DC Cahalane"
-				client-logo="/img/republicofwork-logo.svg"
-				client-company="Republic of Work"
-				client-position="CEO"
-				:client-quote="['Quote goes here.','Second paragraph goes here.']"
-				project-url="https://castlegale.com"
-				freelancer-url="/freelancers/davecalnan"
-				freelancer-name="Dave Calnan">
-			</testimonial>  --}}
-		</div>
-	</div>
+<site-section class="has-background-light no-padding-x" title="Portfolio 🖥" subtitle="Here's some we made earlier">
+    @include('content.site.portfolio')
 </site-section>
 
-<div class="hero is-primary">
-	<div class="hero-body">
-		<div class="container">
-			<div class="columns is-vcentered">
-				<div class="column is-4 is-offset-2">
-					<h1 class="title">Get started today:</h1>
-					<h2 class="subtitle">All costs upfront, no hidden fees.</h2>
-				</div>
-				<div class="column is-4">
-					<a class="button is-primary is-inverted" href="/signup">Start a project</a>
-					{{--  <a class="button is-primary is-inverted is-outlined" href="/freelancers">View students</a>  --}}
-					<a class="button is-primary is-inverted is-outlined" href="mailto:dave@sourceacademy.co">Get in touch</a>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+@include('content.site.call-to-action')
 
 @endsection

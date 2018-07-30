@@ -3,7 +3,7 @@
 @section('meta-title', 'Admin Panel')
 
 @section('nav')
-<a href="{{ route('admin.home') }}">
+<a href="{{ route('site.home') }}">
 	<img class="platform-nav-logo" src="/img/sourceacademy-logo.svg" alt="SourceAcademy Logo">
 </a>
 <hr>
