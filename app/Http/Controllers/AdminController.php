@@ -24,7 +24,7 @@ class AdminController extends Controller
 
     public function home()
     {
-  		$users = User::with('roles')->get();
+  		  $users = User::with('roles')->get();
       	return view('admin.home', ['users' => $users]);
     }
 
@@ -32,7 +32,7 @@ class AdminController extends Controller
     {
         $organisations = Organisation::all();
 
-    	return view('admin.organisations.index', ['organisations' => $organisations]);
+    	   return view('admin.organisations.index', ['organisations' => $organisations]);
     }
 
     public function organisation(Organisation $organisation)
@@ -105,12 +105,6 @@ class AdminController extends Controller
     public function addFreelancers()
     {
         return view('admin.freelancers.create');
-    }
-
-    public function storeFreelancer(Request $request)
-    {
-        Helpers::checkIfUserExists($request);
-        #return redirect(route('admin.freelancers.index'));
     }
 
     public function dones()

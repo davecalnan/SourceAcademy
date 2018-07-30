@@ -6,6 +6,7 @@ use App\User;
 use App\Freelancer;
 use App\RoleUser;
 use Illuminate\Support\Facades\Hash;
+use Mail;
 
 class Helpers{
 	function subdomain($url)
@@ -61,14 +62,18 @@ class Helpers{
 					    'role_id' => 2
 							));
 
-		$token = app('auth.password.broker')->createToken($user);
-    print($token);
-      // Send email
-    #Mail::send('emails.welcome', ['user' => $user, 'token' => $token], function ($m) use ($user) {
-  	#	$m->from('hello@appsite.com', 'Your App Name');
-    #  $m->to($user->email, $user->name)->subject('Welcome to APP');
-    #});
+			$token = app('auth.password.broker')->createToken($user);
+	    $link = "http://sourceacademy.local/password/reset/" . $token;
 
+			$data = array(
+			    'name'=>"Jack",
+			    'link'=>$link
+			);
+
+			Mail::send('emails.welcome', $data, function($message) {
+				$message->to('jack.mallonk@gmail.com','To Me')->subject('Test Email');
+				$message->from('jack.mallonk@gmail.com','Jacko');
+			});
 		}
 	}
 }

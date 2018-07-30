@@ -6,7 +6,7 @@
 @section('main')
 
 <card title="Add New Freelancer">
-  <form method="POST" action="{{ route('admin.freelancers.store') }}">
+  <form method="POST" action="{{ route('freelancers.store') }}">
     {{ csrf_field() }}
 
     <div class="columns">

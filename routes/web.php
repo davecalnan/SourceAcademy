@@ -90,9 +90,10 @@ Route::group(['middleware' => 'can:admin'], function () {
 
         Route::get('freelancers', 'AdminController@freelancers')->name('admin.freelancers.index');
         Route::get('freelancers/new', 'AdminController@addFreelancers')->name('admin.freelancers.create');
-        Route::post('freelancers', 'AdminController@storeFreelancer')->name('admin.freelancers.store');
+        Route::post('freelancers', 'FreelancerController@store')->name('freelancers.store');
 
         Route::get('activity-feed', 'AdminController@dones')->name('admin.dones.index');
+        Route::get('freelancers/send', 'MailController@welcomeFreelancerEmail');
     });
 });
 
