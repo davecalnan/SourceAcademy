@@ -9,4 +9,8 @@
 	@include('components.user-list')
 </card>
 
+<card title="Add a user">
+	@include('admin.users.create')
+</card>
+
 @endsection

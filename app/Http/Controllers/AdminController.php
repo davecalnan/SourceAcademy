@@ -24,7 +24,7 @@ class AdminController extends Controller
 
     public function home()
     {
-  		  $users = User::with('roles')->get();
+        $users = User::all();
       	return view('admin.home', ['users' => $users]);
     }
 

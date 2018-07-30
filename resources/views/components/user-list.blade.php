@@ -13,12 +13,7 @@
 		<tr>
 			<td>{{ $user->name }}</td>
 			<td>{{ $user->email }}</td>
-			<td>
-			@forelse($user->roles as $role)
-				{{ title_case($role->name) }}@unless($loop->last),@endunless
-				@empty
-			</td>
-			@endforelse
+			<td>{{ $user->role }}</td>
 			<td>
 			@forelse($user->projects as $project)
 				{{ $project->name }}@unless($loop->last),@endunless

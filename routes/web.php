@@ -42,7 +42,7 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
     Route::post('projects', 'ProjectController@store')->name('projects.create');
     Route::patch('projects/{slug}', 'ProjectController@update')->name('projects.update');
 
-    Route::post('users', 'UserController@store');
+    Route::post('users/{role?}', 'UserController@store')->name('users.store');
 
     Route::post('organisations/{organisation}', 'OrganisationController@store');
     Route::patch('organisations/{organisation}', 'OrganisationController@update');
