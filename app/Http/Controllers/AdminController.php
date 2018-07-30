@@ -45,15 +45,18 @@ class AdminController extends Controller
         $organisations = organisation::all();
         $projects = Project::all();
 
-    	  return view('admin.projects.index', ['organisations' => $organisations, 'projects' => $projects]);
+    	return view('admin.projects.index', ['organisations' => $organisations, 'projects' => $projects]);
     }
 
     public function project(Project $project)
     {
-        $organisation = $project->organisation;
-        $users = $project->users;
+        $project->admins = $project->users()->where('role', 'admin')->get();
+        $project->customer = $project->users()->where('role', 'customer')->first();
+        $project->freelancers = $project->users()->where('role', 'freelancers')->get();
 
-        return view('admin.projects.single', ['project' => $project, 'organisation' => $organisation, 'users' => $users]);
+        $users = User::all();
+
+        return view('admin.projects.single', ['project' => $project, 'users' => $users]);
     }
 
     public function editProject(Project $project)
@@ -91,6 +94,11 @@ class AdminController extends Controller
         $users = User::all();
 
         return view('admin.users.index', ['users' => $users]);
+    }
+
+    public function user(User $user)
+    {
+        return view('admin.users.single', ['user' => $user]);
     }
 
     public function freelancers()

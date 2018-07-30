@@ -116,7 +116,7 @@ i.icon {
         grid-template-areas:
             "nav header"
             "nav main";
-        grid-template-columns: 1fr 4fr;
+        grid-template-columns: 1fr 5fr;
         grid-template-rows: auto 1fr auto;
 
         &-nav {
@@ -141,15 +141,13 @@ i.icon {
 }
 
 .platform-nav {
-	text-align: center;
-	
-	&-link {
+    
+    &-logo {
 
-		&:hover {
-			color: darken($brand-primary, 40%);
+        &:hover {
+            background-color: whitesmoke;
         }
-        
-	}
+    }
 }
 
 @media screen and (max-width: 768px) {
@@ -158,12 +156,6 @@ i.icon {
         &-logo {
             margin: auto;
             width: 60%;
-        }
-    
-        &-link:not(:last-of-type) {
-            border-right: 1px solid $brand-dark;
-            margin-right: 0.3em;
-            padding-right: 0.5em;
         }
     }
 }
@@ -177,4 +169,14 @@ i.icon {
             line-height: 2em;
 		}
 	}
+}
+
+a.icon {
+    color: inherit;
+}
+
+button.icon {
+    border: 0;
+    cursor: pointer;
+    padding: 0;
 }

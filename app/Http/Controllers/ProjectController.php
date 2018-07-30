@@ -71,9 +71,6 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        $assets = $project->assets;
-        $resources = $project->resources;
-
         $host = explode('.', parse_url(url()->current())['host']);
         $subdomain = $host[0];
 
@@ -81,17 +78,6 @@ class ProjectController extends Controller
             return view('admin.projects.single', compact('project', 'assets', 'resources'));
         }
         return view('app.projects.single', compact('project', 'assets', 'resources'));
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Project  $project
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Project $project)
-    {
-        return 'edit';
     }
 
     /**
@@ -103,6 +89,8 @@ class ProjectController extends Controller
      */
     public function update(Request $request, Project $project)
     {
+        dd($request);
+
         $request->validate([
             'organisation_id' => 'required|exists:organisations,id',
             'name' => 'required',
@@ -112,7 +100,6 @@ class ProjectController extends Controller
         $project->update($request->all());
 
         return redirect('//redirect.' . env('APP_DOMAIN') . '/projects/' . $project->id);
-
     }
 
     /**
@@ -123,7 +110,9 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+
+        return redirect('//redirect.' . env('APP_DOMAIN') . '/projects/');
     }
 
     /**

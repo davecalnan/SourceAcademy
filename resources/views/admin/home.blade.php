@@ -5,8 +5,8 @@
 
 @section('main')
 
-<card title="Users">
-	@include('components.user-list')
+<card title="Welcome to the Admin Panel.">
+	Well done for getting here. 🏅
 </card>
 
 @endsection

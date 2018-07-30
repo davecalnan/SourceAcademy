@@ -41,8 +41,11 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
 
     Route::post('projects', 'ProjectController@store')->name('projects.create');
     Route::patch('projects/{slug}', 'ProjectController@update')->name('projects.update');
+    Route::delete('projects/{slug}', 'ProjectController@destroy')->name('projects.destroy');
 
-    Route::post('users/{role?}', 'UserController@store')->name('users.store');
+    Route::post('users/{role?}', 'UserController@store')->where('role', '[A-Za-z]+')->name('users.store');
+    Route::patch('users/{id}', 'UserController@update')->where('id', '[0-9]+')->name('users.update');
+    Route::delete('users/{id}', 'UserController@destroy')->where('id', '[0-9]+')->name('users.destroy');
 
     Route::post('organisations/{organisation}', 'OrganisationController@store');
     Route::patch('organisations/{organisation}', 'OrganisationController@update');
