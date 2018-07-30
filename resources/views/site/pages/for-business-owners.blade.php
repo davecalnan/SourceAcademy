@@ -33,9 +33,11 @@
                 <p>
                     Most business owners spend all day <em>running</em> their business, keeping it going. It's hard to find the time to work on <em>growing</em> the business. What time you're able to invest in the future is precious and needs to be used effectively.
                 </p>
+                <br>
                 <p>
                     We believe having a solid online presence is a key part of a growing business’ toolkit. We want to help you get new customers, retain existing customers and most importantly help you grow your business.
                 </p>
+                <br>
                 <p>
                     Getting help shouldn’t break the bank and it shouldn’t be huge drain on your already limited time. We deliver the easiest website development process out there at an affordable price. We genuinely want to see you succeed and love working with small businesses to get you where you want to be.
                 </p>
@@ -51,15 +53,18 @@
                 <p>
                     We build our websites with Wordpress - the standard choice for small business websites, <strong>powering 25% of all websites</strong>. All of our websites are mobile-optimised, customised to fit your brand, industry, and customers.
                 </p>
+                <br>
                 <p>
                     Two main objectives of your website will likely be to attract new potential and convince potential customers to become customers. We build our sites with this in mind - thoughtful Search Engine Optimisation (SEO) to get your site to people searching for businesses like yours, and strategic landing pages, content, and calls to action to convert potential customers into customers.
                 </p>
+                <br>
                 <p>
                     We work with talented student developers to get your website delivered quickly and affordably. We manage the process, ensure everything goes swimmingly, and guarantee you will be happy with the end result.
                 </p>
             </div>
         </div>
     </div>
+    <br>
     @include('content.site.portfolio')
 </site-section>
 
