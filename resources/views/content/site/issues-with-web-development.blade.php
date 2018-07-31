@@ -13,7 +13,7 @@
         <div class="column">
             <h1 class="title">Expensive 🤑</h1>
             <h2 class="subtitle">Getting a website made is expensive</h2>
-            <p>We match you with a talented student freelancer. You get a developer up to date with the latest design trends, at a more affordable caust, with the guarantee of an established company.</p>
+            <p>We match you with a talented student freelancer. You get a developer up to date with the latest design trends, at a more affordable cost, with the guarantee of an established company.</p>
         </div>
     </div>
 </div>
