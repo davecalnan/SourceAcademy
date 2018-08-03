@@ -10420,7 +10420,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
 
-    props: ['clientPicture', 'clientName', 'clientLogo', 'clientCompany', 'clientPosition', 'clientQuote', 'projectUrl', 'freelancerUrl', 'freelancerName'],
+    props: ['clientPicture', 'clientName', 'clientLogo', 'clientCompany', 'clientPosition', 'clientQuote', 'projectUrl'],
 
     methods: {}
 });
@@ -28655,12 +28655,7 @@ var render = function() {
               _vm._s(_vm.clientPosition) + ", " + _vm._s(_vm.clientCompany)
             )
           ])
-        ]),
-        _vm._v(" "),
-        _c("img", {
-          staticClass: "testimonial-logo",
-          attrs: { src: _vm.clientLogo, alt: _vm.clientCompany + "Logo" }
-        })
+        ])
       ])
     ]),
     _vm._v(" "),
@@ -28682,12 +28677,6 @@ var render = function() {
           attrs: { href: _vm.projectUrl, target: "_blank" }
         },
         [_vm._v("View Website")]
-      ),
-      _vm._v(" "),
-      _c(
-        "a",
-        { staticClass: "button is-text", attrs: { href: _vm.freelancerUrl } },
-        [_vm._v("Website developed by " + _vm._s(_vm.freelancerName))]
       )
     ])
   ])

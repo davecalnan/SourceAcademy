@@ -77,7 +77,7 @@
 </site-section> --}}
 
 <site-section class="has-background-light" title="Testimonials 🙌🏻" subtitle="What customers like you have to say">
-    @include('content.site.testimonials')
+    @include('content.site.testimonials.business-owners')
 </site-section>
 
 <site-section title="Questions? 🤔" subtitle="Anything we haven't answered yet?">
