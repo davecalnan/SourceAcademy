@@ -7,7 +7,7 @@
                     <h1 class="title">{{ clientName }}</h1>
                     <h2 class="subtitle">{{ clientPosition }}, {{ clientCompany }}</h2>
                 </div>
-                <img class="testimonial-logo" :src="clientLogo" :alt="clientCompany + 'Logo'">
+                <!-- <img class="testimonial-logo" :src="clientLogo" :alt="clientCompany + 'Logo'"> -->
             </div>
         </div>
         <blockquote class="testimonial-quote" v-if="clientQuote">
@@ -15,7 +15,7 @@
         </blockquote>
         <div class="testimonial-buttons">
             <a class="button is-primary" :href="projectUrl" target="_blank">View Website</a>
-            <a class="button is-text" :href="freelancerUrl">Website developed by {{ freelancerName }}</a>
+            <!-- <a class="button is-text" :href="freelancerUrl">Website developed by {{ freelancerName }}</a> -->
         </div>
     </article>
 </template>
@@ -129,8 +129,8 @@ export default {
         'clientPosition',
         'clientQuote',
         'projectUrl',
-        'freelancerUrl',
-        'freelancerName'
+        // 'freelancerUrl',
+        // 'freelancerName'
     ],
     
     methods: {

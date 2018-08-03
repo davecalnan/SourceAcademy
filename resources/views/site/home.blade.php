@@ -119,7 +119,7 @@
 </site-section>
 
 <site-section class="has-background-light" title="Testimonials 🙌🏻" subtitle="See what our customers have to say">
-	@include('content.site.testimonials')
+	@include('content.site.testimonials.homepage')
 </site-section>
 
 <site-section title="What's currently wrong with web development 🤬" subtitle="And what we do differently">
