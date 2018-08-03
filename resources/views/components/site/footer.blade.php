@@ -9,7 +9,7 @@
                 @else
                 <li class="footer-link"><a href="{{ route('login') }}">Login</a></li>
                 @endif
-                <li class="footer-link"><a href="{{ route('signup') }}">Signup</a></li>
+                {{-- <li class="footer-link"><a href="{{ route('signup') }}">Signup</a></li> --}}
                 {{-- <li class="footer-link"><a href="{{ route('redirect.home') }}">Dashboard</a></li> --}}
             </ul>
         </div>
