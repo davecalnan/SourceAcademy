@@ -1,0 +1,35 @@
+.dashboard\.home {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-areas:
+        "website-progress website-progress"
+        "website-review activity-feed"
+        "helpful-links get-help";
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, auto);
+
+    & .website-progress {
+        grid-area: website-progress;
+
+    }
+    
+    & .website-review {
+        grid-area: website-review;
+    }
+    
+    & .get-help {
+        grid-area: get-help;
+    }
+
+    & .helpful-links {
+        grid-area: helpful-links;
+    }
+
+    & .activity-feed {
+        grid-area: activity-feed;
+    }
+
+    & .card {
+        height: 100%;
+    }
+}

@@ -7,9 +7,21 @@
 	<img class="platform-nav-logo" src="/img/sourceacademy-logo.svg" alt="SourceAcademy Logo">
 </a>
 <hr>
-<a href="{{ route('dashboard.home') }}" class="platform-nav-link">Home</a>
-<a href="{{ route('dashboard.projects.index') }}" class="platform-nav-link">Projects</a>
-<a href="{{ route('logout') }}" class="platform-nav-link">Logout</a>
+<aside class="menu">
+	<p class="menu-label">
+		Navigation
+	</p>
+	<ul class="menu-list">
+		<li><a href="{{ route('dashboard.home') }}">Home</a></li>
+	</ul>
+	<p class="menu-label">
+		Account
+	</p>
+	<ul class="menu-list">
+		<li><a href="{{ route('logout') }}">Logout</a></li>
+	</ul>
+</aside>
+
 @endsection
 
 @section('page-title')

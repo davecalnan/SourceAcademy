@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Done;
 use App\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -10,11 +11,10 @@ class DashboardController extends Controller
 {
     public function home()
     {
-        $user = Auth::user();
+        $dones = Done::orderBy('created_at', 'desc')->simplePaginate(100);
 
-        $projects = $user->projects;
+        return view('dashboard.pages.home', ['dones' => $dones]);
 
-        return view('dashboard.home', ['projects' => $projects]);
     }
 
     public function projects()
