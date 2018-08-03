@@ -8,7 +8,7 @@
 
 @section('main')
 
-<section class="hero is-black is-medium has-text-centered">
+<section class="hero is-black is-medium">
     <div class="hero-head">
         @component('components.site.navbar')
             @slot('class')
@@ -17,16 +17,19 @@
         @endcomponent
     </div>
 	<div class="hero-body">
-		<h1 class="title">
-			We make getting <span id="typed-services"></span> easy.
-		</h1>
-		<h2 class="subtitle">
-			Grow your business with the help of talented student freelancers.
-		</h2>
 
-		<div class="centered">
-			<a href="{{ route('signup') }}" class="button is-primary">Start a project</a>
-			<a onclick="Intercom('showNewMessage')" class="button is-white is-outlined">Get in touch</a>
+        <div class="columns">
+            <div class="column is-8 is-offset-2">
+                <h1 class="title">
+                    We make getting <span id="typed-services"></span>easy.
+                </h1>
+                <h2 class="subtitle">
+                    Grow your business with the help of talented student freelancers.
+                </h2>
+                
+                <a href="{{ route('signup') }}" class="button is-primary">Start a project</a>
+                <a onclick="Intercom('showNewMessage')" class="button is-white is-outlined">Get in touch</a>
+            </div>
 		</div>
 	</div>
 </section>
@@ -86,8 +89,9 @@
                     <p>Our team has started businesses in the past - some successful, others less so! If you're looking for a partner to help with a new venture, we're here.</p>
                 @endslot
                 @slot('footer')
-                    <p class="card-footer-item">From €700</p>
-					<a class="card-footer-item is-primary" href="{{ route('site.pages.for-entrepreneurs') }}">Learn more</a>
+                    <p class="card-footer-item">From €1000</p>
+                    {{-- <a class="card-footer-item is-primary" href="{{ route('site.pages.for-entrepreneurs') }}">Learn more</a> --}}
+                    <p class="card-footer-item">Coming soon ⏱</p>
                 @endslot
             @endcomponent
 
@@ -106,7 +110,8 @@
                 @endslot
                 @slot('footer')
                     <p class="card-footer-item">From €1200</p>
-                    <a class="card-footer-item is-primary" href="{{ route('site.pages.for-online-retailers') }}">Learn more</a>
+                    {{-- <a class="card-footer-item is-primary" href="{{ route('site.pages.for-online-retailers') }}">Learn more</a> --}}
+                    <p class="card-footer-item">Coming soon ⏱</p>
                 @endslot
             @endcomponent
 		</div>
@@ -114,19 +119,15 @@
 </site-section>
 
 <site-section class="has-background-light" title="Testimonials 🙌🏻" subtitle="See what our customers have to say">
-	@include('content.site.testimonials')
+	@include('content.site.testimonials.homepage')
 </site-section>
 
-<site-section title="Save time, save money 💰" subtitle="Hire a student freelancer">
-	<div class="container content">
-        <div class="columns">
-            <div class="column is-8 is-offset-2">
-                <p>This paragraph will say stuff about why students will deliver work quicker. Including our process.</p>
-                <br>
-                <p>This paragraph will say stuff about why students will deliver work cheaper.</p> 
-			</div>
-		</div>
-	</div>
+<site-section title="What's currently wrong with web development 🤬" subtitle="And what we do differently">
+    @include('content.site.issues-with-web-development')
+    <div class="has-text-centered">
+        <br>
+        <a href="{{ route('site.pages.what-we-do-differently') }}" class="button is-primary is-outlined">What we do differently</a>
+    </div>
 </site-section>
 
 <site-section class="has-background-light no-padding-x" title="Portfolio 🖥" subtitle="Here's some we made earlier">

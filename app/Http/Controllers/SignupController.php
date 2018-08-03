@@ -74,24 +74,24 @@ class SignupController extends Controller
     public function signup(Request $request)
     {
         $steps = $this->steps;
-        
+
         if ($request->fullUrl() !== $request->url()) // Will be false unless the request has a query string.
         {
             $this->setQueryStringsAsCookies($request);
         }
 
-        return redirect(route('organisation.signup.step', ['step' => $steps[0]]));
+        return redirect(route('signup.step', ['step' => $steps[0]]));
     }
 
     public function step(Request $request, $step = null)
     {
         $stepsArray = $this->stepsArray;
         $steps = $this->steps;
-        
+
         $currentStep = $this->currentStep($request);
 
         if (!in_array($step, $steps, true)) {
-            return redirect(route('organisation.signup.step', ['step' => $steps[0]]));
+            return redirect(route('signup.step', ['step' => $steps[0]]));
         };
 
         foreach ($steps as $step) {
@@ -100,7 +100,7 @@ class SignupController extends Controller
         }
 
         // if ($this->validateStep($step)) {
-            return view('organisation.signup.' . $step, compact('stepsArray'));
+            return view('signup.' . $step, compact('stepsArray'));
         // }
         return $stepsArray[$step]['validation']['errorMessage'];
     }
@@ -149,7 +149,7 @@ class SignupController extends Controller
         } else {
             $user = User::createWithRole($request);
         }
-        
+
         Auth::login($user, true);
     }
 

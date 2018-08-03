@@ -35,9 +35,27 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $role = '')
     {
-        return back()->with('status', 'success');
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|unique:users'
+        ]);
+
+        isset($request->password) ? $password = $request->password : $password = null;
+
+        if ($role === '') {
+            isset($request->role) ? $role = $request->role : $role = null;
+        }
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => $password,
+            'role' => $role
+        ]);
+
+        return back();
     }
 
     /**
@@ -66,22 +84,28 @@ class UserController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\User $user
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+        $user->update($request->all());
+
+        return back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\User $user
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+
+        return redirect(route('admin.users.index'));
     }
 }

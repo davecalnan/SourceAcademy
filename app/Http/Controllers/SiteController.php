@@ -12,9 +12,9 @@ class SiteController extends Controller
         return view('site.home');
     }
 
-    public function about()
+    public function aboutUs()
     {
-        return view('site.pages.about');
+        return view('site.pages.about-us');
     }
 
     public function wordpress()
@@ -58,8 +58,8 @@ class SiteController extends Controller
         return view('site.pages.what-we-do-differently');
     }
 
-    public function problems()
+    public function ourProcess()
     {
-        return view('site.pages.problems');
+        return view('site.pages.our-process');
     }
 }

@@ -24,7 +24,7 @@ class FreelancerController extends Controller
         // $freelancers = User::whereHas('roles', function ($query) {
         //     $query->where('name', 'freelancer');
         // })->get();
-        
+
         return view('site.freelancers.index', compact('freelancers'));
     }
 
@@ -46,7 +46,16 @@ class FreelancerController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $freelancer = new Freelancer;
+        $user = $freelancer->getUser($request);
+
+        $freelancer->user_id = $user->id;
+        $freelancer->title = $request->input('title');
+        $freelancer->shopify = $freelancer->shopify($request);
+        $freelancer->wordpress = $freelancer->wordpress($request);
+        $freelancer->save();
+
+        return redirect(route('admin.freelancers.index'));
     }
 
     /**

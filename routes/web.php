@@ -9,8 +9,12 @@
 Route::domain(env('APP_DOMAIN'))->group(function () {
     // Pages
     Route::get('/', 'SiteController@home')->name('site.home');
-    Route::get('about', 'SiteController@about')->name('site.pages.about');
-    Route::get('what-we-do-differently', 'SiteController@whatWeDoDifferently')->name('site.pages.what-we-do-differently');
+    
+    Route::prefix('about')->group(function () {
+        Route::get('us', 'SiteController@aboutUs')->name('site.pages.about-us');
+        Route::get('our-process', 'SiteController@ourProcess')->name('site.pages.our-process');
+        Route::get('what-we-do-differently', 'SiteController@whatWeDoDifferently')->name('site.pages.what-we-do-differently');
+    });
 
     Route::prefix('for')->group(function () {
         Route::get('business-owners', 'SiteController@forBusinessOwners')->name('site.pages.for-business-owners');
@@ -34,11 +38,14 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
     Route::get('password/update', '\App\Http\Controllers\Auth\UpdatePasswordController@showPasswordUpdateForm')->name('password.update');
     Route::post('password/update', '\App\Http\Controllers\Auth\UpdatePasswordController@update')->name('password.update');
     Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout')->name('logout');
-    
+
     Route::post('projects', 'ProjectController@store')->name('projects.create');
     Route::patch('projects/{slug}', 'ProjectController@update')->name('projects.update');
+    Route::delete('projects/{slug}', 'ProjectController@destroy')->name('projects.destroy');
 
-    Route::post('users', 'UserController@store');
+    Route::post('users/{role?}', 'UserController@store')->where('role', '[A-Za-z]+')->name('users.store');
+    Route::patch('users/{id}', 'UserController@update')->where('id', '[0-9]+')->name('users.update');
+    Route::delete('users/{id}', 'UserController@destroy')->where('id', '[0-9]+')->name('users.destroy');
 
     Route::post('organisations/{organisation}', 'OrganisationController@store');
     Route::patch('organisations/{organisation}', 'OrganisationController@update');
@@ -81,7 +88,7 @@ Route::group(['middleware' => 'can:admin'], function () {
         Route::get('servers', 'AdminController@servers')->name('admin.servers.index');
         Route::get('servers/{id}', 'AdminController@server')->name('admin.servers.single');
         Route::get('servers-info', 'ServerController@index');
-        
+
         Route::get('organisations', 'AdminController@organisations')->name('admin.organisations.index');
         Route::get('organisations/{slug}', 'AdminController@organisation')->name('admin.organisations.single');
 
@@ -94,7 +101,12 @@ Route::group(['middleware' => 'can:admin'], function () {
         Route::get('users', 'AdminController@users')->name('admin.users.index');
         Route::get('users/{user}', 'AdminController@user')->name('admin.users.single');
 
+        Route::get('freelancers', 'AdminController@freelancers')->name('admin.freelancers.index');
+        Route::get('freelancers/new', 'AdminController@addFreelancers')->name('admin.freelancers.create');
+        Route::post('freelancers', 'FreelancerController@store')->name('freelancers.store');
+
         Route::get('activity-feed', 'AdminController@dones')->name('admin.dones.index');
+        Route::get('freelancers/send', 'MailController@welcomeFreelancerEmail');
     });
 });
 
@@ -136,3 +148,7 @@ Route::domain('www.' . env('APP_DOMAIN'))->group(function () {
 | Misc Routes
 |--------------------------------------------------------------------------
 */
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

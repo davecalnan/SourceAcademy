@@ -66,6 +66,11 @@
   }
 }
 
+.navbar.is-primary .navbar-burger,
+.navbar.is-primary .navbar-burger:hover {
+  color: white;
+}
+
 .navbar.is-transparent .navbar-item:hover,
 .navbar.is-transparent .navbar-item.has-dropdown:hover,
 .navbar.is-transparent .navbar-link,
@@ -137,6 +142,7 @@
   display: block;
 }
 
+<<<<<<< HEAD
 .browser-mockup .iframe-container {
   width: 100%;
 }
@@ -147,6 +153,9 @@
 }
 
 .about .hero:first-child {
+=======
+.about-us .hero:first-child {
+>>>>>>> master
   background-blend-mode: multiply;
   background-color: rgba(0, 0, 0, 0.4);
   background-image: url("/img/desk.jpg");
@@ -225,6 +234,15 @@
   }
 }
 
+.what-we-do-differently .hero:first-child {
+  background-blend-mode: multiply;
+  background-color: rgba(0, 0, 0, 0.5);
+  background-image: url("/img/different-lemon.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
 .site {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -298,7 +316,7 @@
 
 .testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   grid-gap: 1rem;
 }
 
@@ -389,6 +407,28 @@
 .dropdown {
   -webkit-box-shadow: 0 0 8px #777;
           box-shadow: 0 0 8px #777;
-  width: calc(100% - 10em);
+  width: calc(100% - 6em);
+}
+
+.section.has-background-light .timeline .tag {
+  background-color: white;
+}
+
+.search-by-algolia {
+  float: right;
+  padding-top: 0.5rem;
+  padding-right: 6.5rem;
+}
+
+.ais-results {
+  width: 100%;
+}
+
+.ais-no-results {
+  padding: 1rem;
+}
+
+button.search {
+  width: 6rem;
 }
 

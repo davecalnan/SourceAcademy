@@ -194,7 +194,7 @@ i.icon {
 @media screen and (min-width: 769px) {
   .platform {
     grid-template-areas: "nav header" "nav main";
-    grid-template-columns: 1fr 4fr;
+    grid-template-columns: 1fr 5fr;
     grid-template-rows: auto 1fr auto;
   }
 
@@ -214,24 +214,14 @@ i.icon {
   }
 }
 
-.platform-nav {
-  text-align: center;
-}
-
-.platform-nav-link:hover {
-  color: #0a1c38;
+.platform-nav-logo:hover {
+  background-color: whitesmoke;
 }
 
 @media screen and (max-width: 768px) {
   .platform-nav-logo {
     margin: auto;
     width: 60%;
-  }
-
-  .platform-nav-link:not(:last-of-type) {
-    border-right: 1px solid #3c3744;
-    margin-right: 0.3em;
-    padding-right: 0.5em;
   }
 }
 
@@ -244,5 +234,15 @@ i.icon {
     display: block;
     line-height: 2em;
   }
+}
+
+a.icon {
+  color: inherit;
+}
+
+button.icon {
+  border: 0;
+  cursor: pointer;
+  padding: 0;
 }
 

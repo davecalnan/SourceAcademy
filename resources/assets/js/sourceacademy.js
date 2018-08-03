@@ -21,7 +21,7 @@ let options = {
   loop: true,
   smartBackspace: true,
   startDelay: 400,
-  strings: ['a website', 'your business online', 'an online store', 'your business found', 'selling products online'],
+  strings: ['a website made', 'your business online', 'an online store', 'your business found', 'your products online'],
   typeSpeed: 60
 }
 

@@ -1,4 +1,4 @@
-@extends('layouts.site')
+@extends('site.master')
 
 @section('title')
 Login
@@ -15,7 +15,7 @@ Login
                 <hr>
                 <form method="POST" action="{{ route('login') }}">
                     {{ csrf_field() }}
-                    
+
                     <div class="field">
                         <label class="label">Your email</label>
                         <div class="control">

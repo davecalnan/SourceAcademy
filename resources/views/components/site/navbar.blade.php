@@ -3,7 +3,7 @@
         <a class="navbar-item" href="{{ route('site.home') }}">
             <img class="navbar-logo" src="/img/sourceacademy-logo-white.svg" alt="SourceAcademy Logo">
         </a>
-        <a role="button" class="navbar-burger" :class="{ 'is-active': navbarMenuVisibility }" @click="navbarMenuVisibility = !navbarMenuVisibility" aria-label="menu" aria-expanded="false">
+        <a class="navbar-burger" :class="{ 'is-active': navbarMenuVisibility }" @click="navbarMenuVisibility = !navbarMenuVisibility" aria-label="menu" aria-expanded="false">
             <span></span>
             <span></span>
             <span></span>
@@ -17,13 +17,13 @@
                 <div class="navbar-dropdown">
                     <a href="{{ route('site.pages.for-business-owners') }}" class="navbar-item">Business Owners</a>
                     <a href="{{ route('site.pages.for-freelancers') }}" class="navbar-item">Freelancers</a>
-                    <a href="{{ route('site.pages.for-entrepreneurs') }}" class="navbar-item">Entrepreneurs</a>
-                    <a href="{{ route('site.pages.for-online-retailers') }}" class="navbar-item">Online Retailers</a>
+                    {{-- <a href="{{ route('site.pages.for-entrepreneurs') }}" class="navbar-item">Entrepreneurs</a> --}}
+                    {{-- <a href="{{ route('site.pages.for-online-retailers') }}" class="navbar-item">Online Retailers</a> --}}
                 </div>
             </div>
-            <a href="{{ route('site.pages.problems') }}" class="navbar-item">Problems</a>
+            
             <a href="{{ route('site.pages.what-we-do-differently') }}" class="navbar-item">What we do differently</a>
-            <a href="{{ route('site.pages.about') }}" class="navbar-item">About us</a>
+
             @if (Auth::check())
             <a href="{{ route('logout') }}" class="navbar-item">Logout</a>
             @else
@@ -35,7 +35,8 @@
                         @if (Auth::check())
                         <a href="{{ route('redirect.home') }}" class="button">Dashboard</a>
                         @else
-                        <a href="{{ route('signup') }}" class="button">Signup</a>
+                        {{-- <a href="{{ route('signup') }}" class="button">Signup</a> --}}
+                        <a onclick="Intercom('showNewMessage')" class="button">Get in touch</a>
                         @endif
                     </p>
                 </div>

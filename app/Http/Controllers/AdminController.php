@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Helpers;
 use App\Done;
 use App\Organisation;
 use App\Project;
 use App\Server;
 use App\User;
+use App\Freelancer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -18,25 +21,25 @@ class AdminController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     public function home()
     {
-		$users = User::with('roles')->get();
-    	return view('admin.home', ['users' => $users]);
+        $users = User::all();
+      	return view('admin.home', ['users' => $users]);
     }
-	
+
     public function organisations()
     {
         $organisations = Organisation::all();
 
-    	return view('admin.organisations.index', ['organisations' => $organisations]);
+    	   return view('admin.organisations.index', ['organisations' => $organisations]);
     }
 
     public function organisation(Organisation $organisation)
     {
         return view('admin.organisations.single', ['organisation' => $organisation]);
     }
-	
+
     public function projects()
     {
         $organisations = organisation::all();
@@ -47,10 +50,13 @@ class AdminController extends Controller
 
     public function project(Project $project)
     {
-        $organisation = $project->organisation;
-        $users = $project->users;
+        $project->admins = $project->users()->where('role', 'admin')->get();
+        $project->customer = $project->users()->where('role', 'customer')->first();
+        $project->freelancers = $project->users()->where('role', 'freelancers')->get();
 
-        return view('admin.projects.single', ['project' => $project, 'organisation' => $organisation, 'users' => $users]);
+        $users = User::all();
+
+        return view('admin.projects.single', ['project' => $project, 'users' => $users]);
     }
 
     public function editProject(Project $project)
@@ -69,7 +75,7 @@ class AdminController extends Controller
         //     }
         // }, $servers);
 
-    	return view('admin.servers.index', ['servers' => $servers]);
+    	  return view('admin.servers.index', ['servers' => $servers]);
     }
 
     public function server($id)
@@ -88,6 +94,25 @@ class AdminController extends Controller
         $users = User::all();
 
         return view('admin.users.index', ['users' => $users]);
+    }
+
+    public function user(User $user)
+    {
+        return view('admin.users.single', ['user' => $user]);
+    }
+
+    public function freelancers()
+    {
+        $freelancers = DB::table('freelancers')
+                    ->join('users', 'users.id', '=', 'freelancers.user_id')
+                    ->get();
+
+        return view('admin.freelancers.index', ['freelancers' => $freelancers]);
+    }
+
+    public function addFreelancers()
+    {
+        return view('admin.freelancers.create');
     }
 
     public function dones()

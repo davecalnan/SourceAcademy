@@ -1,7 +1,7 @@
 @import "variables";
 @import "components/site/all";
 @import "components/common/browser";
-@import "site/pages/all";
+@import "pages/site/all";
 
 @import url("https://use.typekit.net/biw6srs.css");
 
@@ -69,7 +69,7 @@
 
 .testimonials-grid {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
 	grid-gap: 1rem;
 }
 
@@ -156,5 +156,33 @@
 
 .dropdown {
   box-shadow: 0 0 8px #777;
-  width: calc(100% - 10em);
+  width: calc(100% - 6em);
+}
+
+.section.has-background-light {
+
+    & .timeline {
+
+        & .tag {
+            background-color: white;
+        }
+    }
+}
+
+.search-by-algolia {
+    float: right;
+    padding-top: 0.5rem;
+    padding-right: 6.5rem;
+}
+
+.ais-results {
+    width: 100%;
+}
+
+.ais-no-results {
+    padding: 1rem;
+}
+
+button.search {
+    width: 6rem;
 }
