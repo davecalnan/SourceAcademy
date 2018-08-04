@@ -2,7 +2,7 @@
 
 @section('meta-title', 'Dashboard')
 
-@section('page-title', 'Dashboard')
+@section('page-title', 'Your Dashboard: Website.com')
 
 @section('main-class', 'dashboard.home')
 
@@ -22,7 +22,8 @@
                 </div>
             </div>
             <div class="step-item is-active">
-                <div class="step-marker"></div>
+                <div class="step-marker">
+                </div>
                 <div class="step-details">
                     <p class="step-title">2. Proposal 📄</p>
                     <p>We are currently putting together your proposal. You'll get it in a few days.</p>
