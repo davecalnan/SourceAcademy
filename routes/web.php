@@ -55,7 +55,8 @@ Route::domain(env('APP_DOMAIN'))->group(function () {
 
     Route::post('subscriptions', 'SubscriptionController@store');
 
-    Route::post('done', 'DoneController@store');
+    Route::post('done', 'DoneController@handle');
+    Route::post('done-test', 'DoneController@handleTest');
 });
 
 /*
@@ -107,6 +108,8 @@ Route::group(['middleware' => 'can:admin'], function () {
 
         Route::get('activity-feed', 'AdminController@dones')->name('admin.dones.index');
         Route::get('freelancers/send', 'MailController@welcomeFreelancerEmail');
+
+        Route::get('test', 'DoneController@test');
     });
 });
 
@@ -133,7 +136,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::domain('redirect.' . env('APP_DOMAIN'))->group(function () {
         Route::get('{uri?}', 'RedirectController@redirect')->name('redirect.uri')->where('uri', '.+');
 
-        Route::get('/', 'RedirectController@redirect')->name('redirect.home');
+        Route::get('/')->name('redirect.home');
+        Route::get('/projects/{slug}')->name('redirect.projects.single');
     });
 });
 
