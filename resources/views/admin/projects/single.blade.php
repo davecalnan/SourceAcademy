@@ -35,6 +35,24 @@ Project: {{ $project->name }}
 	</p>
 </card>
 
+@if (count($project->dones))
+<card title="Activity Feed">
+	@if(count($project->dones))
+    <table class="table is-fullwidth is-striped">
+        <tbody>
+            @foreach ($project->dones as $done)
+            <tr>
+                <td><strong>{{ '@'.$done->user_name }}:</strong> {!! $done->text !!} <small style="float: right"><em>{{ $done->created_at->diffForHumans() }}</em></small></td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
+    @else
+    <p>No activity found.</p>
+    @endif
+</card>
+@endif
+
 {{-- Leave this out for now. --}}
 {{-- <card title="Add users to the project">
 	<form action="{{ route('projects.update', ['slug' => $project->slug]) }}" method="POST">
