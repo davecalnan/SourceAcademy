@@ -1,6 +1,6 @@
 @extends('site.master')
 
-@section('meta-title', 'Getting a new website just got easier')
+@section('meta-title', 'Getting a website made just got easier')
 
 @section('description', 'Getting a website made doesn\'t have to be an ordeal. We make it less time-consuming, less confusing, and less expensive.')
 
