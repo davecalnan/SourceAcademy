@@ -2,6 +2,8 @@
 
 @section('meta-title', 'For freelancers')
 
+@section('description', 'As a freelancer, getting yourself is out there key. Let us help you put your best forward online.')
+
 @section('body-class', 'for-freelancers')
 
 @section('nav', '')
