@@ -11,7 +11,7 @@ class DashboardController extends Controller
 {
     public function home()
     {
-        $dones = Done::orderBy('created_at', 'desc')->simplePaginate(100);
+        $dones = Done::where('project_id', 1)->orderBy('created_at', 'desc')->simplePaginate(100);
 
         return view('dashboard.pages.home', ['dones' => $dones]);
 

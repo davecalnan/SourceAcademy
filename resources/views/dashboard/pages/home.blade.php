@@ -100,7 +100,7 @@
             <tbody>
                 @foreach ($dones as $done)
                 <tr>
-                    <td><strong>{{ '@'.$done->user_name }}:</strong> {{ $done->text }} <small style="float: right"><em>{{ $done->created_at->diffForHumans() }}</em></small></td>
+                    <td><strong>{{ '@' . $done->user_name }}:</strong> {!! $done->text !!} <small style="float: right"><em>{{ $done->created_at->diffForHumans() }}</em></small></td>
                 </tr>
                 @endforeach
             </tbody>
