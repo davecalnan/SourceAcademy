@@ -19,7 +19,7 @@
     ">
     <meta property="og:title" content="
         @section('meta-title')
-        Getting a new website just got easier
+        Getting a website made just got easier
         @show
     ">
     <meta property="og:description" content="
