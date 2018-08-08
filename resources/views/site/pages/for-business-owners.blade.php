@@ -2,6 +2,8 @@
 
 @section('meta-title', 'For business owners')
 
+@section('description', 'Running a business is hard. We\'re here to help you grow so you can focus on what you do best - running your business.')
+
 @section('body-class', 'for-business-owners')
 
 @section('nav', '')

@@ -5,13 +5,13 @@
 
 @section('main')
 
-<card title="Type /done in the #done channel in Slack to log it here.">
+<card title="Type /done in Slack with a #project to log it here.">
     @if(count($dones))
     <table class="table is-fullwidth is-striped">
         <tbody>
             @foreach ($dones as $done)
             <tr>
-                <td><strong>{{ '@'.$done->user_name }}:</strong> {{ $done->text }} <small style="float: right"><em>{{ $done->created_at->diffForHumans() }}</em></small></td>
+                <td><strong>{{ '@'.$done->user_name }}:</strong> {!! $done->text !!} <small style="float: right"><em>{{ $done->created_at->diffForHumans() }}</em></small></td>
             </tr>
             @endforeach
         </tbody>

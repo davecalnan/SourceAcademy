@@ -1,0 +1,180 @@
+i.icon {
+	font-style: inherit;
+}
+
+.icon {
+	font-size: 1.5rem;
+
+	&.is-small {
+		font-size: 1rem;
+	}
+
+	&.is-medium {
+		font-size: 2rem;
+	}
+
+	&.is-large {
+		font-size: 3rem;
+	}
+}
+
+.notification {
+	box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14);
+	z-index: 1;
+	overflow-x: wrap;
+
+	& .icon {
+		cursor: pointer;
+
+		&:not(:first-child) {
+			margin-left: 0.75rem;
+		}
+	}
+}
+
+.fullscreen-container {
+	width: 100vw;
+	height: 100vh;
+	overflow: scroll;
+	padding: 10vh 5vw 0;
+
+	> .level {
+		flex-wrap: wrap;
+	}
+
+	& .description {
+		margin-bottom: 1rem;
+	}
+
+	& .button {
+		margin-top: 1rem;
+	}
+}
+
+@media screen and (min-width: 769px), print {
+	.fullscreen-container {
+		padding: 15vh 20vw 0;
+	}
+}
+
+.platform {
+    display: grid;
+    grid-template-areas:
+        "nav"
+        "header"
+        "main";
+    min-height: 100vh;
+
+    &-nav {
+        grid-area: nav;
+        padding: 1em;
+	}
+	
+	
+
+    &-header {
+        background: $brand-primary;
+        color: #fff;
+        grid-area: header;
+        padding: 0.54em 14em;
+
+        &-title {
+            color: #fff;
+            display: inline-block;
+            font-size: 2em;
+            margin-right: 1em;
+        }
+
+        & a {
+            color: inherit;
+        }
+    }
+
+    &-main {
+        background: $background-light;
+        grid-area: main;
+        padding: 1rem 0;
+    }
+
+    &-footer {
+        border-top: 1px solid #ccc;
+        grid-area: footer;
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .platform {
+        grid-template-rows: auto auto 1fr;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .platform {
+        grid-template-areas:
+            "nav header"
+            "nav main";
+        grid-template-columns: 1fr 5fr;
+        grid-template-rows: auto 1fr auto;
+
+        &-nav {
+            border-right: 1px solid #ccc;
+            padding-top: 5rem;
+        }
+
+        &-header {
+            padding: 1rem 2rem;
+        }
+
+        &-main {
+            height: calc(100vh - 5rem);
+            overflow-y: auto;
+            padding: 1rem;
+        }
+
+        &-footer {
+
+        }
+    }
+}
+
+.platform-nav {
+    
+    &-logo {
+
+        &:hover {
+            background-color: whitesmoke;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .platform-nav {
+        
+        &-logo {
+            margin: auto;
+            width: 60%;
+        }
+    }
+}
+
+@media screen and (min-width: 769px) {
+	.platform-nav {
+		height: 100%;
+
+		&-link {
+            display: block;
+            line-height: 2em;
+		}
+	}
+}
+
+a.icon {
+    color: inherit;
+}
+
+button.icon {
+    border: 0;
+    cursor: pointer;
+    padding: 0;
+}
