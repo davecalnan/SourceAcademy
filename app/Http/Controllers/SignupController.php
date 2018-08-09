@@ -163,7 +163,7 @@ class SignupController extends Controller
         $request->validate(['organisation_name' => 'required|max:255']);
         Organisation::create([
             'name' => $request->organisation_name,
-            'slug' => str_slug($request->organisation_name)
+            'slug' => slugify($request->organisation_name)
         ])->users()->attach(Auth::user());
     }
 
