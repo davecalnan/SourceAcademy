@@ -19,9 +19,9 @@ function checkIfUserExists($request)
 {
 	$user = User::where('email', $request->input('email'))->first();
 	if (is_null($user)) {
-		$user = self::createUser($request->input('name'), $request->input('email'));
+		$user = createUser($request->input('name'), $request->input('email'));
 	}
-	self::createFreelancer($user, $request);
+	createFreelancer($user, $request);
 }
 
 function createUser($name, $email)
