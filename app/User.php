@@ -107,7 +107,7 @@ class User extends Authenticatable
         $user->update($request->all());
     }
 
-    public static function createWithRole(Request $request)
+    public static function createWithRole(Request $request, $role)
     {
         $request->validate([
             'name' => 'required|max:255',
@@ -118,12 +118,10 @@ class User extends Authenticatable
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => $request->password ? $request->password : null
+            'password' => $request->password ? $request->password : null,
+            'role' => $role
         ]);
 
-        if (isset($request->role) && $role = Role::where('name', $request->role)->first()) {
-            $user->roles()->attach($role);
-        }
         return $user;
     }
 

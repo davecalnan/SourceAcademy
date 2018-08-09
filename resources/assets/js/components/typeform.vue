@@ -15,7 +15,12 @@
 import * as typeformEmbed from '@typeform/embed'
 
 export default {
-    props: [],
+    props: {
+        url: {
+            type: String,
+            required: true
+        }
+    },
 
     data() {
         return {
@@ -24,10 +29,10 @@ export default {
     },
 
     mounted() {
-        typeformEmbed.makeWidget(this.$refs.typeform, 'https://davecalnan.typeform.com/to/iSFYX1', {
+        typeformEmbed.makeWidget(this.$refs.typeform, this.url, {
             hideFooter: true,
             onSubmit: function () {
-                alert('Submitted')
+                window.location.href = '/?form_submitted=true';
             }
         })
     }

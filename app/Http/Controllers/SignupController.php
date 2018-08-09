@@ -147,7 +147,7 @@ class SignupController extends Controller
             $user = Auth::user();
             User::updateDetails($request, $user);
         } else {
-            $user = User::createWithRole($request);
+            $user = User::createWithRole($request, 'customer');
         }
 
         Auth::login($user, true);
@@ -169,10 +169,17 @@ class SignupController extends Controller
 
     public function project(Request $request)
     {
-        $request->validate(['project' => 'required|max:255']);
-        Project::create([
-            'name' => $request->project,
-            'slug' => str_slug($request->project)
-        ])->users()->attach(Auth::user());
+        $request->validate(['project_name' => 'required|max:255']);
+
+        $user = Auth::user();
+        $organisation = $user->organisations()->first();
+
+        $project = new Project;
+        $project->name = $request->project_name;
+        $project->slug = slugify($project->name);
+        $project->organisation_id = $organisation->id;
+        $project->save();
+
+        $project->users()->attach($user);
     }
 }
