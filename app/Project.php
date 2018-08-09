@@ -18,8 +18,8 @@ class Project extends Model
      *
      * @var array
      */
-    protected $fillable = [
-      'organisation_id', 'name', 'slug', 'type'
+    protected $guarded = [
+        //
     ];
 
     /**
@@ -30,6 +30,11 @@ class Project extends Model
     protected $hidden = [
       //
     ];
+
+    public function __construct()
+    {
+        $this->options = json_encode(["form_submitted" => false], JSON_FORCE_OBJECT);
+    }
 
     public function organisation()
     {
@@ -49,5 +54,10 @@ class Project extends Model
     public function dones()
     {
         return $this->hasMany('App\Done');
+    }
+
+    public function getOptionsAttribute($value)
+    {
+        return json_decode($value);
     }
 }

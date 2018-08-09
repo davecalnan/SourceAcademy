@@ -1,6 +1,13 @@
 {
+<<<<<<< HEAD
     "/js/sourceacademy.js": "/js/sourceacademy.js?id=86bde00aeb8f489197b9",
     "/css/site.css": "/css/site.css?id=7df0f3db49b0c84f1bc8",
     "/css/platform.css": "/css/platform.css?id=9def543cb920a4e044ed",
     "/css/vendor.css": "/css/vendor.css?id=ec4857cde9991b941294"
+=======
+    "/js/sourceacademy.js": "/js/sourceacademy.js?id=8703a2fc5e4ef4469e8b",
+    "/css/site.css": "/css/site.css?id=7da3546afbc9afba98d8",
+    "/css/platform.css": "/css/platform.css?id=e26f6398e0f7cd600ca1",
+    "/css/vendor.css": "/css/vendor.css?id=58a49617c993d551cb1c"
+>>>>>>> feature/customer-dashboard
 }
