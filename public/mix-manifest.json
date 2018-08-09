@@ -1,12 +1,6 @@
 {
-<<<<<<< HEAD
-    "/js/sourceacademy.js": "/js/sourceacademy.js?id=c9a830aa38950080b350",
-    "/css/site.css": "/css/site.css?id=7df0f3db49b0c84f1bc8",
-    "/css/platform.css": "/css/platform.css?id=9def543cb920a4e044ed",
-=======
     "/js/sourceacademy.js": "/js/sourceacademy.js?id=36484f5fe678ac34fc1f",
     "/css/site.css": "/css/site.css?id=7df0f3db49b0c84f1bc8",
     "/css/platform.css": "/css/platform.css?id=62c84aa5c7e4bc54613f",
->>>>>>> master
     "/css/vendor.css": "/css/vendor.css?id=ec4857cde9991b941294"
 }
