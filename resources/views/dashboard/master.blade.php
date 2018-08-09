@@ -18,7 +18,7 @@
 		Account
 	</p>
 	<ul class="menu-list">
-		<li><a href="{{ route('logout') }}">Logout</a></li>
+		<li><a href="{{ env('APP_URL') . '/logout' }}">Logout</a></li>
 	</ul>
 </aside>
 
