@@ -15,7 +15,7 @@ function subdomain($url)
 }
 
 #Checks if user with inputted email exists. If not, new user is created.
-static function checkIfUserExists($request)
+function checkIfUserExists($request)
 {
 	$user = User::where('email', $request->input('email'))->first();
 	if (is_null($user)) {
@@ -24,7 +24,7 @@ static function checkIfUserExists($request)
 	self::createFreelancer($user, $request);
 }
 
-static function createUser($name, $email)
+function createUser($name, $email)
 {
 	$user = User::create(array(
 		'name' => $name,
@@ -34,7 +34,7 @@ static function createUser($name, $email)
 	return $user;
 }
 
-static function createFreelancer($user, $request)
+function createFreelancer($user, $request)
 {
 	$wordpress = $shopify = false;
 
