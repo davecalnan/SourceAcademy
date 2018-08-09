@@ -44,3 +44,6 @@ Vue.component('testimonial', testimonial)
 
 import toast from './toast.vue'
 Vue.component('toast', toast)
+
+import typeform from './typeform.vue'
+Vue.component('typeform', typeform)

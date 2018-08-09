@@ -1,6 +1,8 @@
 @extends('site.master')
 
-@section('meta-title', 'Hire top quality student freelancers')
+@section('meta-title', 'Getting a website made just got easier')
+
+@section('description', 'Getting a website made doesn\'t have to be an ordeal. We make it less time-consuming, less confusing, and less expensive.')
 
 @section('body-class', 'home')
 
@@ -27,8 +29,9 @@
                     Grow your business with the help of talented student freelancers.
                 </h2>
                 
-                <a href="{{ route('signup') }}" class="button is-primary">Start a project</a>
-                <a onclick="Intercom('showNewMessage')" class="button is-white is-outlined">Get in touch</a>
+                {{-- <a href="{{ route('signup') }}" class="button is-primary">Start a project</a> --}}
+                {{-- <a onclick="Intercom('showNewMessage')" class="button is-white is-outlined">Get in touch</a> --}}
+                <a onclick="Intercom('showNewMessage')" class="button is-primary">Get in touch</a>
             </div>
 		</div>
 	</div>

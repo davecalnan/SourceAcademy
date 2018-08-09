@@ -2,6 +2,8 @@
 
 @section('meta-title', 'What we do differently')
 
+@section('description', 'We\'ve put in a lot of effort to make working with us the best website development experience out there.')
+
 @section('body-class', 'what-we-do-differently')
 
 @section('nav', '')

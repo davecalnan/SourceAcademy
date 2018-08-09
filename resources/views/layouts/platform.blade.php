@@ -18,7 +18,7 @@
     <link rel="stylesheet" type="text/css" href="{{ mix('/css/platform.css') }}">
 
 </head>
-<body>
+<body @yield('body-class')>
     <div id="app" class="platform">
         <nav class="platform-nav">
             @yield('nav')
@@ -31,7 +31,7 @@
             @yield('header')
         </header>
 
-        <main class="platform-main">
+        <main class="platform-main @yield('main-class')">
             @yield('main')
             @if ($errors->any())
                 <card title="Something went wrong...">

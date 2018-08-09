@@ -31,7 +31,9 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.2.0",
+    "@typeform/embed": "^0.5.12",
     "bulma-pricingtable": "^0.2.0",
+    "bulma-steps": "^2.2.1",
     "bulma-timeline": "^3.0.0",
     "typed.js": "^2.0.8",
     "vue-instantsearch": "^1.7.0"
