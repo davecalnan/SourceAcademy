@@ -18,8 +18,8 @@ class Project extends Model
      *
      * @var array
      */
-    protected $fillable = [
-      'organisation_id', 'name', 'slug', 'type'
+    protected $guarded = [
+        //
     ];
 
     /**
@@ -49,5 +49,10 @@ class Project extends Model
     public function dones()
     {
         return $this->hasMany('App\Done');
+    }
+
+    public function getOptionsAttribute($value)
+    {
+        return json_decode($value);
     }
 }
