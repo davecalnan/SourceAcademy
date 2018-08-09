@@ -108,8 +108,6 @@ Route::group(['middleware' => 'can:admin'], function () {
 
         Route::get('activity-feed', 'AdminController@dones')->name('admin.dones.index');
         Route::get('freelancers/send', 'MailController@welcomeFreelancerEmail');
-
-        Route::get('test', 'DoneController@test');
     });
 });
 
@@ -121,6 +119,7 @@ Route::group(['middleware' => 'can:admin'], function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::domain('dashboard.' . env('APP_DOMAIN'))->group(function () {
         Route::get('/', 'DashboardController@home')->name('dashboard.home');
+        Route::get('/form', 'DashboardController@form')->name('dashboard.form');
 
         Route::get('projects', 'DashboardController@projects')->name('dashboard.projects.index');
         Route::get('projects/{slug}', 'DashboardController@project')->name('dashboard.projects.single');

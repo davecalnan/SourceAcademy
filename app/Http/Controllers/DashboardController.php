@@ -28,4 +28,9 @@ class DashboardController extends Controller
     {
         return view('dashboard.projects.single', ['project' => $project]);
     }
+
+    public function form()
+    {
+        return view('dashboard.pages.form');
+    }
 }
