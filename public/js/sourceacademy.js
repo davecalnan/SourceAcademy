@@ -28555,16 +28555,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: [],
+    props: {
+        url: {
+            type: String,
+            required: true
+        }
+    },
 
     data: function data() {
         return {};
     },
     mounted: function mounted() {
-        __WEBPACK_IMPORTED_MODULE_0__typeform_embed__["makeWidget"](this.$refs.typeform, 'https://davecalnan.typeform.com/to/iSFYX1', {
+        __WEBPACK_IMPORTED_MODULE_0__typeform_embed__["makeWidget"](this.$refs.typeform, this.url, {
             hideFooter: true,
             onSubmit: function onSubmit() {
-                alert('Submitted');
+                window.location.href = '/?action=formSubmitted';
             }
         });
     }
