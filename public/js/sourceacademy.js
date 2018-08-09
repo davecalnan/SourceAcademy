@@ -28569,7 +28569,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         __WEBPACK_IMPORTED_MODULE_0__typeform_embed__["makeWidget"](this.$refs.typeform, this.url, {
             hideFooter: true,
             onSubmit: function onSubmit() {
-                window.location.href = '/?action=formSubmitted';
+                window.location.href = '/?form_submitted=true';
             }
         });
     }

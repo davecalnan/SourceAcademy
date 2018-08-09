@@ -31,6 +31,11 @@ class Project extends Model
       //
     ];
 
+    public function __construct()
+    {
+        $this->options = json_encode(["form_submitted" => false], JSON_FORCE_OBJECT);
+    }
+
     public function organisation()
     {
         return $this->belongsTo('App\Organisation');

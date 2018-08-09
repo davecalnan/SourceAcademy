@@ -32,7 +32,7 @@ export default {
         typeformEmbed.makeWidget(this.$refs.typeform, this.url, {
             hideFooter: true,
             onSubmit: function () {
-                window.location.href = '/?action=formSubmitted';
+                window.location.href = '/?form_submitted=true';
             }
         })
     }

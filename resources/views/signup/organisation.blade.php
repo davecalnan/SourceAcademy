@@ -27,7 +27,6 @@ Please provide a few details about your organisation.
 		@endif
 	</div>
 	
-	<button class="button is-primary" type="submit" title="Yes, these details are correct.">Submit</button>
-	<button class="button is-primary" title="Skip entering organisation">Skip Organisation</button>
+	<button class="button is-primary" type="submit" title="Yes, these details are correct.">Submit</button>`
 </form>
 @endsection

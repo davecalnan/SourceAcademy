@@ -2,7 +2,7 @@
 
 @section('meta-title', 'Dashboard')
 
-@section('page-title', 'Welcome to SourceAcademy 🎉')
+@section('page-title', 'Welcome to your Dashboard 🎉')
 
 @section('main-class', 'dashboard.home')
 
