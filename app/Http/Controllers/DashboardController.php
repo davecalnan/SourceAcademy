@@ -9,11 +9,28 @@ use Illuminate\Support\Facades\Auth;
 
 class DashboardController extends Controller
 {
-    public function home()
+    private function updateProjectBasedOnQueryString(Request $request)
     {
-        $dones = Done::where('project_id', 1)->orderBy('created_at', 'desc')->simplePaginate(100);
+        $user = Auth::user();
+        $project = $user->projects()->first();
 
-        return view('dashboard.pages.home', ['dones' => $dones]);
+        foreach ($request->query() as $key => $value) {
+            $project->fill(["options->$key" => $value]);
+        }
+
+        return $project->save();
+    }
+
+    public function home(Request $request)
+    {
+        $this->updateProjectBasedOnQueryString($request);
+
+        $user = Auth::user();
+        $project = $user->projects()->first();
+
+        // $dones = Done::where('project_id', 1)->orderBy('created_at', 'desc')->simplePaginate(100);
+
+        return view('dashboard.pages.home', ['project' => $project, 'user' => $user]);
 
     }
 
@@ -27,5 +44,10 @@ class DashboardController extends Controller
     public function project(Project $project)
     {
         return view('dashboard.projects.single', ['project' => $project]);
+    }
+
+    public function form()
+    {
+        return view('dashboard.pages.form');
     }
 }
