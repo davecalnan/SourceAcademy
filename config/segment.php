@@ -20,11 +20,23 @@ return [
     |
     | This option specifies key which enables you to write to Segment's API.
     |
-    | Default: ''
+    | Default: 'a6YitdN5d6ANyk4kQQJTiFQokW5mx0TM'
     |
     */
 
     'write_key' => env('SEGMENT_WRITE_KEY', 'a6YitdN5d6ANyk4kQQJTiFQokW5mx0TM'),
+
+    /*
+    |--------------------------------------------------------------------------
+    | Segment Web Key
+    |--------------------------------------------------------------------------
+    |
+    | The key for sending web data to Segment via their Javascript code.
+    |
+    | Default: 'E9q68urrsnH87VErnmXGmpQUDPdeAgai'
+    |
+     */
+    'web_key' => env('SEGMENT_WEB_KEY','E9q68urrsnH87VErnmXGmpQUDPdeAgai'),
 
     /*
     |--------------------------------------------------------------------------
