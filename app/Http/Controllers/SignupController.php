@@ -155,16 +155,23 @@ class SignupController extends Controller
 
     public function password(Request $request)
     {
-        User::setPassword($request, Auth::user());
+        $user = Auth::user();
+        User::updatePassword($request, $user);
     }
 
     public function organisation(Request $request)
     {
         $request->validate(['organisation_name' => 'required|max:255']);
-        Organisation::create([
+        
+        $organisation = Organisation::create([
             'name' => $request->organisation_name,
-            'slug' => str_slug($request->organisation_name)
-        ])->users()->attach(Auth::user());
+            'slug' => slugify($request->organisation_name)
+            ]);
+            
+        $user = Auth::user();
+        $organisation->users()->attach($user);
+
+        event(new \App\Events\OrganisationCreated($user, $organisation));
     }
 
     public function project(Request $request)
@@ -181,5 +188,7 @@ class SignupController extends Controller
         $project->save();
 
         $project->users()->attach($user);
+
+        event(new \App\Events\ProjectCreated($user, $project));
     }
 }

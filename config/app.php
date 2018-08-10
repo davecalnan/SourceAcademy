@@ -174,6 +174,7 @@ return [
         /*
          * Package Service Providers...
          */
+        AltThree\Segment\SegmentServiceProvider::class,
 
         /*
          * Application Service Providers...
