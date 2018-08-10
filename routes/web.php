@@ -108,6 +108,8 @@ Route::group(['middleware' => 'can:admin'], function () {
 
         Route::get('activity-feed', 'AdminController@dones')->name('admin.dones.index');
         Route::get('freelancers/send', 'MailController@welcomeFreelancerEmail');
+
+        Route::get('analytics', 'AnalyticsController@test')->name('admin.analytics.test');
     });
 });
 
