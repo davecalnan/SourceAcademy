@@ -30,15 +30,6 @@ class LogProjectCreated
         $user = $event->user;
         $project = $event->project;
 
-        Segment::identify([
-            'userId' => $user->id,
-            'traits' => [
-                'name' => $user->name,
-                'email' => $user->email,
-                'role' => $user->role ? $user->role : null
-            ]
-        ]);
-
         Segment::track([
             'userId' => $user->id,
             'event' => 'project_created',

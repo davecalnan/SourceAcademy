@@ -30,15 +30,6 @@ class LogOrganisationCreated
         $user = $event->user;
         $organisation = $event->organisation;
 
-        Segment::identify([
-            'userId' => $user->id,
-            'traits' => [
-                'name' => $user->name,
-                'email' => $user->email,
-                'role' => $user->role ? $user->role : null
-            ]
-        ]);
-
         Segment::track([
             'userId' => $user->id,
             'event' => 'organisation_created',

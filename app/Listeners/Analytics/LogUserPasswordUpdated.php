@@ -29,15 +29,6 @@ class LogUserPasswordUpdated
     {
         $user = $event->user;
 
-        Segment::identify([
-            'userId' => $user->id,
-            'traits' => [
-                'name' => $user->name,
-                'email' => $user->email,
-                'role' => $user->role ? $user->role : null
-            ]
-        ]);
-
         Segment::track([
             'userId' => $user->id,
             'event' => 'user_password_set',

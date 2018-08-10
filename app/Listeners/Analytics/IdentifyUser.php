@@ -7,7 +7,8 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Segment;
 
-class LogUserCreated
+class IdentifyUser
+
 {
     /**
      * Create the event listener.
@@ -29,12 +30,14 @@ class LogUserCreated
     {
         $user = $event->user;
 
-        Segment::track([
-            'userId' => $user->id,
-            'event' => 'user_created',
-            'properties' => [
-                'created_at' => $user->created_at,
-            ],
+        Segment::identify([
+        'userId' => $user->id,
+        'traits' => [
+            'name' => $user->name,
+            'email' => $user->email,
+            'role' => $user->role ? $user->role : null,
+            'createdAt' => $user->created_at,
+            ]
         ]);
 
         Segment::flush();

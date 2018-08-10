@@ -14,6 +14,7 @@ class EventServiceProvider extends ServiceProvider
      */
     protected $listen = [
         'App\Events\UserCreated' => [
+            'App\Listeners\Analytics\IdentifyUser',
             'App\Listeners\Analytics\LogUserCreated',
         ],
         'App\Events\OrganisationCreated' => [
