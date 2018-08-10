@@ -60,10 +60,7 @@
     </div>
 
     @include('window')
-    @if(env('APP_ENV') == 'production')
-        @include('scripts.google-analytics')
-    @endif
-    @include('scripts.intercom')
+    @include('scripts.segment')
     <script type="text/javascript" src="{{ mix('/js/sourceacademy.js') }}"></script>
 </body>
 </html>

@@ -51,11 +51,8 @@
     </div>
 
     @include('window')
-    @if(env('APP_ENV') === 'production')
-        @include('scripts.google-analytics')
-    @endif
+    @include('scripts.segment')
     @include('scripts.intercom')
-    @stack('scripts.intercom.events')
 
     <script src="https://checkout.stripe.com/checkout.js"></script>
     <script type="text/javascript" src="{{ mix('/js/sourceacademy.js') }}"></script>
