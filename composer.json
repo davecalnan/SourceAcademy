@@ -6,6 +6,7 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "alt-three/segment": "^3.0",
         "barryvdh/laravel-cors": "^0.11.0",
         "fideloper/proxy": "~3.3",
         "guzzlehttp/guzzle": "^6.3",
@@ -13,6 +14,7 @@
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.4.0",
+        "segmentio/analytics-php": "^1.5",
         "smcrow/laravel-slack-log": "^1.0",
         "spatie/laravel-http-logger": "^1.1",
         "themsaid/forge-sdk": "^1.2"

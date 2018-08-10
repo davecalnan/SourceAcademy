@@ -122,10 +122,12 @@ class User extends Authenticatable
             'role' => $role
         ]);
 
+        event(new Events\UserCreated($user));
+
         return $user;
     }
 
-    public static function setPassword(Request $request, User $user)
+    public static function updatePassword(Request $request, User $user)
     {
         $request->validate([
             'password' => 'required|confirmed'
@@ -135,6 +137,8 @@ class User extends Authenticatable
             $user->fill([
                 'password' => Hash::make($request->password)
             ])->save();
+
+            event (new Events\UserPasswordUpdated($user));
 
             return back()->with([
                 'status' => 'success',

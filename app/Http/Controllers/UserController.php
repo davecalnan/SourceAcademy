@@ -54,6 +54,9 @@ class UserController extends Controller
             'password' => $password,
             'role' => $role
         ]);
+        dd($user);
+
+        event(new Events\UserCreated($user));
 
         return back();
     }
