@@ -17,6 +17,10 @@ class EventServiceProvider extends ServiceProvider
             'App\Listeners\Analytics\IdentifyUser',
             'App\Listeners\Analytics\LogUserCreated',
         ],
+        'App\Events\UserSignedUp' => [
+            'App\Listeners\Analytics\IdentifyUser',
+            'App\Listeners\Analytics\LogUserSignedUp',
+        ],
         'App\Events\OrganisationCreated' => [
             'App\Listeners\Analytics\LogOrganisationCreated',
         ],

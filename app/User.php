@@ -122,8 +122,6 @@ class User extends Authenticatable
             'role' => $role
         ]);
 
-        event(new Events\UserCreated($user));
-
         return $user;
     }
 

@@ -148,6 +148,7 @@ class SignupController extends Controller
             User::updateDetails($request, $user);
         } else {
             $user = User::createWithRole($request, 'customer');
+            event(new Events\UserSignedUp($user));
         }
 
         Auth::login($user, true);
